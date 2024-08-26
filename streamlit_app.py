@@ -1166,7 +1166,7 @@ with st.form(key="vendor_form"):
             st.stop()
         elif not is_valid:
             st.warning("Incorrect Phone Number")
-        elif Phone in existing_data["Phone"].astype(str).values:
+        elif Phone in existing_data["PHONE"].astype(str).values:
             st.warning("Phone number already exists.")             
         else:
     
