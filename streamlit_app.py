@@ -1193,7 +1193,8 @@ with st.form(key="vendor_form", clear_on_submit=True):
         elif Phone in existing_data["PHONE"].astype(str).values:
             st.warning("Phone number already exists.")             
         else:
-    
+            with st.sidebar:
+                st.write(Name)
             vendor_data = pd.DataFrame(
                 [
                     {
