@@ -1145,7 +1145,7 @@ with st.form(key="vendor_form"):
      State = st.selectbox(label="State*", options=STATE)
     with col3: 
      City = st.selectbox(label="City*", options=CITY)
-    c1, c2 = st.columns(2)
+    c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
      pattern = re.compile(r"^[6-9]\d{9}$")
@@ -1154,10 +1154,15 @@ with st.form(key="vendor_form"):
         st.warning("Incorrect Phone Number")
     with c2:
      Altphone = st.text_input(label="Alternate Phone")
-    Email = st.text_input(label="Email ID")
-    Type = st.selectbox(label="Customer Type*", options=TYPE)
-    Product = st.selectbox(label="Product*", options=PRODUCT)
-    Sqft = st.text_input(label="Square feet")
+    with c3:
+     Email = st.text_input(label="Email ID")
+    #c1, c2, c3 = st.columns(3) 
+    with c1:
+     Type = st.selectbox(label="Customer Type*", options=TYPE)
+    with c2:
+     Product = st.selectbox(label="Product*", options=PRODUCT)
+    with c3: 
+     Sqft = st.text_input(label="Square feet")
     Source = st.selectbox(label="Source*", options=SOURCE)
     Sentto = st.selectbox(label="Sent To*", options=SENTTO)
     Sentby = st.selectbox(label="Sent By*", options=USERS)
