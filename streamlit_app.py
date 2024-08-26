@@ -1142,6 +1142,7 @@ with st.form(key="vendor_form"):
     State = st.selectbox(label="State*", options=STATE)
     City = st.selectbox(label="City*", options=CITY)
     Phone = st.text_input(label="Phone No*")
+    pattern = re.compile(r"^[6-9]\d{9}$")
     is_valid = bool(pattern.match(Phone))
     if not is_valid:
         st.warning("Incorrect Phone Number")
