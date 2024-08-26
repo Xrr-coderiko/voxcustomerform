@@ -1163,13 +1163,16 @@ with st.form(key="vendor_form"):
      Product = st.selectbox(label="Product*", options=PRODUCT)
     with c3: 
      Sqft = st.text_input(label="Square feet")
-    Source = st.selectbox(label="Source*", options=SOURCE)
-    Sentto = st.selectbox(label="Sent To*", options=SENTTO)
-    Sentby = st.selectbox(label="Sent By*", options=USERS)
+    with c1:
+     Source = st.selectbox(label="Source*", options=SOURCE)
+    with c2:
+     Sentto = st.selectbox(label="Sent To*", options=SENTTO)
+    with c3:
+     Sentby = st.selectbox(label="Sent By*", options=USERS)
     
     st.markdown("**required*")
-
-    submit_button = st.form_submit_button(label="Submit Details")
+    with c2:
+     submit_button = st.form_submit_button(label="Submit Details")
     
 
 
