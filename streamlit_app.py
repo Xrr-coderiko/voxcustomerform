@@ -1136,7 +1136,7 @@ TYPE = [
 
 
 # Onboarding New Vendor Form
-with st.form(key="vendor_form"):
+with st.form(key="vendor_form", clear_on_sumbit=True):
     Date = st.date_input(label="Date")
     col1, col2, col3 = st.columns(3)
     with col1:
