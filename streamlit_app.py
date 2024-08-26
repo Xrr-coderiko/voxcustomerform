@@ -1178,7 +1178,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
      Sentby = st.selectbox(label="Sent By*", options=USERS)
     
     st.markdown("**required*")
-    with c2:
+    with cp2:
      submit_button = st.form_submit_button(label="Submit Details")
     
 
