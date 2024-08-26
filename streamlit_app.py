@@ -1163,18 +1163,18 @@ with st.form(key="vendor_form", clear_on_submit=True):
      Altphone = st.text_input(label="Alternate Phone")
     with c3:
      Email = st.text_input(label="Email ID")
-    #c1, c2, c3 = st.columns(3) 
-    with c1:
+    cp1, cp2, cp3 = st.columns(3) 
+    with cp1:
      Type = st.selectbox(label="Customer Type*", options=TYPE)
-    with c2:
+    with cp2:
      Product = st.selectbox(label="Product*", options=PRODUCT)
-    with c3: 
+    with cp3: 
      Sqft = st.text_input(label="Square feet")
-    with c1:
+    with cp1:
      Source = st.selectbox(label="Source*", options=SOURCE)
-    with c2:
+    with cp2:
      Sentto = st.selectbox(label="Sent To*", options=SENTTO)
-    with c3:
+    with cp3:
      Sentby = st.selectbox(label="Sent By*", options=USERS)
     
     st.markdown("**required*")
