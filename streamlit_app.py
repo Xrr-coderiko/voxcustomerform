@@ -1138,18 +1138,22 @@ TYPE = [
 # Onboarding New Vendor Form
 with st.form(key="vendor_form"):
     Date = st.date_input(label="Date")
-    Name = st.text_input(label="Name*")
-    col1, col2 = st.columns(2)
-    with col1: 
-     State = st.selectbox(label="State*", options=STATE)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+     Name = st.text_input(label="Name*")
     with col2: 
+     State = st.selectbox(label="State*", options=STATE)
+    with col3: 
      City = st.selectbox(label="City*", options=CITY)
-    Phone = st.text_input(label="Phone No*")
-    pattern = re.compile(r"^[6-9]\d{9}$")
-    is_valid = bool(pattern.match(Phone))
-    if not is_valid:
+    c1, c2 = st.columns(2)
+    with c1:
+     Phone = st.text_input(label="Phone No*")
+     pattern = re.compile(r"^[6-9]\d{9}$")
+     is_valid = bool(pattern.match(Phone))
+     if not is_valid:
         st.warning("Incorrect Phone Number")
-    Altphone = st.text_input(label="Alternate Phone")
+    with c2:
+     Altphone = st.text_input(label="Alternate Phone")
     Email = st.text_input(label="Email ID")
     Type = st.selectbox(label="Customer Type*", options=TYPE)
     Product = st.selectbox(label="Product*", options=PRODUCT)
