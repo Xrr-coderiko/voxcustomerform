@@ -1142,6 +1142,9 @@ with st.form(key="vendor_form"):
     State = st.selectbox(label="State*", options=STATE)
     City = st.selectbox(label="City*", options=CITY)
     Phone = st.text_input(label="Phone No*")
+    is_valid = bool(pattern.match(Phone))
+    if not is_valid:
+        st.warning("Incorrect Phone Number")
     Altphone = st.number_input(label="Alternate Phone")
     Email = st.text_input(label="Email ID")
     Type = st.selectbox(label="Customer Type*", options=TYPE)
@@ -1164,8 +1167,6 @@ with st.form(key="vendor_form"):
         if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
-        elif not is_valid:
-            st.warning("Incorrect Phone Number")
         elif Phone in existing_data["PHONE"].astype(str).values:
             st.warning("Phone number already exists.")             
         else:
