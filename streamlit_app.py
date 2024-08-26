@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
+
 #st.image("./VOXlogo.jpeg",width=500,)
 st.title("VOX Customer form")
 st.markdown("Just follow it guys...😂")
@@ -1195,7 +1196,7 @@ with st.form(key="vendor_form"):
             updated_df = pd.concat([existing_data, vendor_data], ignore_index=True)
 
             # Update Google Sheets with the new vendor data
-            conn.update(worksheet="dealer", data=updated_df)
+            conn.update(worksheet="Database", data=updated_df)
 
             st.success("Details successfully submitted!")
 
