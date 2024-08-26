@@ -10,7 +10,7 @@ st.markdown("Just follow it guys...😂")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="data", usecols=list(range(13)))
+existing_data = conn.read(worksheet="Database", usecols=list(range(13)))
 existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
@@ -1220,7 +1220,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
             updated_df = pd.concat([existing_data, vendor_data], ignore_index=True)
 
             # Update Google Sheets with the new vendor data
-            conn.update(worksheet="data", data=updated_df)
+            conn.update(worksheet="Database", data=updated_df)
 
             st.success("Details successfully submitted!")
 
