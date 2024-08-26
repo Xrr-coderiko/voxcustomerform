@@ -10,7 +10,7 @@ st.markdown("Just follow it guys...😂")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="data", usecols=list(range(13)), ttl=5)
+existing_data = conn.read(worksheet="data", usecols=list(range(13)))
 existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
