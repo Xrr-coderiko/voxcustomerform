@@ -15,6 +15,7 @@ existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
 STATE = [
+    " ",
    "Andhra Pradesh",
 "Arunachal Pradesh",
 "Assam",
@@ -45,6 +46,7 @@ STATE = [
 "West Bengal",
 ]
 CITY = [
+    " ",
     "Bangalore",
 "Mumbai",
 "Hyderabad",
@@ -865,6 +867,7 @@ CITY = [
 
 ]
 SENTTO = [
+    " ",
     "cosmo",
 "Pearl Impex",
 "Samrat",
@@ -1077,12 +1080,14 @@ SENTTO = [
 
 ]
 PRODUCT = [
+    " ",
     "Ceiling",
     "Wall",
     "Flooring",
     "Skirtings",
 ]
 SOURCE = [
+    " ",
 "AdWords form",
 "Catalogue form",
 "Chat Bot",
@@ -1114,6 +1119,7 @@ SOURCE = [
 "Youtube WA message",
 ]
 USERS = [
+    " ",
     "Vikas",
     "Baburao",
     "Priyanka",
@@ -1124,6 +1130,7 @@ USERS = [
     "Harun",
 ]
 TYPE = [
+    " ",
     "Architect",
     "Interior Designer",
     "End Customer",
