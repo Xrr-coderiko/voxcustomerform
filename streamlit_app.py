@@ -1132,25 +1132,28 @@ TYPE = [
     "Contractor",
 ]
 
-pattern = re.compile(r"^[6-9]\d{9}$")
+
 
 
 # Onboarding New Vendor Form
 with st.form(key="vendor_form"):
     Date = st.date_input(label="Date")
     Name = st.text_input(label="Name*")
-    State = st.selectbox(label="State*", options=STATE)
-    City = st.selectbox(label="City*", options=CITY)
+    col1, col2 = st.columns(2)
+    with col1: 
+     State = st.selectbox(label="State*", options=STATE)
+    with col2: 
+     City = st.selectbox(label="City*", options=CITY)
     Phone = st.text_input(label="Phone No*")
     pattern = re.compile(r"^[6-9]\d{9}$")
     is_valid = bool(pattern.match(Phone))
     if not is_valid:
         st.warning("Incorrect Phone Number")
-    Altphone = st.number_input(label="Alternate Phone")
+    Altphone = st.text_input(label="Alternate Phone")
     Email = st.text_input(label="Email ID")
     Type = st.selectbox(label="Customer Type*", options=TYPE)
     Product = st.selectbox(label="Product*", options=PRODUCT)
-    Sqft = st.number_input(label="Square feet")
+    Sqft = st.text_input(label="Square feet")
     Source = st.selectbox(label="Source*", options=SOURCE)
     Sentto = st.selectbox(label="Sent To*", options=SENTTO)
     Sentby = st.selectbox(label="Sent By*", options=USERS)
