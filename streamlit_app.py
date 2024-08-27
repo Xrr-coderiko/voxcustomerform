@@ -7,9 +7,9 @@ import re
 cf1,cf2,cf3 = st.columns(3)
 with cf1:
  st.title("VOX") 
-with cf1:
+with cf2:
  st.title("CUSTOMER") 
-with cf1:
+with cf3:
  st.title("FORM") 
 
 
