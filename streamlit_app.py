@@ -1240,7 +1240,7 @@ OWNERS = [
 
 
 # Onboarding New Vendor Form
-with st.form(key="vendor_form", clear_on_submit=True):
+with st.form(key="vendor_form"):
     ce1, ce2 = st.columns(2)
     with ce1:
       Date = st.date_input(label="Date")
