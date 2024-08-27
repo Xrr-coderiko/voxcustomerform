@@ -1327,11 +1327,11 @@ sidebar_text = f"""
 {Phone}
 {State}
 {City}
-{Sqft}, sqft {Product}
+{Sqft} sqft {Product}
 {Source}
 {Sentto}
 """
-st.sidebar.text_area("User Input Data", sidebar_text, height=150)
+st.sidebar.text_area("User Input Data", sidebar_text, height=10)
 
 
             
