@@ -4,8 +4,10 @@ import pandas as pd
 import re
 
 #st.image("./VOXlogo.jpeg",width=500,)
-st.title("VOX Customer form")
-st.markdown("Just follow it guys...😂")
+cf1,cf2,cf3 = st.columns(3)
+with cf2:
+ st.title("VOX Customer form") 
+ st.markdown("Just follow it guys...😂")
 
 
 conn = st.connection("gsheets", type=GSheetsConnection)
