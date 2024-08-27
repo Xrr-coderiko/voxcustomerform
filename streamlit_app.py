@@ -1276,7 +1276,7 @@ with st.form(key="vendor_form"):
     c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
-    if Phone in existing_data['PHONE']:
+    if Phone in existing_data['PHONE'].astype(str).tolist():
         st.warning("Phone number already exist")
     with c2:
      Altphone = st.text_input(label="Alternate Phone")
