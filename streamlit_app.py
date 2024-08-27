@@ -1228,6 +1228,7 @@ sidebar_text = f"""
 {Email}
 {Phone}
 """
+st.sidebar.write(sidebar_text.strip())
             
 
 
