@@ -1271,8 +1271,11 @@ with st.form(key="vendor_form", clear_on_submit=True):
      Sentto = st.selectbox(label="Sent To*", options=SENTTO)
     with cp3:
      Sentby = st.selectbox(label="Sent By*", options=USERS)
-    Notes = st.text_area(label="Notes")
-    Owner = st.selectbox(label="Owner", options=OWNERS)
+    cs1, cs2 = st.columns(2)
+    with cs1:
+     Notes = st.text_area(label="Notes")
+    with cs2:
+     Owner = st.selectbox(label="Owner", options=OWNERS)
     st.markdown("**required*")
     submit_button = st.form_submit_button(label="Submit Details")
 
@@ -1321,7 +1324,7 @@ st.sidebar.write(f"{Name}")
 st.sidebar.write(f"{Phone}")
 st.sidebar.write(f"{State}")
 st.sidebar.write(f"{City}")
-st.sidebar.write(f"{Sqft}**sqft **{Product}")
+st.sidebar.write(f"{Sqft}sqft {Product}")
 st.sidebar.write(f"{Source}")
 st.sidebar.write(f"{Sentto}")
 
