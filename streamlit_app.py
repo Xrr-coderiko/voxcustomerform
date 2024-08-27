@@ -1321,11 +1321,15 @@ with st.form(key="vendor_form", clear_on_submit=True):
 
             st.success("Details successfully submitted!")
            
-st.sidebar.header("Lead")
+
 sidebar_text = f"""
-Name: {Name}
-Phone: {Phone}
-Email: {Email}
+{Name}
+{Phone}
+{State}
+{City}
+{Sqft}, sqft {Product}
+{Source}
+{Sentto}
 """
 st.sidebar.text_area("User Input Data", sidebar_text, height=150)
 
