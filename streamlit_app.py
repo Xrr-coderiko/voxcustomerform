@@ -13,6 +13,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(16)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 total_rows = len(existing_data)
+existing_ph = existing_data['PHONE'].astype(str).tolist()
 
 # List of Business Types and Products
 STATE = [
@@ -1311,7 +1312,7 @@ with st.form(key="vendor_form"):
         if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
-        elif Phone in existing_data["PHONE"].astype(str).values:
+        elif Phone in existing_ph:
             st.warning("Phone number already exists.")  
             st.stop()           
         else:
