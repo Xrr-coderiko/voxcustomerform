@@ -1221,14 +1221,15 @@ with st.form(key="vendor_form", clear_on_submit=True):
 
             st.success("Details successfully submitted!")
            
-
-    st.write(Name)
-    st.write(Phone)
-    st.write(State)
-    st.write(City)
-    st.write(Sqft,"sqft ",Product)
-    st.write(Source)
-    st.write(Sentto)           
+with st.container(border=True):
+    with st.text_area():
+      st.write(Name)
+      st.write(Phone)
+      st.write(State)
+      st.write(City)
+      st.write(Sqft,"sqft ",Product)
+      st.write(Source)
+      st.write(Sentto)           
 
          
             
