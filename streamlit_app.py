@@ -1257,6 +1257,7 @@ OWNERS = [
 ]
 
 
+pattern = re.compile(r"^[6-9]\d{9}$")
 
 # Onboarding New Vendor Form
 with st.form(key="vendor_form"):
@@ -1275,10 +1276,8 @@ with st.form(key="vendor_form"):
     c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
-     pattern = re.compile(r"^[6-9]\d{9}$")
-     is_valid = bool(pattern.match(Phone))
-     if not is_valid:
-        st.warning("Incorrect Phone Number")
+    if Phone in existing_data['PHONE']:
+        st.warning("Phone number already exist")
     with c2:
      Altphone = st.text_input(label="Alternate Phone")
     with c3:
@@ -1305,7 +1304,7 @@ with st.form(key="vendor_form"):
     with cs2:
      submit_button = st.form_submit_button(label="Submit Details")
 
-
+    is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
     if submit_button:
         # Check if all mandatory fields are filled
@@ -1313,9 +1312,9 @@ with st.form(key="vendor_form"):
         if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
-        elif Phone in existing_data['PHONE'].astype(str).tolist():
-            st.warning("Phone number already exists.")  
-            st.stop()           
+        elif not is_valid:
+            st.warning("Incorrect Phone Number")      
+            st.stop()
         else:
             vendor_data = pd.DataFrame(
                 [
