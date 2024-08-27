@@ -1331,7 +1331,7 @@ sidebar_text = f"""
 {Source}
 {Sentto}
 """
-st.sidebar.text_area("User Input Data", sidebar_text, height=10)
+st.sidebar.text_area("User Input Data", sidebar_text, height=200)
 
 
             
