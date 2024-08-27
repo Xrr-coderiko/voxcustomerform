@@ -12,6 +12,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(16)), ttl=5)
 existing_data = existing_data.dropna(how="all")
+total_rows = len(existing_data)
 
 # List of Business Types and Products
 STATE = [
@@ -1342,7 +1343,8 @@ with st.form(key="vendor_form"):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
-           
+
+st.sidebar.title(f"Total Lead: {total_rows}")          
 
 sidebar_text = f"""
 {Name}
@@ -1354,10 +1356,7 @@ sidebar_text = f"""
 {Source}
 {Sentto}
 """
-
-
 st.sidebar.text_area("LEAD:", sidebar_text, height=250)
-total_rows = len(existing_data)
-st.sidebar.title(f"Total Lead: {total_rows}")
+
 
             
