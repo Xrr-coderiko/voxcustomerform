@@ -1220,8 +1220,8 @@ with st.form(key="vendor_form", clear_on_submit=True):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
-with st.sidebar():            
- with st.empty():
+           
+with st.container(border=True,):
     st.write(Name)
     st.write(Phone)
     st.write(State)
