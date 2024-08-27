@@ -1357,7 +1357,7 @@ with cxf2:
         state_counts = existing_data['SOURCE'].value_counts().reset_index()
         state_counts.columns = ['SOURCE', 'LEADS']
         st.dataframe(state_counts)
-st.bar_chart(state_counts['SOURCE'])
+#st.bar_chart(state_counts['SOURCE'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
