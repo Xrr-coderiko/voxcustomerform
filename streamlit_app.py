@@ -1302,7 +1302,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
-                        "PRODUCT": ", ".join(Product),
+                        "PRODUCT": Product,
                         "SQFT": Sqft,
                         "SOURCE":Source,
                         "SENT TO": Sentto,
