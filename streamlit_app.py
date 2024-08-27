@@ -1221,7 +1221,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
 
             st.success("Details successfully submitted!")
            
-with st.container(border=True,):
+
     st.write(Name)
     st.write(Phone)
     st.write(State)
