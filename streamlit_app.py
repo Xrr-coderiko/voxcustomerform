@@ -1354,7 +1354,10 @@ sidebar_text = f"""
 {Source}
 {Sentto}
 """
-st.sidebar.text_area("LEAD:", sidebar_text, height=250)
 
+
+st.sidebar.text_area("LEAD:", sidebar_text, height=250)
+total_rows = len(existing_data)
+st.sidebar.title(f"Total Lead: {total_rows}")
 
             
