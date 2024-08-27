@@ -1223,7 +1223,8 @@ with st.form(key="vendor_form", clear_on_submit=True):
            
 st.sidebar.header("Lead")
 st.sidebar.write(f"{Name}")
-         
+st.sidebar.write(f"{Phone}")
+st.sidebar.write(f"{State}")
             
 
 
