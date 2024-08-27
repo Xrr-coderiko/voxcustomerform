@@ -1322,13 +1322,12 @@ with st.form(key="vendor_form", clear_on_submit=True):
             st.success("Details successfully submitted!")
            
 st.sidebar.header("Lead")
-st.sidebar.write(f"{Name}")
-st.sidebar.write(f"{Phone}")
-st.sidebar.write(f"{State}")
-st.sidebar.write(f"{City}")
-st.sidebar.write(f"**{Sqft}**sqft **{Product}**")
-st.sidebar.write(f"{Source}")
-st.sidebar.write(f"{Sentto}")
+sidebar_text = f"""
+Name: {Name}
+Phone: {Phone}
+Email: {Email}
+"""
+st.sidebar.text_area("User Input Data", sidebar_text, height=150)
 
 
             
