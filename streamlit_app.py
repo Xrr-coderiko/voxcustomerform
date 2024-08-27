@@ -1312,7 +1312,8 @@ with st.form(key="vendor_form"):
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
         elif Phone in existing_data["PHONE"].astype(str).values:
-            st.warning("Phone number already exists.")             
+            st.warning("Phone number already exists.")  
+            st.stop()           
         else:
             vendor_data = pd.DataFrame(
                 [
