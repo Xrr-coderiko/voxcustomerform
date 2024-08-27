@@ -1332,7 +1332,7 @@ sidebar_text = f"""
 {Phone}
 {State}
 {City}
-{Sqft} sqft {Product}
+{Sqft}sqft {Product}
 {Source}
 {Sentto}
 """
