@@ -1346,16 +1346,18 @@ with st.form(key="vendor_form"):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
-if 'SENT BY' in existing_data.columns:
+cxf1, cxf2 = st.columns(2)
+with cxf1:            
+ if 'SENT BY' in existing_data.columns:
     sentby_counts = existing_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
     st.dataframe(sentby_counts)
-if 'SOURCE' in existing_data.columns:
-
+with cxf2:
+ if 'SOURCE' in existing_data.columns:
         state_counts = existing_data['SOURCE'].value_counts().reset_index()
         state_counts.columns = ['SOURCE', 'LEADS']
         st.dataframe(state_counts)
-        st.bar_chart(state_counts['LEADS'])
+st.bar_chart(state_counts['SOURCE'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
