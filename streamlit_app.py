@@ -1222,7 +1222,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
             st.success("Details successfully submitted!")
            
 st.sidebar.header("Lead")
-st.sidebar.write(f"{Name}")
+st.sidebar.echo(f"{Name}")
 st.sidebar.write(f"{Phone}")
 st.sidebar.write(f"{State}")
             
