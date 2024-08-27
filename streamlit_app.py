@@ -10,7 +10,7 @@ st.markdown("Just follow it guys...😂")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(13)), ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(15)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
@@ -1138,7 +1138,102 @@ TYPE = [
     "Builder",
     "Contractor",
 ]
-
+OWNERS = [
+    "samrat.mazumder@voxindia.co",
+"abhijit.chakraborty@voxindia.co",
+"glady.george@voxindia.co",
+"kumudchandra.m.nayak@voxindia.co",
+"alagu.muthu.kumaran@voxindia.co",
+"sandip.chandankar@voxindia.co",
+"krishna.kumar@voxindia.co",
+"rahul.shinde@voxindia.co",
+"nutan.kumar@voxindia.co",
+"hemant.tembhurne@voxindia.co",
+"naveen.kumar@voxindia.co",
+"shahre.alam@voxindia.co",
+"shivakumar.s@voxindia.co",
+"rajesh.kumar@voxindia.co",
+"jayesh.mehta@voxindia.co",
+"govind.dewri@voxindia.co",
+"anantha.krishnan@voxindia.co",
+"anil.gami@voxindia.co",
+"suryatarun.k@voxindia.co",
+"joyal.selvan@voxindia.co",
+"nitin.patil@voxindia.co",
+"abhay.singh@voxindia.co",
+"sharad.dhumal@voxindia.co",
+"shivaraj.r@voxindia.co",
+"bhavesh.gupta@voxindia.co",
+"rameez.mohd@voxindia.co",
+"aarief.khan@voxindia.co",
+"pratik.tiwari@voxindia.co",
+"ashu.sharma@voxindia.co",
+"jai.kumar@voxindia.co",
+"vinay.pandey@voxindia.co",
+"vansh.jain@voxindia.co",
+"kiran.patil@voxindia.co",
+"birhul.dev@voxindia.co",
+"ravi.krishna@voxindia.co",
+"vinit.jawdekar@voxindia.co",
+"manish.pathak@voxindia.co",
+"avanish.chaubey@voxindia.co",
+"naresh.dhiman@voxindia.co",
+"ravindra.singh@voxindia.co",
+"durgesh.kumar@voxindia.co",
+"somashekhar.g@voxindia.co",
+"srikanth.m@voxindia.co",
+"anil.parmar@voxindia.co",
+"mahendran.pillai@voxindia.co",
+"anurag.singh@voxindia.co",
+"dilip.pandey@voxindia.co",
+"kishor.kumar@voxindia.co",
+"sanjeev.kumar@voxindia.co",
+"chittaranjan.swain@voxindia.co",
+"ankit.uniyal@voxindia.co",
+"jeet.basu@voxindia.co",
+"karan.singh@voxindia.co",
+"ravi.kumar@voxindia.co",
+"sanket.shinde@voxindia.co",
+"biju.mathew@voxindia.co",
+"ajay.verma@voxindia.co",
+"prabhakar.b@voxindia.co",
+"sukesha.hk@voxindia.co",
+"sarit.vohra@voxindia.co",
+"raju.dvs@voxindia.co",
+"akash.m@voxindia.co",
+"sateesh.k@voxindia.co",
+"manish.kumar@voxindia.co",
+"bharat.chavda@voxindia.co",
+"venkateswarlu.g@voxindia.co",
+"vinod.kumar@voxindia.co",
+"sandeep.kumar@voxindia.co",
+"dipak.das@voxindia.co",
+"sandeep.sisodiya@voxindia.co",
+"sravan.reddy@voxindia.co",
+"ashish.goel@voxindia.co",
+"kamana.sharma@voxindia.co",
+"sadab.husain@voxindia.co",
+"harsha.pr@voxindia.co",
+"sudhir.tiwari@voxindia.co",
+"vijaya.kumar@voxindia.co",
+"vikram.singh@voxindia.co",
+"boopathiraja@voxindia.co",
+"paresh.deshmukh@voxindia.co",
+"manoj.kumar@voxindia.co",
+"danish.kumar@voxindia.co",
+"jaswant.das@voxindia.co",
+"madhu.r@voxindia.co",
+"deepak.ram@voxindia.co",
+"kinjal.deb@voxindia.co",
+"shubham.ladikar@voxindia.co",
+"pankaj.dubey@voxindia.co",
+"vikram.kumar@voxindia.co",
+"pardeep.sharma@voxindia.co",
+"ganesh.rs@voxindia.co",
+"arijit.barua@voxindia.co",
+"shubham.sharma@voxindia.co",
+"deepak.kc@voxindia.co",
+]
 
 
 
@@ -1167,7 +1262,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
     with cp1:
      Type = st.selectbox(label="Customer Type*", options=TYPE)
     with cp2:
-     Product = st.selectbox(label="Product*", options=PRODUCT)
+     Product = st.multiselect(label="Product*", options=PRODUCT)
     with cp3: 
      Sqft = st.text_input(label="Square feet")
     with cp1:
@@ -1176,11 +1271,10 @@ with st.form(key="vendor_form", clear_on_submit=True):
      Sentto = st.selectbox(label="Sent To*", options=SENTTO)
     with cp3:
      Sentby = st.selectbox(label="Sent By*", options=USERS)
-    
+    Notes = st.text_area(label="Notes")
+    Owner = st.selectbox(label="Owner", options=OWNERS)
     st.markdown("**required*")
-    with cp2:
-     submit_button = st.form_submit_button(label="Submit Details")
-    
+    submit_button = st.form_submit_button(label="Submit Details")
 
 
     # If the submit button is pressed
@@ -1204,12 +1298,13 @@ with st.form(key="vendor_form", clear_on_submit=True):
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
-                        "PRODUCT": Product,
+                        "PRODUCT": ", ".join(Product),
                         "SQFT": Sqft,
                         "SOURCE":Source,
                         "SENT TO": Sentto,
                         "SENT BY": Sentby,
-                        
+                        "NOTE": Notes,
+                        "OWNER": Owner,
                         
                     }
                 ]
@@ -1223,8 +1318,12 @@ with st.form(key="vendor_form", clear_on_submit=True):
            
 st.sidebar.header("Lead")
 st.sidebar.write(f"{Name}")
-st.sidebar.write(f"\n{Name}\n {Phone}\n{Email}")
-            
+st.sidebar.write(f"{Phone}")
+st.sidebar.write(f"{State}")
+st.sidebar.write(f"{City}")
+st.sidebar.write(f"{Sqft}**sqft **{Product}")
+st.sidebar.write(f"{Source}")
+st.sidebar.write(f"{Sentto}")
 
 
             
