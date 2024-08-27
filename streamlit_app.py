@@ -1325,7 +1325,7 @@ st.sidebar.write(f"{Name}")
 st.sidebar.write(f"{Phone}")
 st.sidebar.write(f"{State}")
 st.sidebar.write(f"{City}")
-st.sidebar.write(f"{Product}")
+st.sidebar.write(f"**{Sqft}**sqft **{Product}**")
 st.sidebar.write(f"{Source}")
 st.sidebar.write(f"{Sentto}")
 
