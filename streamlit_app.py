@@ -1223,7 +1223,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
            
 st.sidebar.header("Lead")
 st.sidebar.write(f"{Name}")
-st.sidebar.write(f"**Name:** {Name}\n**Phone:** {Phone}\n**Email:** {Email}")
+st.sidebar.write(f"\n{Name}\n {Phone}\n{Email}")
             
 
 
