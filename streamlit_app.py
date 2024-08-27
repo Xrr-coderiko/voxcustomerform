@@ -6,7 +6,7 @@ import re
 #st.image("./VOXlogo.jpeg",width=500,)
 cf1,cf2,cf3 = st.columns(3)
 with cf1:
- st.title("VOX India") 
+ st.title("VOX INDIA") 
 with cf2:
  st.title("CUSTOMER") 
 with cf3:
