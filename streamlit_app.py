@@ -1345,6 +1345,10 @@ with st.form(key="vendor_form"):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
+if 'SENT BY' in existing_data.columns:
+    state_counts = existing_data['SENT BY'].value_counts().reset_index()
+    state_counts.columns = ['SENT BY', 'LEADS']
+    st.dataframe(state_counts)
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
 
@@ -1359,6 +1363,8 @@ sidebar_text = f"""
 {Sentto}
 """
 st.sidebar.text_area("LEAD:", sidebar_text, height=250)
+
+
 
 
             
