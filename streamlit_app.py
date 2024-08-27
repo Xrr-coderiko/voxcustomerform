@@ -1222,7 +1222,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
             st.success("Details successfully submitted!")
            
 with st.container(border=True):
-    with st.text_area():
+      st.text_area(Name,Phone)
       st.write(Name)
       st.write(Phone)
       st.write(State)
@@ -1230,7 +1230,7 @@ with st.container(border=True):
       st.write(Sqft,"sqft ",Product)
       st.write(Source)
       st.write(Sentto)           
-
+    
          
             
 
