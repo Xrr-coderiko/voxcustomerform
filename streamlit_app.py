@@ -1224,9 +1224,9 @@ with st.form(key="vendor_form", clear_on_submit=True):
 st.sidebar.header("Lead")
 st.sidebar.write(f"{Name}")
 sidebar_text = f"""
-{Name}
-{Email}
-{Phone}
+{Name}\n
+{Email}\n
+{Phone}\n
 """
 st.sidebar.write(sidebar_text.strip())
             
