@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
+import plotly.express as px
 
 #st.image("./VOXlogo.jpeg",width=500,)
 cf1,cf2,cf3 = st.columns(3)
@@ -1346,9 +1347,25 @@ with st.form(key="vendor_form"):
 
             st.success("Details successfully submitted!")
 if 'SENT BY' in existing_data.columns:
-    state_counts = existing_data['SENT BY'].value_counts().reset_index()
-    state_counts.columns = ['SENT BY', 'LEADS']
-    st.dataframe(state_counts)
+    sentby_counts = existing_data['SENT BY'].value_counts().reset_index()
+    sentby_counts.columns = ['SENT BY', 'LEADS']
+    st.dataframe(sentby_counts)
+if 'SOURCE' in existing_data.columns:
+        # Count the number of customers per state
+        state_counts = existing_data['SOURCE'].value_counts().reset_index()
+        state_counts.columns = ['SOURCE', 'Number of Customers']
+
+        # Display the count of customers by state in a table
+        st.dataframe(state_counts)
+
+        # Create a bar chart using Plotly
+        fig = px.bar(state_counts, x='SOURCE', y='Number of Customers', 
+                     title="Number of Customers by State", 
+                     labels={'Number of Customers':'Number of Customers', 'SOURCE':'SOURCE'})
+
+        # Display the bar chart in Streamlit
+        st.plotly_chart(fig)    
+
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
 
