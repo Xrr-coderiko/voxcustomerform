@@ -1334,6 +1334,7 @@ sidebar_text = f"""
 {State}
 {City}
 {Sqft}sqft {Product}
+{Notes}
 {Source}
 {Sentto}
 """
