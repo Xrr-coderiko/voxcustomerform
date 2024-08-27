@@ -1139,6 +1139,7 @@ TYPE = [
     "Contractor",
 ]
 OWNERS = [
+    " ",
     "samrat.mazumder@voxindia.co",
 "abhijit.chakraborty@voxindia.co",
 "glady.george@voxindia.co",
