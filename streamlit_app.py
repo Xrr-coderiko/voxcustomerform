@@ -10,7 +10,7 @@ st.markdown("Just follow it guys...😂")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(15)), ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(16)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
@@ -1240,14 +1240,18 @@ OWNERS = [
 
 # Onboarding New Vendor Form
 with st.form(key="vendor_form", clear_on_submit=True):
-    Date = st.date_input(label="Date")
+    ce1, ce2 = st.columns(2)
+    with ce1:
+      Date = st.date_input(label="Date")
+    with ce2:
+      Name = st.text_input(label="Name*")
     col1, col2, col3 = st.columns(3)
     with col1:
-     Name = st.text_input(label="Name*")
-    with col2: 
      State = st.selectbox(label="State*", options=STATE)
+    with col2: 
+     City = st.text_input(label="City*")
     with col3: 
-     City = st.selectbox(label="City*", options=CITY)
+     District = st.selectbox(label="District*", options=CITY)
     c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
@@ -1299,6 +1303,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
                         "NAME": Name,
                         "STATE": State,
                         "CITY":City,
+                        "DISTRICT": District,
                         "PHONE": Phone,
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
