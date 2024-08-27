@@ -5,8 +5,12 @@ import re
 
 #st.image("./VOXlogo.jpeg",width=500,)
 cf1,cf2,cf3 = st.columns(3)
-with cf2:
- st.header("VOX Customer form") 
+with cf1:
+ st.title("VOX") 
+with cf1:
+ st.title("CUSTOMER") 
+with cf1:
+ st.title("FORM") 
 
 
 conn = st.connection("gsheets", type=GSheetsConnection)
