@@ -1262,7 +1262,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
     with cp1:
      Type = st.selectbox(label="Customer Type*", options=TYPE)
     with cp2:
-     Product = st.multiselect(label="Product*", options=PRODUCT)
+     Product = st.selectbox(label="Product*", options=PRODUCT)
     with cp3: 
      Sqft = st.text_input(label="Square feet")
     with cp1:
@@ -1277,7 +1277,8 @@ with st.form(key="vendor_form", clear_on_submit=True):
     with cs2:
      Owner = st.selectbox(label="Owner", options=OWNERS)
     st.markdown("**required*")
-    submit_button = st.form_submit_button(label="Submit Details")
+    with cs2:
+     submit_button = st.form_submit_button(label="Submit Details")
 
 
     # If the submit button is pressed
