@@ -1221,9 +1221,14 @@ with st.form(key="vendor_form", clear_on_submit=True):
 
             st.success("Details successfully submitted!")
             
-with st.sidebar():
+with st.container():
     st.write(Name)
-    st.write(Phone)        
+    st.write(Phone)
+    st.write(State)
+    st.write(City)
+    st.write(Sqft,"sqft ",Product)
+    st.write(Source)
+    st.write(Sentto)           
 
          
             
