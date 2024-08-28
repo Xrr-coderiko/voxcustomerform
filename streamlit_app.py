@@ -1328,7 +1328,7 @@ with st.form(key="vendor_form"):
      with cs2:
       Owner = st.selectbox(label="Owner", options=OWNERS)
      st.markdown("**required*")
-     with cs2:
+    with cs2:
       submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
