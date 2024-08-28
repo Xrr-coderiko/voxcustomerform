@@ -1364,9 +1364,9 @@ with st.form(key="vendor_form", clear_on_submit=True):
 
             st.success("Details successfully submitted!")
 
-existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], errors='coerce')
-today = datetime.today().date()
-current_date_data = existing_data[existing_data['DATE'].dt.date == today]
+existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
+today = datetime.today().strftime('%d/%m/%Y')
+current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
 cxf1, cxf2 = st.columns(2)
 with cxf1:            
  if 'SENT BY' in existing_data.columns:
@@ -1380,7 +1380,7 @@ with cxf2:
         state_counts = existing_data['SOURCE'].value_counts().reset_index()
         state_counts.columns = ['SOURCE', 'LEADS']
         st.dataframe(state_counts)
-        st.bar_chart(state_counts['LEADS'])
+st.bar_chart(state_counts['LEADS'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
