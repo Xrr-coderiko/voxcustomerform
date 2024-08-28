@@ -1329,15 +1329,17 @@ with tab1:
       Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
      campaign = st.text_input(label="Source Campaign")  
-    cs1, cs2, cs3 = st.columns([1,1,2])
+    cs1, cs2, cs3 = st.columns(3)
     with cs1:
       Notes = st.text_area(label="Notes")
-    with cs3:
-      ic1, ic2 = st.columns([1,1])
-      with ic1:  
-        submit_button = st.form_submit_button(label="Submit Details")
-      with ic2:
-        clear_button = st.form_submit_button(label="Clear", on_click=clear_form)
+    
+    ic1, ic2, ic3 = st.columns([1,1,2])
+    with ic3:  
+      ct1, ct2 = st.columns([1,1])
+      with ct1:
+       submit_button = st.form_submit_button(label="Submit Details")
+      with ct2:
+       clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
