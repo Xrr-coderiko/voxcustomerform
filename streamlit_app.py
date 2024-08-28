@@ -1384,7 +1384,7 @@ with st.container(border=True):
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
         st.table(source_count.style.hide(axis="index"))
- st.bar_chart(source_count, x="SOURCE",y="LEADS")
+ st.bar_chart(source_count['LEADS'], x="SOURCE",y="LEADS")
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
