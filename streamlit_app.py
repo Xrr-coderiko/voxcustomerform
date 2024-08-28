@@ -1398,7 +1398,7 @@ with st.container(border=True):
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
 
-if 'CAMPAIGN' in existing_data.columns:
+ if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
         camp.columns = ['CAMPAIGN', 'LEADS']
