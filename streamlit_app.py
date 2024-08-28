@@ -1292,7 +1292,7 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 
 tab1, tab2 = st.tabs(["Form", "Dashboard"])
 with tab1:
- with st.form(key="vendor_form"):
+ with st.form(key="vendor_form", clear_on_submit=False):
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1332,14 +1332,13 @@ with tab1:
     cs1, cs2, cs3 = st.columns(3)
     with cs1:
       Notes = st.text_area(label="Notes")
-    
-    #ic1, ic2, ic3 = st.columns([1,1,2])
-    #with ic3:  
-    #  ct1, ct2 = st.columns([1,1])
-    #  with ct1:
-    submit_button = st.form_submit_button(label="Submit Details")
-    #  with ct2:
-    clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
+    ic1, ic2, ic3 = st.columns([1,1,2])
+    with ic3:  
+      ct1, ct2 = st.columns([1,1])
+      with ct1:
+         submit_button = st.form_submit_button(label="Submit Details")
+      with ct2:
+         clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
