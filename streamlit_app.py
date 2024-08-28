@@ -1397,6 +1397,15 @@ with st.container(border=True):
         tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'LEADS'])
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
+
+if 'CAMPAIGN' in existing_data.columns:
+        current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
+        camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
+        camp.columns = ['CAMPAIGN', 'LEADS']
+        ttc = camp['LEADS'].sum()
+        ttr = pd.DataFrame([['TOTAL', ttc]], columns=['CAMPAIGN', 'LEADS'])
+        camp = pd.concat([camp, ttr], ignore_index=True)
+        st.table(camp)
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
