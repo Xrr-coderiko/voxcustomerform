@@ -1370,7 +1370,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
 existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
 today = datetime.today().strftime('%d/%m/%Y')
 current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
-existing_data2['']
+
 with st.container(border=True):
  st.header(f"{today} Qualified Report")    
  cxf1, cxf2 = st.columns(2)
