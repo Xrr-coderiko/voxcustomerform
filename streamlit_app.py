@@ -11,7 +11,7 @@ with cf2:
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(16)), ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(17)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 total_rows = len(existing_data)
 
