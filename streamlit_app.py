@@ -1304,32 +1304,32 @@ with st.form(key="vendor_form"):
     if not is_valid:
             st.warning("Incorrect Phone Number")      
             st.stop()
-    else:         
-     with c2:
+           
+    with c2:
       Altphone = st.text_input(label="Alternate Phone")
-     with c3:
+    with c3:
       Email = st.text_input(label="Email ID")
-     cp1, cp2, cp3 = st.columns(3) 
-     with cp1:
+    cp1, cp2, cp3 = st.columns(3) 
+    with cp1:
       Type = st.selectbox(label="Customer Type*", options=TYPE)
-     with cp2:
+    with cp2:
       Product = st.selectbox(label="Product*", options=PRODUCT)
-     with cp3: 
+    with cp3: 
       Sqft = st.text_input(label="Square feet")
-     with cp1:
+    with cp1:
       Source = st.selectbox(label="Source*", options=SOURCE)
-     with cp2:
+    with cp2:
       Sentto = st.selectbox(label="Sent To*", options=SENTTO)
-     with cp3:
+    with cp3:
       Sentby = st.selectbox(label="Sent By*", options=USERS)
-     cs1, cs2 = st.columns(2)
-     with cs1:
+    cs1, cs2 = st.columns(2)
+    with cs1:
       Notes = st.text_area(label="Notes")
-     with cs2:
-      Owner = st.selectbox(label="Owner", options=OWNERS)
-     st.markdown("**required*")
     with cs2:
-      submit_button = st.form_submit_button(label="Submit Details")
+      Owner = st.selectbox(label="Owner", options=OWNERS)
+    st.markdown("**required*")
+    with cs2:
+     submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
