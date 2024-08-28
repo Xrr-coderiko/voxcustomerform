@@ -1285,24 +1285,23 @@ tab1, tab2 = st.tabs(["Form", "Dashboard"])
 with tab1:
  st.title("Customer Information Form")
  with st.form(key="vendor_form", clear_on_submit=True):
-    ce1, ce2 = st.columns(2)
+    ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
     with ce2:
       Name = st.text_input(label="Name*")
-    col1, col2, col3 = st.columns(3)
-    with col1:
+    with ce3:
      State = st.selectbox(label="State*", options=STATE)
-    with col2: 
+    with ce4: 
      City = st.text_input(label="City*")
-    with col3: 
+    c1, c2, c3, c4 = st.columns(4)
+    with c1: 
      District = st.selectbox(label="District*", options=CITY)
-    c1, c2, c3 = st.columns(3)
-    with c1:
-     Phone = st.text_input(label="Phone No*")
     with c2:
-      Altphone = st.text_input(label="Alternate Phone")
+     Phone = st.text_input(label="Phone No*")
     with c3:
+      Altphone = st.text_input(label="Alternate Phone")
+    with c4:
       Email = st.text_input(label="Email ID")
     cp1, cp2, cp3 = st.columns(3) 
     with cp1:
