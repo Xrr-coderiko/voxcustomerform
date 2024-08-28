@@ -1281,8 +1281,10 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-# Onboarding New Vendor Form
-with st.form(key="vendor_form", clear_on_submit=True):
+tab1, tab2 = st.tabs(["Form", "Dashboard"])
+with tab1:
+ st.title("Customer Information Form")
+ with st.form(key="vendor_form", clear_on_submit=True):
     ce1, ce2 = st.columns(2)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1366,21 +1368,22 @@ with st.form(key="vendor_form", clear_on_submit=True):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
+with tab2:
+ st.title("Dashboard")
+ existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
+ today = datetime.today().strftime('%d/%m/%Y')
+ current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
+ existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
+ rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
+ rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
 
-existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
-today = datetime.today().strftime('%d/%m/%Y')
-current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
-existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
-rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
-rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
 
+ with st.container(border=True):
+  st.header(f"--------{today} QUALIFIED REPORT-------")    
+  cxf1, cxf2 = st.columns(2)
 
-with st.container(border=True):
- st.header(f"--------{today} QUALIFIED REPORT-------")    
- cxf1, cxf2 = st.columns(2)
-
- with cxf1:            
-  if 'SENT BY' in existing_data.columns:
+  with cxf1:            
+   if 'SENT BY' in existing_data.columns:
     current_date_data = current_date_data.dropna(subset=['SENT BY'])
     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
@@ -1388,8 +1391,8 @@ with st.container(border=True):
     total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
     sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
     st.table(sentby_counts)
- with cxf2:
-  if 'SOURCE' in existing_data.columns:
+  with cxf2:
+   if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
@@ -1398,7 +1401,7 @@ with st.container(border=True):
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
 
- if 'CAMPAIGN' in existing_data.columns:
+  if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
         camp.columns = ['META CAMPAIGN', 'LEADS']
