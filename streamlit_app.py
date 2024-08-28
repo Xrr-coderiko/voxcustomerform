@@ -1321,11 +1321,13 @@ with tab1:
       Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
      campaign = st.text_input(label="Source Campaign")  
-    cs1, cs2 = st.columns(2)
+    cs1, cs2 = st.columns([1,2])
     with cs1:
       Notes = st.text_area(label="Notes")
-    with cs2:  
-     submit_button = st.form_submit_button(label="Submit Details")
+    with cs2:
+      ic1, ic2, ic3 = st.columns([1,1,1])
+      with ic2:  
+        submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
