@@ -17,6 +17,14 @@ existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 total_rows = len(existing_data)
 
+if "Name" not in st.session_state:
+    st.session_state.Name = ""
+if "Phone" not in st.session_state:
+    st.session_state.Phone = ""
+    
+def clear_form():
+    st.session_state.Name = ""
+    st.session_state.Phone = ""
 
 # List of Business Types and Products
 STATE = [
@@ -1289,7 +1297,7 @@ with tab1:
     with ce1:
       Date = st.date_input(label="Date")
     with ce2:
-      Name = st.text_input(label="Name*")
+      Name = st.text_input(label="Name*", value=st.session_state.Name)
     with ce3:
      State = st.selectbox(label="State*", options=STATE)
     with ce4: 
@@ -1298,7 +1306,7 @@ with tab1:
     with c1: 
      District = st.selectbox(label="District*", options=CITY)
     with c2:
-     Phone = st.text_input(label="Phone No*")
+     Phone = st.text_input(label="Phone No*",value=st.session_state.Phone)
     with c3:
       Altphone = st.text_input(label="Alternate Phone")
     with c4:
@@ -1325,9 +1333,11 @@ with tab1:
     with cs1:
       Notes = st.text_area(label="Notes")
     with cs2:
-      ic1, ic2, ic3 = st.columns([1,1,1])
-      with ic2:  
+      ic1, ic2 = st.columns([1,1])
+      with ic1:  
         submit_button = st.form_submit_button(label="Submit Details")
+      with ic2:
+        clear_button = st.form_submit_button(label="Clear", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
