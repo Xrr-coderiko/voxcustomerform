@@ -1301,28 +1301,22 @@ with st.form(key="vendor_form", clear_on_submit=True):
     c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
-    is_valid = bool(pattern.match(Phone))
-    if not is_valid:
-            st.warning("Incorrect Phone Number")      
-            st.stop()
-    else:         
-     with c2:
+    with c2:
       Altphone = st.text_input(label="Alternate Phone")
-     with c3:
+    with c3:
       Email = st.text_input(label="Email ID")
-     cp1, cp2, cp3 = st.columns(3) 
-     with cp1:
+    cp1, cp2, cp3 = st.columns(3) 
+    with cp1:
       Type = st.selectbox(label="Customer Type*", options=TYPE)
-     with cp2:
+    with cp2:
       Product = st.multiselect(label="Product*", options=PRODUCT)
-     with cp3: 
+    with cp3: 
       Sqft = st.text_input(label="Square feet")
-     cpp1, cpp2, cpp3 = st.columns(3)  
-     with cpp1:
+    with cp1:
       Source = st.selectbox(label="Source*", options=SOURCE)
-     with cpp2:
+    with cp2:
       Sentto = st.selectbox(label="Sent To*", options=SENTTO)
-     with cpp3:
+    with cp3:
       Sentby = st.selectbox(label="Sent By*", options=USERS)
     cs1, cs2 = st.columns(2)
     with cs1:
@@ -1341,9 +1335,9 @@ with st.form(key="vendor_form", clear_on_submit=True):
         if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
-        #elif not is_valid:
-        #    st.warning("Incorrect Phone Number")      
-        #    st.stop()
+        elif not is_valid:
+            st.warning("Incorrect Phone Number")      
+            st.stop()
         else:
             vendor_data = pd.DataFrame(
                 [
