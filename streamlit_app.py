@@ -30,6 +30,7 @@ STATE = [
 "Haryana",
 "Himachal Pradesh",
 "Jharkhand",
+"Jammu & Kashmir",
 "Karnataka",
 "Kerala",
 "Madhya Pradesh",
@@ -1308,7 +1309,7 @@ with st.form(key="vendor_form"):
     with cp1:
       Type = st.selectbox(label="Customer Type*", options=TYPE)
     with cp2:
-      Product = st.selectbox(label="Product*", options=PRODUCT)
+      Product = st.multiselect(label="Product*", options=PRODUCT)
     with cp3: 
       Sqft = st.text_input(label="Square feet")
     with cp1:
@@ -1350,7 +1351,7 @@ with st.form(key="vendor_form"):
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
-                        "PRODUCT": Product,
+                        "PRODUCT": ", ".join(Product),
                         "SQFT": Sqft,
                         "SOURCE":Source,
                         "SENT TO": Sentto,
