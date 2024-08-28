@@ -1385,6 +1385,9 @@ with st.container(border=True):
     current_date_data = current_date_data.dropna(subset=['SENT BY'])
     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
+    total_count = sentby_counts['LEADS'].sum()
+    total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
+    sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
     st.table(sentby_counts)
  with cxf2:
   if 'SOURCE' in existing_data.columns:
