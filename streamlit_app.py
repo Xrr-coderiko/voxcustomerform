@@ -21,14 +21,11 @@ if "Name" not in st.session_state:
     st.session_state.Name = ""
 if "Phone" not in st.session_state:
     st.session_state.Phone = ""
-if "City" not in st.session_state:
-    st.session_state.City = ""
     
     
 def clear_form():
     st.session_state.Name = ""
     st.session_state.Phone = ""
-    st.session_state.City = ""
     
 # List of Business Types and Products
 STATE = [
@@ -1304,7 +1301,7 @@ with tab1:
     with ce3:
      State = st.selectbox(label="State*", options=STATE)
     with ce4: 
-     City = st.text_input(label="City*",value=st.session_state.City)
+     City = st.text_input(label="City*")
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
      District = st.selectbox(label="District*", options=CITY)
