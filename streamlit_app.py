@@ -1165,6 +1165,7 @@ USERS = [
     "Vikas",
     "Baburao",
     "Priyanka",
+    "Nisha",
     "Meghana",
     "Harun",
     "Revathi",
@@ -1370,6 +1371,10 @@ with st.form(key="vendor_form", clear_on_submit=True):
 existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
 today = datetime.today().strftime('%d/%m/%Y')
 current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
+existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
+rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
+rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
+
 
 with st.container(border=True):
  st.header(f"{today} Qualified Report")    
