@@ -1367,20 +1367,23 @@ with st.form(key="vendor_form", clear_on_submit=True):
 existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
 today = datetime.today().strftime('%d/%m/%Y')
 current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
-cxf1, cxf2 = st.columns(2)
-with cxf1:            
- if 'SENT BY' in existing_data.columns:
+with st.container(border=True):
+ st.title(today,"Daily Report")    
+ cxf1, cxf2 = st.columns(2)
+
+ with cxf1:            
+  if 'SENT BY' in existing_data.columns:
     current_date_data = current_date_data.dropna(subset=['SENT BY'])
     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
     st.dataframe(sentby_counts)
-with cxf2:
- if 'SOURCE' in existing_data.columns:
+ with cxf2:
+  if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
         st.dataframe(source_count)
-st.bar_chart(source_count['LEADS'])
+st.bar_chart(source_count['SOURCE'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
