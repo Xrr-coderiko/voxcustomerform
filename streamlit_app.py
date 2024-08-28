@@ -1285,7 +1285,7 @@ OWNERS = [
 pattern = re.compile(r"^[6-9]\d{9}$")
 
 # Onboarding New Vendor Form
-with st.form(key="vendor_form"):
+with st.form(key="vendor_form", clear_on_submit=True):
     ce1, ce2 = st.columns(2)
     with ce1:
       Date = st.date_input(label="Date")
