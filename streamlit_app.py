@@ -1376,7 +1376,7 @@ rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign
 
 
 with st.container(border=True):
- st.header(f"----------{today} Qualified Report-----------")    
+ st.header(f"----------{today} Qualified Report----------")    
  cxf1, cxf2 = st.columns(2)
 
  with cxf1:            
