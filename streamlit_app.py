@@ -1325,6 +1325,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
       Owner = st.selectbox(label="Owner", options=OWNERS)
     st.markdown("**required*")
     with cs2:
+     campaign = st.text_input(label="Source Campaign")
      submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
@@ -1358,7 +1359,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
                         "SENT BY": Sentby,
                         "NOTE": Notes,
                         "OWNER": Owner,
-                        
+                        "CAMPAIGN": campaign,
                     }
                 ]
             )
