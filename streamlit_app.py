@@ -1393,7 +1393,7 @@ with tab2:
 
  with st.container(border=True):
   st.header(f"--------{today} QUALIFIED REPORT-------")    
-  cxf1, cxf2, cxf3 = st.columns(3)
+  cxf1, cxf2, cxf3, cxf4 = st.columns(4)
 
   with cxf1:            
    if 'SENT BY' in existing_data.columns:
