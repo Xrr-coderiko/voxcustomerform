@@ -1303,27 +1303,28 @@ with tab1:
       Altphone = st.text_input(label="Alternate Phone")
     with c4:
       Email = st.text_input(label="Email ID")
-    cp1, cp2, cp3 = st.columns(3) 
+    cp1, cp2, cp3, cp4 = st.columns(3) 
     with cp1:
       Type = st.selectbox(label="Customer Type*", options=TYPE)
     with cp2:
       Product = st.multiselect(label="Product*", options=PRODUCT)
     with cp3: 
       Sqft = st.text_input(label="Square feet")
-    with cp1:
+    with cp4:
       Source = st.selectbox(label="Source*", options=SOURCE)
-    with cp2:
+    ch1, ch2, ch3, ch4 = st.columns(4)
+    with ch1:
       Sentto = st.selectbox(label="Sent To*", options=SENTTO)
-    with cp3:
+    with ch2:
       Sentby = st.selectbox(label="Sent By*", options=USERS)
+    with ch3:
+      Owner = st.selectbox(label="Owner", options=OWNERS)
+    with ch4:
+     campaign = st.text_input(label="Source Campaign")  
     cs1, cs2 = st.columns(2)
     with cs1:
       Notes = st.text_area(label="Notes")
     with cs2:
-      Owner = st.selectbox(label="Owner", options=OWNERS)
-    st.markdown("**required*")
-    with cs2:
-     campaign = st.text_input(label="Source Campaign")
      submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
