@@ -1324,7 +1324,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
     if submit_button:
         # Check if all mandatory fields are filled
         is_valid = bool(pattern.match(Phone))
-        if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
+        if not Name and not Phone and not State and not City and not Sentto and not Product and not Source and not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
         elif not is_valid:
