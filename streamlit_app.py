@@ -1334,9 +1334,9 @@ with st.form(key="vendor_form"):
         if not Name or not Phone or not State or not City or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
-        #elif not is_valid:
-        #    st.warning("Incorrect Phone Number")      
-        #    st.stop()
+        elif not is_valid:
+            st.warning("Incorrect Phone Number")      
+            st.stop()
         else:
             vendor_data = pd.DataFrame(
                 [
