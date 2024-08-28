@@ -1324,7 +1324,8 @@ with tab1:
     cs1, cs2 = st.columns(2)
     with cs1:
       Notes = st.text_area(label="Notes")
-    submit_button = st.form_submit_button(label="Submit Details")
+    with cs2:  
+     submit_button = st.form_submit_button(label="Submit Details")
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
