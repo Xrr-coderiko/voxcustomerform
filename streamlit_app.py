@@ -1403,7 +1403,7 @@ with st.container(border=True):
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
         camp.columns = ['FB CAMPAIGN', 'LEADS']
         ttc = camp['LEADS'].sum()
-        ttr = pd.DataFrame([['TOTAL', ttc]], columns=['CAMPAIGN', 'LEADS'])
+        ttr = pd.DataFrame([['TOTAL', ttc]], columns=['FB CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
         
