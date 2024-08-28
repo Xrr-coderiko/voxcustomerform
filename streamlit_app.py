@@ -1394,6 +1394,11 @@ with st.container(border=True):
         st.table(source_count.style.hide(axis="index"))
  
  st.bar_chart(source_count, x="SOURCE",y="LEADS")
+ if rdatarow in existing_data2:
+     rdata = rdata.dropna(subset=[rdatarow])
+     gen = rdata[rdatarow].value_counts().reset_index()
+     gen.columns=[rdatarow,"Data"]
+     st.table(gen)
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
