@@ -21,11 +21,14 @@ if "Name" not in st.session_state:
     st.session_state.Name = ""
 if "Phone" not in st.session_state:
     st.session_state.Phone = ""
+if "City" not in st.session_state:
+    st.session_state.City = ""
+    
     
 def clear_form():
     st.session_state.Name = ""
     st.session_state.Phone = ""
-
+    st.session_state.City = ""
 # List of Business Types and Products
 STATE = [
     " ",
@@ -1291,7 +1294,7 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 
 tab1, tab2 = st.tabs(["Form", "Dashboard"])
 with tab1:
- with st.form(key="vendor_form", clear_on_submit=True):
+ with st.form(key="vendor_form"):
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1300,7 +1303,7 @@ with tab1:
     with ce3:
      State = st.selectbox(label="State*", options=STATE)
     with ce4: 
-     City = st.text_input(label="City*")
+     City = st.text_input(label="City*",value=st.session_state.City)
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
      District = st.selectbox(label="District*", options=CITY)
@@ -1321,7 +1324,12 @@ with tab1:
       Source = st.selectbox(label="Source*", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
-      Sentto = st.selectbox(label="Sent To*", options=SENTTO)
+      if State == "Maharashtra":
+        SENTTO2 = ['Pearl Impex', 'Niranjana', 'L&K', 'Alif Enterprises']
+        OptKA = SENTTO2
+      else:
+        OptKA = SENTTO
+    Sentto = st.selectbox(label="Sent To*", options=OptKA)
     with ch2:
       Sentby = st.selectbox(label="Sent By*", options=USERS)
     with ch3:
