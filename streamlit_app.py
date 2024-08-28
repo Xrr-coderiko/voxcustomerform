@@ -1394,6 +1394,9 @@ with st.container(border=True):
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
+        total_count = source_count['LEADS'].sum()
+        total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SOURCE', 'LEADS'])
+        source_counts = pd.concat([source_count, total_row], ignore_index=True)
         st.table(source_count.style.hide(axis="index"))
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
