@@ -1376,7 +1376,7 @@ with st.container(border=True):
     current_date_data = current_date_data.dropna(subset=['SENT BY'])
     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
-    st.table(sentby_counts)
+    st.table(sentby_counts, hide_index=True)
  with cxf2:
   if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
