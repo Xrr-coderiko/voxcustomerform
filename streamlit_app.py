@@ -1383,16 +1383,16 @@ st.bar_chart(state_counts['LEADS'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
-
+products = ', '.join(Product)
 sidebar_text = f"""
 {Name}
 {Phone}
 {State}
 {City}
-{Sqft}sqft {Product}
-{Notes}
+{products} {Sqft}sqft 
 {Source}
 {Sentto}
+{Notes}
 """
 st.sidebar.text_area("LEAD:", sidebar_text, height=250)
 
