@@ -1303,7 +1303,7 @@ with tab1:
       Altphone = st.text_input(label="Alternate Phone")
     with c4:
       Email = st.text_input(label="Email ID")
-    cp1, cp2, cp3, cp4 = st.columns(3) 
+    cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
       Type = st.selectbox(label="Customer Type*", options=TYPE)
     with cp2:
