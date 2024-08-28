@@ -1401,7 +1401,7 @@ with st.container(border=True):
  if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
-        camp.columns = ['CAMPAIGN', 'LEADS']
+        camp.columns = ['FB CAMPAIGN', 'LEADS']
         ttc = camp['LEADS'].sum()
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
