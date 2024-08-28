@@ -1300,11 +1300,6 @@ with st.form(key="vendor_form"):
     c1, c2, c3 = st.columns(3)
     with c1:
      Phone = st.text_input(label="Phone No*")
-    is_valid = bool(pattern.match(Phone))
-    if not is_valid:
-            st.warning("Incorrect Phone Number")      
-            st.stop()
-           
     with c2:
       Altphone = st.text_input(label="Alternate Phone")
     with c3:
