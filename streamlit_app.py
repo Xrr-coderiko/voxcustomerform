@@ -1382,7 +1382,7 @@ with st.container(border=True):
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
-        st.dataframe(source_count.style.hide(axis="index"))
+        st.table(source_count.style.hide(axis="index"))
  st.bar_chart(source_count['SOURCE'])
 
 
