@@ -1377,10 +1377,10 @@ with cxf1:
 with cxf2:
  if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
-        state_counts = existing_data['SOURCE'].value_counts().reset_index()
-        state_counts.columns = ['SOURCE', 'LEADS']
-        st.dataframe(state_counts)
-st.bar_chart(state_counts['LEADS'])
+        source_count = current_date_data['SOURCE'].value_counts().reset_index()
+        source_count.columns = ['SOURCE', 'LEADS']
+        st.dataframe(source_count)
+st.bar_chart(source_count['LEADS'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
