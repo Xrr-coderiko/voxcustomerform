@@ -1368,7 +1368,7 @@ existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y',
 today = datetime.today().strftime('%d/%m/%Y')
 current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
 with st.container(border=True):
- st.header(f"Report{today}")    
+ st.header(f"{today} Qualified Report")    
  cxf1, cxf2 = st.columns(2)
 
  with cxf1:            
