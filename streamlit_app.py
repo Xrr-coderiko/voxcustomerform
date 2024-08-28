@@ -1288,7 +1288,7 @@ OWNERS = [
 "shubham.sharma@voxindia.co",
 "deepak.kc@voxindia.co",
 ]
-
+SENTTO2 = [' ','Pearl Impex', 'Niranjana', 'L&K', 'Alif Enterprises']
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
@@ -1324,7 +1324,6 @@ with tab1:
       Source = st.selectbox(label="Source*", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     if State == 'Karnataka':
-        SENTTO2 = [' ','Pearl Impex', 'Niranjana', 'L&K', 'Alif Enterprises']
         OptKA = SENTTO2
     else:
         OptKA = SENTTO
