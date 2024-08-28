@@ -1323,12 +1323,12 @@ with tab1:
     with cp4:
       Source = st.selectbox(label="Source*", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
-    with ch1:
-      if State == 'Karnataka':
+    if State == 'Karnataka':
         SENTTO2 = [' ','Pearl Impex', 'Niranjana', 'L&K', 'Alif Enterprises']
         OptKA = SENTTO2
-      else:
+    else:
         OptKA = SENTTO
+    with ch1:
       Sentto = st.selectbox(label="Sent To*", options=OptKA)
     with ch2:
       Sentby = st.selectbox(label="Sent By*", options=USERS)
