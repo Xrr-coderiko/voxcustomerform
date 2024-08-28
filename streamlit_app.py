@@ -1382,7 +1382,6 @@ with tab1:
 
             st.success("Details successfully submitted!")
 with tab2:
- st.title("Dashboard")
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
@@ -1392,7 +1391,7 @@ with tab2:
 
 
  with st.container(border=True):
-  st.header(f"--------{today} QUALIFIED REPORT-------")    
+  st.header(f"{today} QUALIFIED REPORT-------")    
   cxf1, cxf2 = st.columns(2)
   with cxf1: 
    cxxf1, cxxf2 = st.columns(2)            
@@ -1423,6 +1422,7 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+ with 
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
