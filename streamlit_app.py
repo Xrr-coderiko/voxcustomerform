@@ -6,9 +6,9 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 #st.image("./VOXlogo.jpeg",width=500,)
-cf1,cf2,cf3 = st.columns(3)
-with cf2:
- st.title("VOX INDIA") 
+#cf1,cf2,cf3 = st.columns(3)
+#with cf2:
+# st.title("VOX INDIA") 
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
