@@ -1102,7 +1102,6 @@ SENTTO = [
 "Amar enterprises",
 "Giriraj Enterprises",
 "Shree ram sales",
-"M/S technowall system",
 "Anil Parmar",
 "Bhubaneshwar",
 "Karan",
