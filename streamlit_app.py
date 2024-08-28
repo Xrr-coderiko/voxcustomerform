@@ -1371,7 +1371,7 @@ cxf1, cxf2 = st.columns(2)
 with cxf1:            
  if 'SENT BY' in existing_data.columns:
     current_date_data = current_date_data.dropna(subset=['SENT BY'])
-    sentby_counts = existing_data['SENT BY'].value_counts().reset_index()
+    sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
     st.dataframe(sentby_counts)
 with cxf2:
