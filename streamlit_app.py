@@ -1424,7 +1424,7 @@ sidebar_text = f"""
 {Sentto}
 {Notes}
 """
-st.sidebar.text_area("LEAD:", sidebar_text, height=250)
+st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=250)
 
 
 
