@@ -1393,8 +1393,8 @@ with st.container(border=True):
         source_count.columns = ['SOURCE', 'LEADS']
         st.table(source_count.style.hide(axis="index"))
         
- source_all = existing_data['SOURCE'].value_counts().reset_index()
- st.bar_chart(source_all, x="SOURCE",y="LEADS")
+ #source_all = existing_data['SOURCE'].value_counts().reset_index()
+ #st.bar_chart(source_all, x="SOURCE",y="LEADS")
 
 
 
