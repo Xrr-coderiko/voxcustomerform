@@ -1411,7 +1411,7 @@ with st.container(border=True):
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
 
 
-
+st.sidebar.image('zIntro.jpeg', use_column_width=True)
 st.sidebar.title(f"Total Lead: {total_rows}")          
 products = ', '.join(Product)
 sidebar_text = f"""
