@@ -1390,10 +1390,10 @@ with st.container(border=True):
   if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
-        source_all = existing_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
         st.table(source_count.style.hide(axis="index"))
- 
+        
+ source_all = existing_data['SOURCE'].value_counts().reset_index()
  st.bar_chart(source_all, x="SOURCE",y="LEADS")
 
 
