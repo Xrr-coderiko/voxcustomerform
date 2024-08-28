@@ -1393,19 +1393,20 @@ with tab2:
 
  with st.container(border=True):
   st.header(f"--------{today} QUALIFIED REPORT-------")    
-  cxf1, cxf2, cxf3, cxf4 = st.columns(4)
-
-  with cxf1:            
-   if 'SENT BY' in existing_data.columns:
-    current_date_data = current_date_data.dropna(subset=['SENT BY'])
-    sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-    sentby_counts.columns = ['SENT BY', 'LEADS']
-    total_count = sentby_counts['LEADS'].sum()
-    total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
-    sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
-    st.table(sentby_counts)
-  with cxf2:
-   if 'SOURCE' in existing_data.columns:
+  cxf1, cxf2 = st.columns(2)
+  with cxf1: 
+   cxxf1, cxxf2 = st.columns(2)            
+   with cxxf1:
+    if 'SENT BY' in existing_data.columns:
+     current_date_data = current_date_data.dropna(subset=['SENT BY'])
+     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
+     sentby_counts.columns = ['SENT BY', 'LEADS']
+     total_count = sentby_counts['LEADS'].sum()
+     total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
+     sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
+     st.table(sentby_counts)
+   with cxxf2:
+    if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
@@ -1413,7 +1414,7 @@ with tab2:
         tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'LEADS'])
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
-  with cxf3:
+  with cxf2:
    if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
