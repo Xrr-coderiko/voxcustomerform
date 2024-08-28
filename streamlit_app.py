@@ -1393,7 +1393,7 @@ with tab2:
 
  with st.container(border=True):
   st.header(f"--------{today} QUALIFIED REPORT-------")    
-  cxf1, cxf2 = st.columns(2)
+  cxf1, cxf2, cxf3 = st.columns(3)
 
   with cxf1:            
    if 'SENT BY' in existing_data.columns:
@@ -1413,8 +1413,8 @@ with tab2:
         tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'LEADS'])
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
-
-  if 'CAMPAIGN' in existing_data.columns:
+  with cxf3:
+   if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
         camp.columns = ['META CAMPAIGN', 'LEADS']
