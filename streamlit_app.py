@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
+from datetime import datetime
 
 
 #st.image("./VOXlogo.jpeg",width=500,)
@@ -1362,18 +1363,24 @@ with st.form(key="vendor_form", clear_on_submit=True):
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
+
+existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], errors='coerce')
+today = datetime.today().date()
+current_date_data = existing_data[existing_data['DATE'].dt.date == today]
 cxf1, cxf2 = st.columns(2)
 with cxf1:            
  if 'SENT BY' in existing_data.columns:
+    current_date_data = current_date_data.dropna(subset=['SENT BY'])
     sentby_counts = existing_data['SENT BY'].value_counts().reset_index()
     sentby_counts.columns = ['SENT BY', 'LEADS']
     st.dataframe(sentby_counts)
 with cxf2:
  if 'SOURCE' in existing_data.columns:
+        current_date_data = current_date_data.dropna(subset=['SOURCE'])
         state_counts = existing_data['SOURCE'].value_counts().reset_index()
         state_counts.columns = ['SOURCE', 'LEADS']
         st.dataframe(state_counts)
-st.bar_chart(state_counts['LEADS'])
+        st.bar_chart(state_counts['LEADS'])
 
 
 st.sidebar.title(f"Total Lead: {total_rows}")          
