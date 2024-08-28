@@ -13,6 +13,7 @@ with cf2:
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(17)), ttl=5)
+existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 total_rows = len(existing_data)
 
@@ -879,6 +880,7 @@ SENTTO = [
     "Sri Sai Mantra",
 "JAK arts",
 "Vijay Agency",
+"Brightway Associates",
 "Sai Sales Corporation",
 "Shivlaxmi Enterprises",
 "Vasant &Sons",
@@ -1368,6 +1370,7 @@ with st.form(key="vendor_form", clear_on_submit=True):
 existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
 today = datetime.today().strftime('%d/%m/%Y')
 current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
+existing_data2['']
 with st.container(border=True):
  st.header(f"{today} Qualified Report")    
  cxf1, cxf2 = st.columns(2)
@@ -1384,6 +1387,7 @@ with st.container(border=True):
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'LEADS']
         st.table(source_count.style.hide(axis="index"))
+ 
  st.bar_chart(source_count, x="SOURCE",y="LEADS")
 
 
