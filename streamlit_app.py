@@ -884,6 +884,7 @@ CITY = [
 ]
 SENTTO = [
     " ",
+    "Urban Interior",
     "U k Trader",
     "Sahibzada Ply World",
     "Sri Sai Mantra",
