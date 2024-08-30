@@ -887,6 +887,7 @@ SENTTO = [
     "U k Trader",
     "Sahibzada Ply World",
     "Sri Sai Mantra",
+    "Srikanth M",
 "JAK arts",
 "Vijay Agency",
 "Brightway Associates",
