@@ -64,6 +64,7 @@ STATE = [
 CITY = [
     " ",
     "Bangalore",
+    "Mangalore",
 "Mumbai",
 "Hyderabad",
 "Pune",
