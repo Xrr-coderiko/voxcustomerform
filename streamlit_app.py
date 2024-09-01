@@ -1394,12 +1394,14 @@ with tab1:
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
+ today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
  existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
  #rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
  #rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
  with st.container(border=True):
-  st.header(f"{today} QUALIFIED REPORT-------")    
+  st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
+  #st.header(f"{today} QUALIFIED REPORT-------")    
   cxf1, cxf2 = st.columns(2)
   with cxf1: 
    cxxf1, cxxf2 = st.columns(2)            
