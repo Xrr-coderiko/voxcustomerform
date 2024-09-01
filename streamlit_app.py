@@ -1442,7 +1442,7 @@ with tab3:
      #st.header(f"{total_rows}")
     with s2:
       #st.header("Closed Leads")
-      st.markdown("<div style='text-align: center;border: 1px'><h2>Closed Leads</h2><br><h3>95</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;border: 1px'><h2>Closed Leads</h2><h3>95</h3></div>", unsafe_allow_html=True)
       #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
