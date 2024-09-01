@@ -1461,7 +1461,7 @@ with tab3:
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       beta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
-      st.line_chart(beta)
+      st.line_chart(beta,['SENTBY', 'LEADS'])
     
 
  
@@ -1471,7 +1471,7 @@ with tab3:
 
 
 st.sidebar.image('zIntro.jpeg', use_column_width=True)
-st.sidebar.title(f"Total Lead: {total_rows}")          
+#st.sidebar.title(f"Total Lead: {total_rows}")          
 products = ', '.join(Product)
 sidebar_text = f"""
 {Name}
