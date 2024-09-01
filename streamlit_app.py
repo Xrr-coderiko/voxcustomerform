@@ -1436,13 +1436,13 @@ with tab3:
     s1, s2, s3 = st.columns(3)
     with s1:
      st.header("Qualified Leads")
-     st.write(f"{total_rows}")
+     st.header(f"{total_rows}")
     with s2:
       st.header("Closed Leads")
-      st.write("95")
+      st.header("95")
     with s3:
      st.header("SQFT closed") 
-     st.write("63051")
+     st.header("63,051")
    main_data=main_data.dropna(subset=['Source'])
    zeta = main_data['Source'].value_counts().reset_index()
    zeta.columns = ['SOURCE', 'LEADS']
