@@ -1459,7 +1459,7 @@ with tab3:
       beta.columns = ['SENTBY', 'LEADS']
       tac = beta['LEADS'].sum()
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
-      zeta = pd.concat([beta, tac], ignore_index=True)
+      beta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
     
 
