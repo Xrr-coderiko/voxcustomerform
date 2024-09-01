@@ -1455,12 +1455,12 @@ with tab3:
       st.table(zeta)
     with sc2:
       main_data=main_data.dropna(subset=['Sent By'])
-      zeta = main_data['Sent By'].value_counts().reset_index()
-      zeta.columns = ['SENTBY', 'LEADS']
-      tzc = zeta['LEADS'].sum()
+      beta = main_data['Sent By'].value_counts().reset_index()
+      beta.columns = ['SENTBY', 'LEADS']
+      tzc = beta['LEADS'].sum()
       tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SENTBY', 'LEADS'])
-      zeta = pd.concat([zeta, tzc], ignore_index=True)
-      st.table(zeta)
+      zeta = pd.concat([beta, tzc], ignore_index=True)
+      st.table(beta)
     
 
  
