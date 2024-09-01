@@ -1443,13 +1443,24 @@ with tab3:
     with s3:
      st.header("SQFT closed") 
      st.header("63,051")
-   main_data=main_data.dropna(subset=['Source'])
-   zeta = main_data['Source'].value_counts().reset_index()
-   zeta.columns = ['SOURCE', 'LEADS']
-   tzc = zeta['LEADS'].sum()
-   tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SOURCE', 'LEADS'])
-   zeta = pd.concat([zeta, tzc], ignore_index=True)
-   st.table(zeta)
+   with st.container(border=True):
+    sc1, sc2 = st.columns(2)
+    with sc1: 
+      main_data=main_data.dropna(subset=['Source'])
+      zeta = main_data['Source'].value_counts().reset_index()
+      zeta.columns = ['SOURCE', 'LEADS']
+      tzc = zeta['LEADS'].sum()
+      tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SOURCE', 'LEADS'])
+      zeta = pd.concat([zeta, tzc], ignore_index=True)
+      st.table(zeta)
+    with sc2:
+      main_data=main_data.dropna(subset=['Sent By'])
+      zeta = main_data['Sent By'].value_counts().reset_index()
+      zeta.columns = ['SENTBY', 'LEADS']
+      tzc = zeta['LEADS'].sum()
+      tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SENTBY', 'LEADS'])
+      zeta = pd.concat([zeta, tzc], ignore_index=True)
+      st.table(zeta)
     
 
  
