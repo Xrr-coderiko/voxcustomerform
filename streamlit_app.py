@@ -23,9 +23,9 @@ total_rows = len(main_data)
 
 
 if "Name" not in st.session_state:
-    st.session_state.Name = ""
+    st.session_state.Name
 if "Phone" not in st.session_state:
-    st.session_state.Phone = ""
+    st.session_state.Phone
     
     
 def clear_form():
@@ -1346,7 +1346,7 @@ with tab1:
       with ct1:
          submit_button = st.form_submit_button(label="Submit Details")
       with ct2:
-         clear_button = st.form_submit_button(label="Clear form")
+         clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
@@ -1389,16 +1389,16 @@ with tab1:
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
-    if clear_button:
-          clear_form()
+    #if clear_button:
+     #     clear_form()
 with tab2:
  
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
  existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
- rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
- rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
+ #rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
+ #rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
 
 
  with st.container(border=True):
