@@ -1448,9 +1448,10 @@ with tab3:
       st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>63,051</h3></div>", unsafe_allow_html=True)
       # st.header("SQFT closed") 
       #st.header("63,051")
-   with st.container(border=True):
+   with st.container(border=True, height=300):
     sc1, sc2 = st.columns(2)
-    with sc1: 
+    with sc1:
+      st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['Source'])
       zeta = main_data['Source'].value_counts().reset_index()
       zeta.columns = ['SOURCE', 'LEADS']
@@ -1459,13 +1460,14 @@ with tab3:
       zeta = pd.concat([zeta, tzc], ignore_index=True)
       st.table(zeta)
     with sc2:
+      st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTBY'])
       beta = main_data['SENTBY'].value_counts().reset_index()
       beta.columns = ['SENTBY', 'LEADS']
       tac = beta['LEADS'].sum()
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       bxeta = pd.concat([beta, tac], ignore_index=True)
-      st.table(bxeta)
+      #st.table(bxeta)
       st.bar_chart(beta.set_index('SENTBY'))
    with st.container(border=True, height=300):
       main_data=main_data.dropna(subset=['State'])
