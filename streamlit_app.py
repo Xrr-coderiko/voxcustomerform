@@ -1433,7 +1433,7 @@ with tab2:
         
 with tab3:
    st.markdown("<div style='text-align: center;'><h1>AUGUST 2024</h1></div>", unsafe_allow_html=True)
-   with st.container(border=True):
+   with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
     with s1:
      st.markdown("<div style='text-align: center;'><h2>Qualified Leads</h2></div>", unsafe_allow_html=True)
@@ -1442,7 +1442,7 @@ with tab3:
      #st.header(f"{total_rows}")
     with s2:
       #st.header("Closed Leads")
-      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 5px;'><h2>Closed Leads</h2><h3>95</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Closed Leads</h2><h3>95</h3></div>", unsafe_allow_html=True)
       #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
