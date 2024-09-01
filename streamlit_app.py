@@ -1432,6 +1432,9 @@ with tab2:
         st.table(camp)
         
 with tab3:
+   tl1, tl2, tl3 = st.columns(3)
+   with tl2:
+    st.title("AUGUST 2024")
    with st.container(border=True):
     s1, s2, s3 = st.columns(3)
     with s1:
