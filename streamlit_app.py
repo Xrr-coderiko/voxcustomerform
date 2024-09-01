@@ -1457,9 +1457,9 @@ with tab3:
       main_data=main_data.dropna(subset=['SENTBY'])
       beta = main_data['SENTBY'].value_counts().reset_index()
       beta.columns = ['SENTBY', 'LEADS']
-      tzc = beta['LEADS'].sum()
-      tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SENTBY', 'LEADS'])
-      zeta = pd.concat([beta, tzc], ignore_index=True)
+      tac = beta['LEADS'].sum()
+      tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
+      zeta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
     
 
