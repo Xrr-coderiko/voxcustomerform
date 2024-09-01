@@ -1433,7 +1433,7 @@ with tab2:
         
 with tab3:
    with st.container(border=True):
-    s1, s2, s3 = st.columns(2)
+    s1, s2, s3 = st.columns(3)
     with s1(border=True):
      st.header("Qualified Leads")
      st.write(f"{total_rows}")
