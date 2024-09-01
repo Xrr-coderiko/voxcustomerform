@@ -1461,7 +1461,7 @@ with tab3:
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       bxeta = pd.concat([beta, tac], ignore_index=True)
       st.table(bxeta)
-      st.bar_chart(beta.set_index('SENTBY'))
+      st.bar_chart(beta.set_index('LEADS'))
 
  
         
