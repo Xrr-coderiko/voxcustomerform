@@ -1300,7 +1300,7 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 
 tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
 with tab1:
- with st.form(key="vendor_form"):
+ with st.form(key="vendor_form", clear_on_submit=True):
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1392,15 +1392,12 @@ with tab1:
     #if clear_button:
      #     clear_form()
 with tab2:
- 
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
  existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
  #rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
  #rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
-
-
  with st.container(border=True):
   st.header(f"{today} QUALIFIED REPORT-------")    
   cxf1, cxf2 = st.columns(2)
