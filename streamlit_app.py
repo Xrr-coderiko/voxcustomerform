@@ -1454,8 +1454,8 @@ with tab3:
       zeta = pd.concat([zeta, tzc], ignore_index=True)
       st.table(zeta)
     with sc2:
-      main_data=main_data.dropna(subset=['Sent By'])
-      beta = main_data['Sent By'].value_counts().reset_index()
+      main_data=main_data.dropna(subset=['SENTBY'])
+      beta = main_data['SENTBY'].value_counts().reset_index()
       beta.columns = ['SENTBY', 'LEADS']
       tzc = beta['LEADS'].sum()
       tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SENTBY', 'LEADS'])
