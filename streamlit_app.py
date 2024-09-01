@@ -16,7 +16,7 @@ existing_data = conn.read(worksheet="Vendors", usecols=list(range(17)), ttl=5)
 existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
-main_data = conn.read(worksheet="AUG", usecols=list(range(11)), ttl=5)
+main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
