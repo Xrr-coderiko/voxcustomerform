@@ -1484,7 +1484,7 @@ with tab3:
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTTO'])
       peta = main_data['SENTTO'].value_counts().reset_index()
-      peta.columns = ['STEN TO', 'LEADS']
+      peta.columns = ['SENT TO', 'LEADS']
       toc = beta['LEADS'].sum()
       toc = pd.DataFrame([['TOTAL', toc]], columns=['SENT TO', 'LEADS'])
       peta = pd.concat([peta, toc], ignore_index=True)
