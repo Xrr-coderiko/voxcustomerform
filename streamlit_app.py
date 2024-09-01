@@ -1432,8 +1432,19 @@ with tab2:
         st.table(camp)
         
 with tab3:
-  
-   st.header(f"Total Lead: {total_rows}")
+   with st.container(border=True):
+    s1, s2, s3 = st.columns(2)
+    with s1(border=True):
+     st.header("Qualified Leads")
+     st.write(f"{total_rows}")
+    with s2:
+      st.header("Closed Leads")
+      st.write("95")
+    with s3:
+     st.header("SQFT closed") 
+     st.write("63051") 
+    
+
  
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
