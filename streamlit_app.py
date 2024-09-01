@@ -15,10 +15,10 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(1)), ttl=5)
 existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
-total_rows = len(existing_data)
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(11)), ttl=5)
 main_data = main_data.dropna(how="all")
+total_rows = len(main_data)
 
 
 
@@ -1298,9 +1298,9 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-tab1, tab2, tab3 = st.tabs(["For", "Report", "Dashboard"])
+tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
 with tab1:
- with st.form(key="vendor_form", clear_on_submit=False):
+ with st.form(key="vendor_form"):
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1433,7 +1433,9 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+        
 with tab3:
+  
    st.header(f"Total Lead: {total_rows}")
  
         
