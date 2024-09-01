@@ -12,10 +12,15 @@ st.set_page_config(layout="wide")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(17)), ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(1)), ttl=5)
 existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 total_rows = len(existing_data)
+
+main_data = conn.read(worksheet="AUG", usecols=list(range(11)), ttl=5)
+main_data = main_data.dropna(how="all")
+
+
 
 if "Name" not in st.session_state:
     st.session_state.Name = ""
@@ -1293,9 +1298,9 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-tab1, tab2 = st.tabs(["Form", "Dashboard"])
+tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
 with tab1:
- with st.form(key="vendor_form", clear_on_submit=True):
+ with st.form(key="vendor_form", clear_on_submit=False):
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
       Date = st.date_input(label="Date")
@@ -1341,7 +1346,7 @@ with tab1:
       with ct1:
          submit_button = st.form_submit_button(label="Submit Details")
       with ct2:
-         clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
+         clear_button = st.form_submit_button(label="Clear form")
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
@@ -1384,6 +1389,8 @@ with tab1:
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
+    if clear_button:
+          clear_form()
 with tab2:
  
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
@@ -1426,6 +1433,8 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+with tab3:
+   st.header(f"Total Lead: {total_rows}")
  
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
