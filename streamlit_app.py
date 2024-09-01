@@ -1442,7 +1442,14 @@ with tab3:
       st.write("95")
     with s3:
      st.header("SQFT closed") 
-     st.write("63051") 
+     st.write("63051")
+   main_data=main_data.dropna(subset=['Source'])
+   zeta = main_data['Source'].value_counts().reset_index()
+   zeta.columns = ['SOURCE', 'LEADS']
+   tzc = zeta['LEADS'].sum()
+   tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SOURCE', 'LEADS'])
+   zeta = pd.concat([zeta, tzc], ignore_index=True)
+   st.table(zeta)
     
 
  
