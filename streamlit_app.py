@@ -1448,7 +1448,7 @@ with tab3:
       st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>63,051</h3></div>", unsafe_allow_html=True)
       # st.header("SQFT closed") 
       #st.header("63,051")
-   with st.container(border=True, height=300):
+   with st.container(border=True, height=500):
     sc1, sc2 = st.columns(2)
     with sc1:
       st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
