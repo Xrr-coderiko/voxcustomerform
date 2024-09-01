@@ -1441,8 +1441,9 @@ with tab3:
      st.header("Qualified Leads")
      st.header(f"{total_rows}")
     with s2:
-      st.header("Closed Leads")
-      st.markdown("<div style='text-align: center;'><h2>95</h2></div>", unsafe_allow_html=True)
+      #st.header("Closed Leads")
+      st.markdown("<div style='text-align: center;'><h2>Closed Leads</h2></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
      st.header("SQFT closed") 
