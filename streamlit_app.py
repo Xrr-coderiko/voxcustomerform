@@ -1298,7 +1298,7 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
+tab1, tab2, tab3 = st.tabs(["For", "Report", "Dashboard"])
 with tab1:
  with st.form(key="vendor_form", clear_on_submit=False):
     ce1, ce2, ce3, ce4 = st.columns(4)
