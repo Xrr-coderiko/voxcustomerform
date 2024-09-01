@@ -1461,7 +1461,7 @@ with tab3:
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       beta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
-      st.bar_chart(beta)
+      st.plotly_chart(beta)
     
 
  
