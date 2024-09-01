@@ -3,7 +3,6 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
 from datetime import datetime
-import plotly.express as px
 
 st.set_page_config(layout="wide")
 #st.image("./VOXlogo.jpeg",width=500,)
@@ -1462,8 +1461,7 @@ with tab3:
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       beta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
-      st.line_chart(beta.set_index['SENTBY'])
-    
+      st.bar_chart(beta.set_index('SENTBY'))
 
  
         
