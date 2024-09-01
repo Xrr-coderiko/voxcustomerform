@@ -1462,9 +1462,7 @@ with tab3:
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
       beta = pd.concat([beta, tac], ignore_index=True)
       st.table(beta)
-      #st.line_chart(beta)
-      fig = px.pie(beta, names='SENTBY', values='LEADS', title='Sample Pie Chart')
-      st.plotly_chart(fig)
+      st.line_chart(beta.set_index['SENTBY'])
     
 
  
