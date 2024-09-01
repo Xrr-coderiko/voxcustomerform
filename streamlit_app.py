@@ -1467,6 +1467,15 @@ with tab3:
       bxeta = pd.concat([beta, tac], ignore_index=True)
       st.table(bxeta)
       st.bar_chart(beta.set_index('SENTBY'))
+   with st.container(border=True, height=300):
+      main_data=main_data.dropna(subset=['State'])
+      xeta = main_data['State'].value_counts().reset_index()
+      xeta.columns = ['STATE', 'LEADS']
+      tic = beta['LEADS'].sum()
+      tic = pd.DataFrame([['TOTAL', tic]], columns=['STATE', 'LEADS'])
+      xeta = pd.concat([xeta, tic], ignore_index=True)
+      st.table(xeta)
+      
 
  
         
