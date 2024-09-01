@@ -23,9 +23,9 @@ total_rows = len(main_data)
 
 
 if "Name" not in st.session_state:
-    st.session_state.Name
+    st.session_state.Name = ""
 if "Phone" not in st.session_state:
-    st.session_state.Phone
+    st.session_state.Phone = ""
     
     
 def clear_form():
