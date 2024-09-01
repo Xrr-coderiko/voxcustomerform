@@ -1469,7 +1469,10 @@ with tab3:
       bxeta = pd.concat([beta, tac], ignore_index=True)
       #st.table(bxeta)
       st.bar_chart(beta.set_index('SENTBY'))
-   with st.container(border=True, height=300):
+   with st.container(border=True, height=600):
+     z1, z2 = st.columns(2)
+     with z1:
+      st.markdown("<div style='text-align: center;'><h3>State wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['State'])
       xeta = main_data['State'].value_counts().reset_index()
       xeta.columns = ['STATE', 'LEADS']
@@ -1477,6 +1480,15 @@ with tab3:
       tic = pd.DataFrame([['TOTAL', tic]], columns=['STATE', 'LEADS'])
       xeta = pd.concat([xeta, tic], ignore_index=True)
       st.table(xeta)
+     with z2:
+      st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
+      main_data=main_data.dropna(subset=['STENTO'])
+      peta = main_data['STENTO'].value_counts().reset_index()
+      peta.columns = ['STEN TO', 'LEADS']
+      toc = beta['LEADS'].sum()
+      toc = pd.DataFrame([['TOTAL', toc]], columns=['STEN TO', 'LEADS'])
+      peta = pd.concat([peta, toc], ignore_index=True)
+      st.table(peta)
       
 
  
