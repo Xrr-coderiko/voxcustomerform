@@ -1544,7 +1544,7 @@ opacity: 0.25;
 }
 </style>
 <div class="footer">
-Developed by <a style='display: inline; text-align: right; text-decoration: none; color: color: Green;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
+Developed by <a style='display: inline; text-align: right; text-decoration: none; color: Green;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
 </div>
 """
 st.sidebar.markdown(footer,unsafe_allow_html=True)
