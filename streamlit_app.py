@@ -1351,8 +1351,7 @@ with tab1:
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
-    if Sqft: 
-        sqftxt = st.write(f"{Sqft} sqft")
+    
     if submit_button:
         # Check if all mandatory fields are filled
         is_valid = bool(pattern.match(Phone))
@@ -1514,7 +1513,7 @@ sidebar_text = f"""
 {Phone}
 {State}
 {City}
-{products} {sqftxt}
+{products} {Sqft}sqft
 {Source}
 {Sentto}
 {Notes}
