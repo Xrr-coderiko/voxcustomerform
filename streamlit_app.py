@@ -1398,8 +1398,9 @@ with tab2:
  today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
  existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
- #rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
- #rdatarow = ['DATE', 'Website call',	'Meta form', 'Instagram', 'Facebook campaign','Youtube','Website form',	'Youtube call']
+ rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
+ #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
+ 
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1433,6 +1434,10 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+  rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
+  xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'].v
+  xamp.columns                       
+      
         
 with tab3:
    st.markdown("<div style='text-align: center;'><h1>AUGUST 2024</h1></div>", unsafe_allow_html=True)
@@ -1515,7 +1520,33 @@ sidebar_text = f"""
 """
 st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=250)
 
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
 
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
 
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
 
             
