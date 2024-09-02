@@ -1543,7 +1543,7 @@ text-align: right;
 }
 </style>
 <div class="footer">
-Developed by <a style='display: inline; text-align: right; text-decoration: none; color: white;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a>
+Developed by <a style='display: inline; text-align: right; text-decoration: none; color: white;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
