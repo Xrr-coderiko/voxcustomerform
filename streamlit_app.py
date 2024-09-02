@@ -1452,7 +1452,7 @@ with tab3:
       #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
-      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>65,704</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center; border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>65,704</h3></div>", unsafe_allow_html=True)
       # st.header("SQFT closed") 
       #st.header("63,051")
    with st.container(border=True, height=500):
@@ -1543,7 +1543,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a></p>
+Developed with ❤ by <a style='display: inline; text-align: center;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
