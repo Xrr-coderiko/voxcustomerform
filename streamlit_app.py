@@ -1538,8 +1538,8 @@ left: 0;
 bottom: 0;
 width: 100%;
 background-color: transparent;
-color: white;
-text-align: bottom;
+color: Orange;
+text-align: centre;
 }
 </style>
 <div class="footer">
