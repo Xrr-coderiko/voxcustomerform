@@ -1351,6 +1351,8 @@ with tab1:
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
+    if Sqft: 
+        sqftxt = st.write(f"{Sqft} sqft")
     if submit_button:
         # Check if all mandatory fields are filled
         is_valid = bool(pattern.match(Phone))
@@ -1502,7 +1504,7 @@ with tab3:
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
-
+ 
 
 st.sidebar.image('zIntro.jpeg', use_column_width=True)
 #st.sidebar.title(f"Total Lead: {total_rows}")          
@@ -1512,7 +1514,7 @@ sidebar_text = f"""
 {Phone}
 {State}
 {City}
-{products} {Sqft}sqft 
+{products} {sqftxt}
 {Source}
 {Sentto}
 {Notes}
@@ -1540,7 +1542,7 @@ width: 100%;
 background-color: transparent;
 color: Orange;
 text-align: center;
-opacity: 0.25;
+opacity: 0.3;
 }
 </style>
 <div class="footer">
