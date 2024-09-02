@@ -1535,11 +1535,11 @@ text-decoration: underline;
 .footer {
 
 left: 0;
-bottom: 10px;
+bottom: 0;
 width: 100%;
 background-color: transparent;
 color: white;
-text-align: right;
+text-align: bottom;
 }
 </style>
 <div class="footer">
