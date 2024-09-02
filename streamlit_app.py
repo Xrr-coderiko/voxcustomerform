@@ -1537,13 +1537,13 @@ position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: white;
+background-color: transparent;
 color: black;
 text-align: center;
 }
 </style>
 <div class="footer">
-Developed with ❤ by <a style='display: inline; text-align: center; text-decoration: none;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a>
+Developed by <a style='display: inline; text-align: center; text-decoration: none; color: white;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">Vikas Patil</a>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
