@@ -1443,11 +1443,11 @@ with tab3:
      #st.header(f"{total_rows}")
     with s2:
       #st.header("Closed Leads")
-      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Closed Leads</h2><h3>109</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Closed Leads</h2><h3>108</h3></div>", unsafe_allow_html=True)
       #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
-      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>66,479</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>66,200</h3></div>", unsafe_allow_html=True)
       # st.header("SQFT closed") 
       #st.header("63,051")
    with st.container(border=True, height=500):
