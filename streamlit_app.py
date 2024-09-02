@@ -1540,11 +1540,11 @@ width: 100%;
 background-color: transparent;
 color: Orange;
 text-align: center;
-padding-bottom: 5px;
+opacity: 0.5;
 }
 </style>
 <div class="footer">
-Developed by <a style='display: inline; text-align: right; text-decoration: none; color: white;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
+Developed by <a style='display: inline; text-align: right; text-decoration: none; color: color: rgba(234, 240, 246, 0.8);;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
 </div>
 """
 st.sidebar.markdown(footer,unsafe_allow_html=True)
