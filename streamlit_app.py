@@ -1517,7 +1517,7 @@ sidebar_text = f"""
 {Sentto}
 {Notes}
 """
-st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=500)
+st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=350)
 
 footer="""<style>
 a:link , a:visited{
