@@ -1539,7 +1539,7 @@ bottom: 0;
 width: 100%;
 background-color: transparent;
 color: Orange;
-text-align: centre;
+text-align: center;
 }
 </style>
 <div class="footer">
