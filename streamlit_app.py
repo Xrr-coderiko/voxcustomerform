@@ -41,6 +41,7 @@ STATE = [
 "Bihar",
 "Chhattisgarh",
 "Delhi",
+"Delhi NCR",
 "Goa",
 "Gujarat",
 "Haryana",
