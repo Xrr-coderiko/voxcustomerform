@@ -1535,7 +1535,7 @@ text-decoration: underline;
 .footer {
 
 left: 0;
-bottom: 0;
+bottom: -10px;
 width: 100%;
 background-color: transparent;
 color: Orange;
