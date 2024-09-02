@@ -1533,9 +1533,9 @@ text-decoration: underline;
 }
 
 .footer {
-
+position: absolute;
 left: 0;
-bottom: -10px;
+bottom: 0;
 width: 100%;
 background-color: transparent;
 color: Orange;
