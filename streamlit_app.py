@@ -1533,7 +1533,7 @@ text-decoration: underline;
 }
 
 .footer {
-position: absolute;
+vertical-align:text-bottom;
 left: 0;
 bottom: 0;
 width: 100%;
