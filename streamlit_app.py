@@ -1448,7 +1448,7 @@ with tab3:
       #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
       #st.header("95")
     with s3:
-      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>66,200</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>65,704</h3></div>", unsafe_allow_html=True)
       # st.header("SQFT closed") 
       #st.header("63,051")
    with st.container(border=True, height=500):
