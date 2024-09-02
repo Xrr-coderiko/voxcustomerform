@@ -1540,6 +1540,7 @@ width: 100%;
 background-color: transparent;
 color: Orange;
 text-align: center;
+padding-bottom: 5px;
 }
 </style>
 <div class="footer">
