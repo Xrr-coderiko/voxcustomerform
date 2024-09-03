@@ -1429,10 +1429,10 @@ with tab2:
         
         #st.table(source_count)
         for source in source_count['SOURCE']:
-          if source in rdata.head():
+          if source in rdata.columns:
             filtered_rec = rdata[rdata['DATE'] == today][source]
             if not filtered_rec.empty:
-              rvalues.append(filtered_rec.values[0])
+              rvalues.append(filtered_rec.values)
             else:
               rvalues.append(0)
           else:
