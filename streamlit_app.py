@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(17)), ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
 existing_data2 = conn.read(worksheet="Received", usecols=list(range(8)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
@@ -1303,11 +1303,14 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
 with tab1:
  with st.form(key="vendor_form", clear_on_submit=True):
+    cch1, cch2, cch3 = st.columns(3)
+    with cch2:
+     Date = st.date_input(label="Date")
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
-      Date = st.date_input(label="Date")
-    with ce2:
       Name = st.text_input(label="Name*", value=st.session_state.Name)
+    with ce2:
+      Firm = st.text_input(label="Firm Name*")
     with ce3:
      State = st.selectbox(label="State*", options=STATE)
     with ce4: 
@@ -1383,6 +1386,7 @@ with tab1:
                         "NOTE": Notes,
                         "OWNER": Owner,
                         "CAMPAIGN": campaign,
+                        "FIRM": Firm,
                     }
                 ]
             )
