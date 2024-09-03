@@ -1406,7 +1406,8 @@ with tab2:
  existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
  rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
- 
+ rvalues = [] 
+  
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1425,10 +1426,25 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'QUALIFIED']
+        
+        #st.table(source_count)
+        for source in source_count['SOURCE']:
+          if source in rdata.columns:
+            filtered_rec = rdata[rdata['DATE'] == today][source]
+            if not filtered_rec.empty:
+              rvalues.append(filtered_rec.values[0])
+            else:
+              rvalues.append(0)
+          else:
+            rvalues.append(0)
+        source_count['RECEIVED'] = rvalues
+        source_count = source_count[['SOURCE','RECEIVED','QUALIFIED']]
+        trc = source_count['RECEIVED'].sum()
         tc = source_count['QUALIFIED'].sum()
-        tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'QUALIFIED'])
-        source_count = pd.concat([source_count, tr], ignore_index=True)
-        st.table(source_count)
+        tr = pd.DataFrame([['TOTAL', trc, tc]], columns=['SOURCE', 'RECEIVED', 'QUALIFIED'])
+        finaldf = pd.concat([source_count, tr], ignore_index=True)
+        st.table(finaldf)
+              
   if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
@@ -1437,6 +1453,7 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+        
   rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
       
