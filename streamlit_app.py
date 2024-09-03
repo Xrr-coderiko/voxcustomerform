@@ -69,7 +69,7 @@ STATE = [
 ]
 CITY = [
     " ",
-    "Bangalore",
+    "Bengaluru",
     "Mangalore",
 "Mumbai",
 "Hyderabad",
