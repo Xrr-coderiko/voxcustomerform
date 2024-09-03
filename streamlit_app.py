@@ -1425,8 +1425,8 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'RECIVED', 'QUALIFIED']
-        tc = source_count['LEADS'].sum()
-        tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'LEADS'])
+        tc = source_count['QUALIFIED'].sum()
+        tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'RECIVED', 'QUALIFIED'])
         source_count = pd.concat([source_count, tr], ignore_index=True)
         st.table(source_count)
   if 'CAMPAIGN' in existing_data.columns:
