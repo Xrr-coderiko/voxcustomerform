@@ -1523,7 +1523,7 @@ with tab3:
 with tab4:
     st.header(f"total dealers: {total_rowd}")      
     dcity = st.text_input(label="City")
-    disdata = disdata.dropna(subset=['City', 'Distributor', 'Status'])
+    disdata = disdata.dropna(subset=['City', 'Dealer', 'Status'])
     if dcity:
        fcity = disdata[disdata['City'].str.contains(dcity, case=False, na=False)]
        if not fcity.empty:
@@ -1536,9 +1536,9 @@ with tab4:
          
          if st.button('Update status'):
            rindex = disdata.index[disdata['Dealer']==dealeredit].tolist()[0]
-           conn.writeback(sheet, 'Status', nstatus, index = rindex + 2)
+           nntata = disdata.writeback(disdata['Dealer'], 'Status', nstatus, index = rindex + 2)
            st.success(f'status of {dealeredit} updated to {nstatus}.')
-           distata = pd.DataFrame(sheet)
+           distata = pd.DataFrame(nntata)
        else: 
          st.write('No Dealers found in this city.')
     else: 
