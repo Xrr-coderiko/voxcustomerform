@@ -24,7 +24,7 @@ total_rows = len(main_data)
 #disdata = disdata.dropna(how='all')
 
 
-sheet = conn['Dealer']
+sheet = 'Dealer'
 disdata = pd.DataFrame(sheet)
 total_rowd = len(disdata)
 
