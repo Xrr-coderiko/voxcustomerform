@@ -20,10 +20,13 @@ main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
-disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
-disdata = disdata.dropna(how='all')
-total_rowd = len(disdata)
+#disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
+#disdata = disdata.dropna(how='all')
 
+
+sheet = conn['Dealer']
+disdata = pd.DataFrame(sheet)
+total_rowd = len(disdata)
 
 if "Name" not in st.session_state:
     st.session_state.Name = ""
@@ -1523,7 +1526,27 @@ with tab3:
       st.table(peta)
 with tab4:
     st.header(f"total dealers: {total_rowd}")      
-
+    dcity = st.text_input(label="City")
+    disdata = disdata.dropna(subset=['City', 'Distributor', 'Status'])
+    if dcity:
+       fcity = disdata[disdata['City'].str.contains(dcity, case=False, na=False)]
+       if not fcity.empty:
+         st.table(fcity[['Dealer','City', 'Status']])
+       dealeredit = st.selectbox('select dealer to edit', fcity['Dealer'].unique())
+       if dealeredit:
+         cstatus = fcity[fcity['Dealer']==dealeredit]['Status'].values[0]
+         st.write(f'current status: {cstatus}')
+         nstatus = st.selectbox('change status to ',['Active','Inactive'])
+         
+         if st.button('Update status'):
+           rindex = disdata.index[disdata['Dealer']==dealeredit].tolist()[0]
+           conn.writeback(sheet, 'Status', nstatus, index = rindex + 2)
+           st.success(f'status of {dealeredit} updated to {nstatus}.')
+           distata = pd.DataFrame(sheet)
+       else: 
+         st.write('No Dealers found in this city.')
+    else: 
+       st.write('please enter a city name to search for dealers.')
  
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
