@@ -1539,7 +1539,9 @@ with tab4:
            disdata.at[rindex, 'Status'] = nstatus
            aloo = st.connection("gsheets").write(disdata, worksheet="Dealer")
            st.success(f'status of {dealeredit} updated to {nstatus}.')
-           distata = pd.DataFrame(aloo)
+           disdata = pd.DataFrame(aloo)
+           disata = st.connection("gsheets").read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
+           disata = disdata.dropna(how='all')
        else: 
          st.write('No Dealers found in this city.')
     else: 
