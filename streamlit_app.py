@@ -21,7 +21,7 @@ main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
 sheet = 'Dealer'
-disdata = conn.read(sheet, usecols=list(range(3)), ttl=5)
+disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how='all')
 total_rowd = len(disdata)
 
