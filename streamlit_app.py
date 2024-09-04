@@ -1536,9 +1536,10 @@ with tab4:
          
          if st.button('Update status'):
            rindex = disdata.index[disdata['Dealer']==dealeredit].tolist()[0]
-           nntata = disdata.writeback(disdata['Dealer'], 'Status', nstatus, index = rindex + 2)
+           disdata.at[rindex, 'Status'] = nstatus
+           aloo = st.connection("gsheets").write(disdata, worksheet="Dealer")
            st.success(f'status of {dealeredit} updated to {nstatus}.')
-           distata = pd.DataFrame(nntata)
+           distata = pd.DataFrame(aloo)
        else: 
          st.write('No Dealers found in this city.')
     else: 
