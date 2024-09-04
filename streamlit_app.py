@@ -1413,7 +1413,9 @@ with tab2:
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:
-   if 'SENT BY' in existing_data.columns:
+   g1,g2 = st.columns(2)
+   with g1:
+    if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts.columns = ['SENT BY', 'LEADS']
