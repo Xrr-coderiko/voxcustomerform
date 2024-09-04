@@ -25,7 +25,7 @@ total_rows = len(main_data)
 
 
 sheet = 'Dealer'
-disdata = pd.DataFrame(sheet)
+disdata = conn.read(sheet)
 total_rowd = len(disdata)
 
 if "Name" not in st.session_state:
