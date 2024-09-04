@@ -20,6 +20,9 @@ main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
+disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
+disdata = disdata.dropna(how='all')
+total_rowd = len(disdata)
 
 
 if "Name" not in st.session_state:
@@ -1300,7 +1303,7 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-tab1, tab2, tab3 = st.tabs(["Form", "Report", "Dashboard"])
+tab1, tab2, tab3, tab4 = st.tabs(["Form", "Report", "Dashboard", "Dealer"])
 with tab1:
  with st.form(key="vendor_form", clear_on_submit=True):
     cch1, cch2, cch3 = st.columns(3)
@@ -1518,7 +1521,8 @@ with tab3:
       toc = pd.DataFrame([['TOTAL', toc]], columns=['SENT TO', 'LEADS'])
       peta = pd.concat([peta, toc], ignore_index=True)
       st.table(peta)
-      
+with tab4:
+    st.header(f"total dealers: {total_rowd}")      
 
  
         
