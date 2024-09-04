@@ -20,7 +20,8 @@ main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
-disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
+sheet = 'Dealer'
+disdata = conn.read(sheet, usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how='all')
 total_rowd = len(disdata)
 
@@ -1536,12 +1537,11 @@ with tab4:
          
          if st.button('Update status'):
            rindex = disdata.index[disdata['Dealer']==dealeredit].tolist()[0]
-           disdata.at[rindex, 'Status'] = nstatus
-           aloo = st.connection("gsheets").write(disdata, worksheet="Dealer")
+           #disdata.at[rindex, 'Status'] = nstatus
+           sheet.update_cell(rindex + 2, disdata.columns.get_loc('Status') + 1, nstatus)
            st.success(f'status of {dealeredit} updated to {nstatus}.')
-           disdata = pd.DataFrame(aloo)
-           disata = st.connection("gsheets").read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
-           disata = disdata.dropna(how='all')
+           disdata = pd.DataFrame(sheet)
+
        else: 
          st.write('No Dealers found in this city.')
     else: 
