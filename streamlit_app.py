@@ -1537,19 +1537,20 @@ with tab4:
     else: 
        st.write('please enter a city name to search for dealers.')
   with cy2:
-    st.write("Add dealers")
-    add_button = st.form_submit_button(label='Add Dealer')
-    if add_button: 
-     DSTATUS = ['Active', 'Inactive']
-     ddname = st.text_input(label="Dealer Name: ")
-     ddcity = st.text_input(label="City: ")
-     ddstatus = st.selectbox(label="Status ", options=DSTATUS)
-     # Create a new row for the DataFrame
-     new_row = pd.DataFrame([{
+    with st.form(key="dealers"):
+     st.write("Add dealers")
+     add_button = st.form_submit_button(label='Add Dealer')
+     if add_button: 
+      DSTATUS = ['Active', 'Inactive']
+      ddname = st.text_input(label="Dealer Name: ")
+      ddcity = st.text_input(label="City: ")
+      ddstatus = st.selectbox(label="Status ", options=DSTATUS)
+      # Create a new row for the DataFrame
+      new_row = pd.DataFrame([{
        "Dealer": ddname,
        "City": ddcity,
        "Status": ddstatus,
-     }])
+      }])
      ddata = pd.concat([disdata, new_row], ignore_index=True)
      conn.update(worksheet="Dealer", data=ddata)
      st.success('Dealer added')
