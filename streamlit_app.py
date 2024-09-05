@@ -1538,7 +1538,8 @@ with tab4:
        st.write('please enter a city name to search for dealers.')
   with cy2:
     st.write("Add dealers")
-    if st.submit('Add Dealer'):
+    add_button = st.form_submit_button('Add Dealer')
+    if add_button: 
      DSTATUS = ['Active', 'Inactive']
      ddname = st.text_input(label="Dealer Name: ")
      ddcity = st.text_input(label="City: ")
