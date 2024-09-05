@@ -1538,7 +1538,6 @@ with tab4:
        st.write('please enter a city name to search for dealers.')
   with cy2:
     st.write("Add dealers")
-    ddata = pd.DataFrame(disdata)
     ddname = st.text_input(label="Dealer Name: ")
     ddcity = st.text_input(label="City: ")
     ddstatus = st.selectbox(label="Status ", options=['Actice, Inactive'])
@@ -1548,7 +1547,10 @@ with tab4:
       'City': ddcity,
       'Status': ddstatus,
      }
-    ddata = ddata.append(new_row, ignore_index=True)
+    ddata = pd.concat([disdata, new_row], ignore_index=True)
+    conn.update(worksheet="Dealer", data=ddata)
+    st.success('Dealer added')
+
  
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
