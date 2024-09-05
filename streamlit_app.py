@@ -1522,6 +1522,8 @@ with tab3:
       peta = pd.concat([peta, toc], ignore_index=True)
       st.table(peta)
 with tab4:
+  cy1, cy2 = st.columns(2)
+  with cy1:
     st.header(f"total dealers: {total_rowd}")      
     dcity = st.text_input(label="City")
     disdata = disdata.dropna(subset=['City', 'Dealer', 'Status'])
@@ -1529,23 +1531,23 @@ with tab4:
        fcity = disdata[disdata['City'].str.contains(dcity, case=False, na=False)]
        if not fcity.empty:
          st.table(fcity[['Dealer','City', 'Status']])
-       dealeredit = st.selectbox('select dealer to edit', fcity['Dealer'].unique())
-       if dealeredit:
-         cstatus = fcity[fcity['Dealer']==dealeredit]['Status'].values[0]
-         st.write(f'current status: {cstatus}')
-         nstatus = st.selectbox('change status to ',['Active','Inactive'])
-         
-         if st.button('Update status'):
-           rindex = disdata.index[disdata['Dealer']==dealeredit].tolist()[0]
-           #disdata.at[rindex, 'Status'] = nstatus
-           sheet.update_cell(rindex + 2, disdata.columns.get_loc('Status') + 1, nstatus)
-           st.success(f'status of {dealeredit} updated to {nstatus}.')
-           disdata = pd.DataFrame(sheet)
-
+      
        else: 
          st.write('No Dealers found in this city.')
     else: 
        st.write('please enter a city name to search for dealers.')
+  with cy2:
+    st.write("Add dealers")
+    ddname = st.text_input(label="Dealer Name: ")
+    ddcity = st.text_input(label="City: ")
+    ddstatus = st.selectbox(label="Status ", options=['Actice, Inactive'])
+    # Create a new row for the DataFrame
+    new_row = {
+      'Dealer': ddname,
+      'City': ddcity,
+      'Status': ddstatus,
+     }
+    disdata = disdata.append(new_row, ignore_index=True)
  
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
