@@ -1542,11 +1542,11 @@ with tab4:
     ddcity = st.text_input(label="City: ")
     ddstatus = st.selectbox(label="Status ", options=['Actice, Inactive'])
     # Create a new row for the DataFrame
-    new_row = pd.DataFrame(
-      'Dealer': ddname,
-      'City': ddcity,
-      'Status': ddstatus,
-    )
+    new_row = pd.DataFrame([{
+      "Dealer": ddname,
+      "City": ddcity,
+      "Status": ddstatus,
+    }])
     ddata = pd.concat([disdata, new_row], ignore_index=True)
     conn.update(worksheet="Dealer", data=ddata)
     st.success('Dealer added')
