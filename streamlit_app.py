@@ -1551,9 +1551,9 @@ with tab4:
        "City": ddcity,
        "Status": ddstatus,
       }])
-     ddata = pd.concat([disdata, new_row], ignore_index=True)
-     conn.update(worksheet="Dealer", data=ddata)
-     st.success('Dealer added')
+      ddata = pd.concat([disdata, new_row], ignore_index=True)
+      conn.update(worksheet="Dealer", data=ddata)
+      st.success('Dealer added')
 
  
         
