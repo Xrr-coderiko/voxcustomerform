@@ -1538,9 +1538,10 @@ with tab4:
        st.write('please enter a city name to search for dealers.')
   with cy2:
     st.write("Add dealers")
+    DSTATUS = ['Active', 'Inactive']
     ddname = st.text_input(label="Dealer Name: ")
     ddcity = st.text_input(label="City: ")
-    ddstatus = st.selectbox(label="Status ", options=['Actice, Inactive'])
+    ddstatus = st.selectbox(label="Status ", options=DSTATUS)
     # Create a new row for the DataFrame
     new_row = pd.DataFrame([{
       "Dealer": ddname,
