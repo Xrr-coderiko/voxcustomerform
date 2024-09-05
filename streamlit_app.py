@@ -20,9 +20,9 @@ main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
-sheet = 'Dealer'
+
 disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
-disdata = disdata.dropna(how='all')
+disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
 if "Name" not in st.session_state:
@@ -1542,11 +1542,11 @@ with tab4:
     ddcity = st.text_input(label="City: ")
     ddstatus = st.selectbox(label="Status ", options=['Actice, Inactive'])
     # Create a new row for the DataFrame
-    new_row = {
+    new_row = pd.DataFrame(
       'Dealer': ddname,
       'City': ddcity,
       'Status': ddstatus,
-     }
+    )
     ddata = pd.concat([disdata, new_row], ignore_index=True)
     conn.update(worksheet="Dealer", data=ddata)
     st.success('Dealer added')
