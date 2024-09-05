@@ -1539,12 +1539,13 @@ with tab4:
   with cy2:
     with st.form(key="dealers"):
      st.write("Add dealers")
-     add_button = st.form_submit_button(label='Add Dealer')
+     
      if add_button: 
       DSTATUS = ['Active', 'Inactive']
       ddname = st.text_input(label="Dealer Name: ")
       ddcity = st.text_input(label="City: ")
       ddstatus = st.selectbox(label="Status ", options=DSTATUS)
+      add_button = st.form_submit_button(label='Add Dealer')
       # Create a new row for the DataFrame
       new_row = pd.DataFrame([{
        "Dealer": ddname,
