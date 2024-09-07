@@ -1441,9 +1441,11 @@ with tab2:
         #st.dataframe(pd.DataFrame([rdata[0]]).transpose())
         #st.dataframe(rxdf)
         rxdf = pd.DataFrame(existing_data2[1:], columns=existing_data2[0])
-        rxdf['Leads'] = rdata.iloc[:, 1:].sum(axis=1)
-        st.dataframe(rxdf)
-        st.dataframe(rxdf[['DATE', 'Leads']])
+        rxdf['Leads'] = existing_data2.iloc[:, 1:].sum(axis=1)
+        rmelted = rdata.melt(id_vars=["DATE"], var_name="Source", value_name="Leads")
+        rmelted = rmelted.drop(columns=["DATE"])
+        st.dataframe(rmelted)
+        st.bar_chart(rmelted.set_index('Source'))
         
               
   if 'CAMPAIGN' in existing_data.columns:
