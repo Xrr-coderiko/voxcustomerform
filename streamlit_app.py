@@ -1437,9 +1437,9 @@ with tab2:
         st.table(finaldf)
   with cxxf3:    
         #st.table(source_count)
-        rxdf = pd.DataFrame(rdata[1:], columns=rdata[0]) 
-        st.dataframe(pd.DataFrame([rdata[0]]).transpose())
-        st.dataframe(rxdf)
+        #rxdf = pd.DataFrame(rdata[1:], columns=rdata[0]) 
+        #st.dataframe(pd.DataFrame([rdata[0]]).transpose())
+        #st.dataframe(rxdf)
         rxdf = pd.DataFrame(existing_data2[1:], columns=existing_data2[0])
         rxdf['Leads'] = rdata.iloc[:, 1:].sum(axis=1)
         st.dataframe(rxdf)
