@@ -1433,8 +1433,9 @@ with tab2:
         source_count.columns = ['SOURCE', 'QUALIFIED']
         
         #st.table(source_count)
+        rxdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
         for source in source_count['SOURCE']:
-          if source in rdata.columns:
+          if source in rxdata:
             filtered_rec = rdata[rdata['DATE'] == today][source]
             if not filtered_rec.empty:
               rvalues.append(filtered_rec.values)
