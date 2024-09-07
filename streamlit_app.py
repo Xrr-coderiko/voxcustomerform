@@ -1434,7 +1434,7 @@ with tab2:
         
         #st.table(source_count)
         for source in source_count['SOURCE']:
-          if source in rdata.columns:
+          if source in rdata.rows:
             filtered_rec = rdata[rdata['DATE'] == today][source]
             if not filtered_rec.empty:
               rvalues.append(filtered_rec.values)
@@ -1554,6 +1554,7 @@ with tab4:
       ddata = pd.concat([disdata, new_row], ignore_index=True)
       conn.update(worksheet="Dealer", data=ddata)
       st.success('Dealer added')
+      st.success()
 
  
         
