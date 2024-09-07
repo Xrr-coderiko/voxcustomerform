@@ -1414,7 +1414,7 @@ with tab2:
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   #st.header(f"{today} QUALIFIED REPORT-------")    
-  cxxf1, cxxf2 = st.columns(2)            
+  cxxf1, cxxf2, cxxf3 = st.columns(3)            
   with cxxf1:
    g1,g2 = st.columns(2)
    with g1:
@@ -1431,25 +1431,19 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'QUALIFIED']
-        
-        #st.table(source_count)
-        rxdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
-        for source in source_count['SOURCE']:
-          if source in rxdata:
-            filtered_rec = rdata[rdata['DATE'] == today][source]
-            if not filtered_rec.empty:
-              rvalues.append(filtered_rec.values)
-            else:
-              rvalues.append(0)
-          else:
-            rvalues.append(0)
-        source_count['RECEIVED'] = rvalues
-        source_count = source_count[['SOURCE','RECEIVED','QUALIFIED']]
-        trc = source_count['RECEIVED'].sum()
         tc = source_count['QUALIFIED'].sum()
-        tr = pd.DataFrame([['TOTAL', trc, tc]], columns=['SOURCE', 'RECEIVED', 'QUALIFIED'])
+        tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'QUALIFIED'])
         finaldf = pd.concat([source_count, tr], ignore_index=True)
         st.table(finaldf)
+  with cxxf3:    
+        #st.table(source_count)
+        rxdf = pd.DataFrame(rdata[1:], columns=rdata[0]) 
+        st.dataframe(pd.DataFrame([rdata[0]]).transpose())
+        st.dataframe(rxdf)
+        rxdf = pd.DataFrame(rdata[1:], columns=rdata[0])
+        rxdf['Leads'] = rdata.iloc[:, 1:].sum(axis=1)
+        st.dataframe(rxdf)
+        
               
   if 'CAMPAIGN' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
