@@ -1440,9 +1440,10 @@ with tab2:
         rxdf = pd.DataFrame(rdata[1:], columns=rdata[0]) 
         st.dataframe(pd.DataFrame([rdata[0]]).transpose())
         st.dataframe(rxdf)
-        rxdf = pd.DataFrame(rdata[1:], columns=rdata[0])
+        rxdf = pd.DataFrame(existing_data2[1:], columns=existing_data2[0])
         rxdf['Leads'] = rdata.iloc[:, 1:].sum(axis=1)
         st.dataframe(rxdf)
+        st.dataframe(rxdf[['DATE', 'Leads']])
         
               
   if 'CAMPAIGN' in existing_data.columns:
