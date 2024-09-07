@@ -1442,7 +1442,7 @@ with tab2:
         #rxdf = pd.DataFrame(rdata[1:], columns=rdata[0]) 
         #st.dataframe(pd.DataFrame([rdata[0]]).transpose())
         #st.dataframe(rxdf)
-        rxdf = pd.DataFrame(existing_data2[1:], columns=existing_data2[0])
+        rxdf = existing_data2.copy()
         rxdf['Leads'] = existing_data2.iloc[:, 1:].sum(axis=1)
         rmelted = rdata.melt(id_vars=["DATE"], var_name="Source", value_name="Leads")
         rmelted = rmelted.drop(columns=["DATE"])
