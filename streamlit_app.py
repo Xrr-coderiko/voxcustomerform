@@ -22,6 +22,7 @@ main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
 total_rows = len(main_data)
 
+st.write("recdata:", recdata)
 
 disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how="all")
