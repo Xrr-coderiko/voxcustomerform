@@ -1414,7 +1414,7 @@ with tab2:
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   #st.header(f"{today} QUALIFIED REPORT-------")    
-  cxxf1, cxxf2, cxxf3 = st.columns(3)            
+  cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:
    g1,g2 = st.columns(2)
    with g1:
@@ -1426,7 +1426,7 @@ with tab2:
      total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
      sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
      st.table(sentby_counts)
-  with cxxf2:
+  with g2:
     if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
@@ -1435,7 +1435,7 @@ with tab2:
         tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'QUALIFIED'])
         finaldf = pd.concat([source_count, tr], ignore_index=True)
         st.table(finaldf)
-  with cxxf3:    
+  with cxxf2:    
         recdata_reset = recdata.reset_index(drop=True)
         html_table = recdata_reset.to_html(index=False)
         st.write(html_table, unsafe_allow_html=True)
