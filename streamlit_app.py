@@ -1433,9 +1433,10 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'QUALIFIED']
+        source_count['RECEIVED'] = ['25', '30']
         tc = source_count['QUALIFIED'].sum()
-        tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'QUALIFIED'])
-        tr['RECEIVED'] = ['1','2']
+        trsc = source_count['RECEIVED'].sum()
+        tr = pd.DataFrame([['TOTAL', trsc, tc]], columns=['SOURCE','RECEIVED', 'QUALIFIED'])
         finaldf = pd.concat([source_count, tr])
         htmltbs = finaldf.to_html(index=False)
         st.write(htmltbs, unsafe_allow_html=True)
