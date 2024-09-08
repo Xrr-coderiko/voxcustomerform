@@ -1456,6 +1456,7 @@ with tab2:
             vertical-align: middle !important;
          }
          th {
+           border = 2px solid white;
            background-color: red; color: white;
           }
         </style>
