@@ -1447,7 +1447,11 @@ with tab2:
         existing_data2.iloc[:, 1:] = existing_data2.iloc[:, 1:].apply(pd.to_numeric, errors='coerce')
         rxdf['Leads'] = existing_data2.iloc[:, 1:].sum(axis=1)
         rmelted = rdata.melt(id_vars=["DATE"], var_name="Source", value_name="Leads")
+        rmelted['Source'] = rmelted['Source'].fillna("").astype(str)  # Convert Source to string
+        rmelted['Leads'] = rmelted['Leads'].fillna(0)  
         rmelted = rmelted.drop(columns=["DATE"])
+        currentdate = pd.Timestamp.today().strftime('%d/%m/%Y')
+        currentdatedata = rmelted[rmelted['DATE'] == pd.Timestamp.today()]
         st.dataframe(rmelted)
         st.bar_chart(rmelted.set_index('Source'))
         
