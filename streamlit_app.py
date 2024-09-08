@@ -1440,7 +1440,7 @@ with tab2:
         st.write(htmltbs, unsafe_allow_html=True)
         #st.table(finaldf)
   with cxxf2:    
-        recdata[["SOURCE",	"RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["SOURCE",	"RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
+        recdata[["SOURCE",	"RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["SOURCE",	"RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(str)
         recdata_reset = recdata.reset_index(drop=True)
         html_table = recdata_reset.to_html(index=False)
         st.write(html_table, unsafe_allow_html=True)
