@@ -1533,7 +1533,7 @@ with tab3:
    with st.container(border=True, height=600):
     z1, z2 = st.columns(2)
     with z1:
-     with st.container():
+     with st.container(border=True, height=550):
       st.markdown("<div style='text-align: center;'><h3>State wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['State'])
       xeta = main_data['State'].value_counts().reset_index()
@@ -1544,7 +1544,7 @@ with tab3:
       htmlx = xeta.to_html(index=False)
       st.write(htmlx, unsafe_allow_html=True)
     with z2:
-     with st.container():    
+     with st.container(border=True, height=550):   
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTTO'])
       peta = main_data['SENTTO'].value_counts().reset_index()
