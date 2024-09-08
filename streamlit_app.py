@@ -1461,7 +1461,7 @@ with tab2:
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
         
-  rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
+  #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
       
         
