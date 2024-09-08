@@ -1436,7 +1436,7 @@ with tab2:
         finaldf = pd.concat([source_count, tr], ignore_index=True)
         st.table(finaldf)
   with cxxf2:    
-        recdata_reset = recdata.reset_index(drop=True)
+        recdata_reset = recdata.reset_index(drop=True).astype(int)
         html_table = recdata_reset.to_html(index=False)
         st.write(html_table, unsafe_allow_html=True)
         #st.dataframe(recdata_reset)
