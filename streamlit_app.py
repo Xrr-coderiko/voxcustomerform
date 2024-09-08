@@ -1424,7 +1424,8 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts.columns = ['CC Executives', 'QUALIFIED']
-     sentby_counts['ATTENDED'] = Attended.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     sentby_counts['ATTENDED'] = Attended
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalca, totalcs]], columns=['CC Executives', 'ATTENDED', 'QUALIFIED'])
