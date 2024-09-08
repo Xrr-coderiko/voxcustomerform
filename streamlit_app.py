@@ -1442,10 +1442,22 @@ with tab2:
   with cxxf2:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
         recdata_reset = recdata.reset_index(drop=True)
-        html_table = recdata_reset.to_html(index=False)
-        st.write(html_table, unsafe_allow_html=True)
+        #html_table = recdata_reset.to_html(index=False)
+        #st.write(html_table, unsafe_allow_html=True)
         #st.dataframe(recdata_reset)
-        
+        hide_table_row_index = """
+        <style>
+         table {
+            width: 100%;
+          }
+         th, td {
+            text-align: center !important;
+            vertical-align: middle !important;
+         }
+        </style>
+       """
+        st.markdown(hide_table_row_index, unsafe_allow_html=True)
+        st.write(recdata_reset.to_html(index=False), unsafe_allow_html=True)
         
               
   if 'CAMPAIGN' in existing_data.columns:
