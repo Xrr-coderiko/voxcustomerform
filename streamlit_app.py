@@ -1429,9 +1429,10 @@ with tab2:
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalca, totalcs]], columns=['CC-Executives', 'ATTENDED', 'QUALIFIED'])
-     sentby_counts = pd.concat([sentby_counts, total_row])
+     finldb = pd.concat([sentby_counts, total_row])
+     
      #st.table(sentby_counts)
-     htmltbst = sentby_counts.to_html(index=False)
+     htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
    
   
@@ -1592,10 +1593,9 @@ with tab4:
         
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
- 
+ #st.sidebar.title(f"Total Lead: {total_rows}")  
 
 st.sidebar.image('zIntro.jpeg', use_column_width=True)
-#st.sidebar.title(f"Total Lead: {total_rows}")          
 products = ', '.join(Product)
 if not Sqft:
    #sqdata = st.write(f"{Sqft}sqft")
