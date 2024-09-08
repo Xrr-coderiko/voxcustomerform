@@ -1408,8 +1408,6 @@ with tab2:
  today = datetime.today().strftime('%d/%m/%Y')
  today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
- existing_data2['DATE'] = pd.to_datetime(recdata['DATE'], format='%d/%m/%Y', errors='coerce')
- rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
  rvalues = [] 
   
