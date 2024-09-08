@@ -1456,7 +1456,7 @@ with tab2:
             vertical-align: middle !important;
          }
          th {
-           border: 4px solid Blue;
+           border: 2px solid White;
            background-color: red; color: white;
           }
         </style>
@@ -1473,6 +1473,8 @@ with tab2:
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         st.table(camp)
+        htmltbcm = camp.to_html(index=False)
+        st.write(htmltbcm, unsafe_allow_html=True)
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
