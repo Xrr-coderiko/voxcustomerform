@@ -1509,7 +1509,7 @@ with tab3:
    with st.container(border=True, height=500):
     sc1, sc2 = st.columns(2)
     with sc1:
-     with st.container(border=True, height=200):
+     with st.container(border=True, height=475):
       st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['Source'])
       zeta = main_data['Source'].value_counts().reset_index()
@@ -1520,7 +1520,7 @@ with tab3:
       htmlz = zeta.to_html(index=False)
       st.write(htmlz, unsafe_allow_html=True)
     with sc2:
-     with st.container(border=True, height=200):
+     with st.container(border=True, height=475):
       st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTBY'])
       beta = main_data['SENTBY'].value_counts().reset_index()
