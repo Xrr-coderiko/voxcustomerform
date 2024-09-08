@@ -1433,7 +1433,8 @@ with tab2:
      #st.table(sentby_counts)
      htmltbst = sentby_counts.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
-  with g2:
+   '''
+   with g2:
       if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
@@ -1445,6 +1446,7 @@ with tab2:
         finaldf = pd.concat([source_count, tr])
         htmltbs = finaldf.to_html(index=False)
         st.write(htmltbs, unsafe_allow_html=True)
+   '''
         #st.table(finaldf)
   with cxxf2:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
