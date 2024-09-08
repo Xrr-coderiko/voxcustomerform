@@ -1600,7 +1600,7 @@ products = ', '.join(Product)
 if Sqft:
    sqdata = st.write(f"{Sqft}sqft")
 else:
-   sqdata = st.write("")
+   sqdata = st.write(" ")
 sidebar_text = f"""
 {Name}
 {Phone}
