@@ -1455,9 +1455,6 @@ with tab2:
             text-align: center !important;
             vertical-align: middle !important;
          }
-         td{
-           text-align: lift !important;
-         }
          th {
            border: 2px solid White;
            background-color: grey; color: white;
@@ -1465,6 +1462,9 @@ with tab2:
           tr th:nth-child(3), th:nth-child(4), th:nth-child(5)
           {
             background-color: deepskyblue; color: white;
+          }
+          td:nth-child(1){
+            text-align: right;
           }
         </style>
        """
