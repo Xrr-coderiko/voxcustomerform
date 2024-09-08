@@ -1457,7 +1457,7 @@ with tab2:
          }
          th {
            border: 2px solid White;
-           background-color: red; color: white;
+           background-color: grey; color: white;
           }
         </style>
        """
@@ -1472,7 +1472,7 @@ with tab2:
         ttc = camp['LEADS'].sum()
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
         camp = pd.concat([camp, ttr], ignore_index=True)
-        st.table(camp)
+        #st.table(camp)
         htmltbcm = camp.to_html(index=False)
         st.write(htmltbcm, unsafe_allow_html=True)
         
