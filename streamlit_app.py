@@ -1421,10 +1421,11 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts.columns = ['SENT BY', 'LEADS']
-     
-     total_count = sentby_counts['LEADS'].sum()
-     total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
+     sentby_counts.columns = ['CC Executives', 'QUALIFIED']
+     sentby_counts['ATTENDED'] = ['25']
+     totalcs = sentby_counts['QUALIFIED'].sum()
+     totalca = sentby_counts['ATTENDED'].sum()
+     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC Executives', 'ATTENDED', 'QUALIFIED'])
      sentby_counts = pd.concat([sentby_counts, total_row])
      #st.table(sentby_counts)
      htmltbst = sentby_counts.to_html(index=False)
@@ -1433,8 +1434,8 @@ with tab2:
     if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
-        source_count.columns = ['SOURCE', 'QUALIFIED']
         source_count['RECEIVED'] = ['25']
+        source_count.columns = ['SOURCE', 'QUALIFIED']
         tc = source_count['QUALIFIED'].sum()
         trsc = source_count['RECEIVED'].sum()
         tr = pd.DataFrame([['TOTAL', trsc, tc]], columns=['SOURCE','RECEIVED', 'QUALIFIED'])
