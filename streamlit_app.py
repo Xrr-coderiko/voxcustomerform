@@ -1516,7 +1516,8 @@ with tab3:
       tzc = zeta['LEADS'].sum()
       tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SOURCE', 'LEADS'])
       zeta = pd.concat([zeta, tzc], ignore_index=True)
-      st.table(zeta)
+      htmlz = zeta.to_html(index=False)
+      st.write(htmlz, unsafe_allow_html=True)
     with sc2:
       st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTBY'])
@@ -1537,7 +1538,8 @@ with tab3:
       tic = beta['LEADS'].sum()
       tic = pd.DataFrame([['TOTAL', tic]], columns=['STATE', 'LEADS'])
       xeta = pd.concat([xeta, tic], ignore_index=True)
-      st.table(xeta)
+      htmlx = xeta.to_html(index=False)
+      st.write(htmlx, unsafe_allow_html=True)
      with z2:
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTTO'])
@@ -1546,7 +1548,8 @@ with tab3:
       toc = beta['LEADS'].sum()
       toc = pd.DataFrame([['TOTAL', toc]], columns=['SENT TO', 'LEADS'])
       peta = pd.concat([peta, toc], ignore_index=True)
-      st.table(peta)
+      htmlp = peta.to_html(index=False)
+      st.write(htmlp, unsafe_allow_html=True)
 with tab4:
   cy1, cy2 = st.columns(2)
   with cy1:
