@@ -1467,6 +1467,7 @@ with tab2:
        """
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
         st.write(recdata_reset.to_html(index=False), unsafe_allow_html=True)
+        st.bar_chart(current_date_data.set_index('SOURCE')['RECEIVED'])
         
               
   if 'CAMPAIGN' in existing_data.columns:
