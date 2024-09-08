@@ -1435,7 +1435,7 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count['RECEIVED'] = ['25']
-        source_count.columns = ['SOURCE', 'QUALIFIED']
+        source_count.columns = ['SOURCE','RECEIVED', 'QUALIFIED',]
         tc = source_count['QUALIFIED'].sum()
         trsc = source_count['RECEIVED'].sum()
         tr = pd.DataFrame([['TOTAL', trsc, tc]], columns=['SOURCE','RECEIVED', 'QUALIFIED'])
