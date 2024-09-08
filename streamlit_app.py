@@ -1464,7 +1464,8 @@ with tab2:
             background-color: deepskyblue; color: white;
           }
           td:nth-child(1){
-            text-align: right;
+            text-align: left !important;
+            vertical-align: middle !important;
           }
         </style>
        """
