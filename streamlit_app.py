@@ -1435,6 +1435,7 @@ with tab2:
         source_count.columns = ['SOURCE', 'QUALIFIED']
         tc = source_count['QUALIFIED'].sum()
         tr = pd.DataFrame([['TOTAL', tc]], columns=['SOURCE', 'QUALIFIED'])
+        tr['RECEIVED'] = ['1','2']
         finaldf = pd.concat([source_count, tr])
         htmltbs = finaldf.to_html(index=False)
         st.write(htmltbs, unsafe_allow_html=True)
