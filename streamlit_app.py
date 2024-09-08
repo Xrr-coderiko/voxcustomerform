@@ -16,10 +16,7 @@ existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
 recdata = conn.read(worksheet="Received", usecols=list(range(5)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
-if len(recdata) > 1:
-  headers = recdata[0] 
-  drows = recdata[1:]
-  existing_data2 = pd.DataFrame(drows, columns=headers)
+existing_data2 = pd.DataFrame(recdata[1:], columns=recdata[0:])
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
