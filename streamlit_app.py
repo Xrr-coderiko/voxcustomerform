@@ -1476,7 +1476,7 @@ with tab2:
               
   if 'CAMPAIGN' in existing_data.columns:
       cpx1, cpx2, cpx3 = st.columns(3)
-      with cpx1, cpx2:
+      with cpx1 + cpx2:
         current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
         camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
         camp.columns = ['META CAMPAIGN', 'LEADS']
