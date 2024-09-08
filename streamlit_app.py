@@ -1597,10 +1597,11 @@ with tab4:
 st.sidebar.image('zIntro.jpeg', use_column_width=True)
 #st.sidebar.title(f"Total Lead: {total_rows}")          
 products = ', '.join(Product)
-if Sqft:
-   sqdata = st.write(f"{Sqft}sqft")
-else:
+if not Sqft:
+   #sqdata = st.write(f"{Sqft}sqft")
    sqdata = st.write(" ")
+else:
+  sqdata = st.write(f"{Sqft}sqft")
 sidebar_text = f"""
 {Name}
 {Phone}
