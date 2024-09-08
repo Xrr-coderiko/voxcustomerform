@@ -1413,6 +1413,9 @@ with tab2:
   
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
+  Atdata = pd.DataFrame({
+    'ATTENDED' : ['10','20', '30']
+  })
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:
@@ -1422,7 +1425,7 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts.columns = ['CC Executives', 'QUALIFIED']
-     sentby_counts['ATTENDED'] = ['25']
+     sentby_counts['ATTENDED'] = Atdata['ATTENDED'].value_counts().reindex(sentby_counts['SENT BY']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC Executives', 'ATTENDED', 'QUALIFIED'])
@@ -1431,10 +1434,10 @@ with tab2:
      htmltbst = sentby_counts.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
   with g2:
-    if 'SOURCE' in existing_data.columns:
+      if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
-        source_count['RECEIVED'] = ['25']
+        source_count['RECEIVED'] = ['25', '30']
         source_count.columns = ['SOURCE','RECEIVED', 'QUALIFIED',]
         tc = source_count['QUALIFIED'].sum()
         trsc = source_count['RECEIVED'].sum()
