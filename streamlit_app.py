@@ -1422,6 +1422,7 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts.columns = ['SENT BY', 'LEADS']
+     
      total_count = sentby_counts['LEADS'].sum()
      total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
      sentby_counts = pd.concat([sentby_counts, total_row])
@@ -1433,7 +1434,7 @@ with tab2:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
         source_count = current_date_data['SOURCE'].value_counts().reset_index()
         source_count.columns = ['SOURCE', 'QUALIFIED']
-        source_count['RECEIVED'] = ['25', '30']
+        source_count['RECEIVED'] = ['25']
         tc = source_count['QUALIFIED'].sum()
         trsc = source_count['RECEIVED'].sum()
         tr = pd.DataFrame([['TOTAL', trsc, tc]], columns=['SOURCE','RECEIVED', 'QUALIFIED'])
