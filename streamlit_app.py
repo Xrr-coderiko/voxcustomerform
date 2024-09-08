@@ -1436,7 +1436,9 @@ with tab2:
         finaldf = pd.concat([source_count, tr], ignore_index=True)
         st.table(finaldf)
   with cxxf3:    
-        st.write("recdata:", recdata)
+        recdata = recdata.reset_index(drop=True)
+        st.dataframe(recdata)
+        
         
               
   if 'CAMPAIGN' in existing_data.columns:
