@@ -1461,7 +1461,7 @@ with tab2:
           }
           tr th:nth-child(3), th:nth-child(4), th:nth-child(5)
           {
-            background-color: Red; color: white;
+            background-color: Aqua; color: white;
           }
         </style>
        """
