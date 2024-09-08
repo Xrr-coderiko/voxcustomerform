@@ -1508,7 +1508,8 @@ with tab3:
       #st.header("63,051")
    with st.container(border=True, height=500):
     sc1, sc2 = st.columns(2)
-    with sc1:
+    with st.container(): 
+     with sc1:
       st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['Source'])
       zeta = main_data['Source'].value_counts().reset_index()
@@ -1518,7 +1519,8 @@ with tab3:
       zeta = pd.concat([zeta, tzc], ignore_index=True)
       htmlz = zeta.to_html(index=False)
       st.write(htmlz, unsafe_allow_html=True)
-    with sc2:
+    with st.container():
+     with sc2:
       st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTBY'])
       beta = main_data['SENTBY'].value_counts().reset_index()
@@ -1529,8 +1531,9 @@ with tab3:
       #st.table(bxeta)
       st.bar_chart(beta.set_index('SENTBY'))
    with st.container(border=True, height=600):
-     z1, z2 = st.columns(2)
-     with z1:
+    z1, z2 = st.columns(2)
+    with z1:
+     with st.container():
       st.markdown("<div style='text-align: center;'><h3>State wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['State'])
       xeta = main_data['State'].value_counts().reset_index()
@@ -1540,7 +1543,8 @@ with tab3:
       xeta = pd.concat([xeta, tic], ignore_index=True)
       htmlx = xeta.to_html(index=False)
       st.write(htmlx, unsafe_allow_html=True)
-     with z2:
+    with z2:
+     with st.container():    
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['SENTTO'])
       peta = main_data['SENTTO'].value_counts().reset_index()
