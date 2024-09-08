@@ -1459,6 +1459,10 @@ with tab2:
            border: 2px solid White;
            background-color: grey; color: white;
           }
+          tr th:nth-child(2)
+          {
+            background-color: Red; color: white;
+          }
         </style>
        """
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
