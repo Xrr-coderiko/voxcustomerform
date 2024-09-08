@@ -1455,7 +1455,7 @@ with tab2:
             text-align: center !important;
             vertical-align: middle !important;
          }
-         td:nth-child(1) {
+         td:1 {
            background-color: red; color: white;
           }
         </style>
