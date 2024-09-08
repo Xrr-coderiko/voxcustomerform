@@ -1445,8 +1445,12 @@ with tab2:
         #html_table = recdata_reset.to_html(index=False)
         #st.write(html_table, unsafe_allow_html=True)
         #st.dataframe(recdata_reset)
+        header_color = "background-color: lightgray; color: black;"
         hide_table_row_index = """
         <style>
+        thead tr th {{
+        {header_color}
+         }}
          table {
             width: 100%;
           }
