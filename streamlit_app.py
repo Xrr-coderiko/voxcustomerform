@@ -1450,8 +1450,6 @@ with tab2:
         rmelted['Source'] = rmelted['Source'].fillna("").astype(str)  # Convert Source to string
         rmelted['Leads'] = rmelted['Leads'].fillna(0)  
         rmelted = rmelted.drop(columns=["DATE"])
-        currentdate = pd.Timestamp.today().strftime('%d/%m/%Y')
-        currentdatedata = rmelted[rmelted['DATE'] == pd.Timestamp.today()]
         st.dataframe(rmelted)
         st.bar_chart(rmelted.set_index('Source'))
         
