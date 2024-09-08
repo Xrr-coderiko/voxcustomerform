@@ -1448,9 +1448,6 @@ with tab2:
         header_color = "background-color: lightgray; color: black;"
         hide_table_row_index = """
         <style>
-        thead tr th {{
-        {header_color}
-         }}
          table {
             width: 100%;
           }
@@ -1458,6 +1455,9 @@ with tab2:
             text-align: center !important;
             vertical-align: middle !important;
          }
+         td:nth-child(1) {
+           background-color: red; color: white;
+          }
         </style>
        """
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
