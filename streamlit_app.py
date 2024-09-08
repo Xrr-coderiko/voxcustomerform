@@ -1508,7 +1508,7 @@ with tab3:
       #st.header("63,051")
    with st.container(border=True, height=500):
     sc1, sc2 = st.columns(2)
-    with st.container(): 
+    with st.container(border=True, height=200): 
      with sc1:
       st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
       main_data=main_data.dropna(subset=['Source'])
