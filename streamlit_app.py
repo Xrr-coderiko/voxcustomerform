@@ -1438,8 +1438,8 @@ with tab2:
   with cxxf3:    
         recdata_reset = recdata.reset_index(drop=True)
         html_table = recdata_reset.to_html(index=False)
-
-        st.dataframe(recdata_reset)
+        st.write(html_table, unsafe_allow_html=True)
+        #st.dataframe(recdata_reset)
         
         
               
