@@ -16,7 +16,10 @@ existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
 recdata = conn.read(worksheet="Received", usecols=list(range(5)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
-existing_data2 = pd.DataFrame(recdata[1:], columns=recdata)
+if len(recdata) > 1:
+  headers = recdata[0] 
+  drows = recdata[1:]
+  existing_data2 = pd.DataFrame(drows, columns=headers)
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
@@ -1409,7 +1412,7 @@ with tab2:
  today = datetime.today().strftime('%d/%m/%Y')
  today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
- existing_data2['DATE'] = pd.to_datetime(existing_data2['DATE'], format='%d/%m/%Y', errors='coerce')
+ existing_data2['DATE'] = pd.to_datetime(recdata['DATE'], format='%d/%m/%Y', errors='coerce')
  rdata = existing_data2[existing_data2['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
  rvalues = [] 
