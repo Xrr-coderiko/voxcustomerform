@@ -1459,7 +1459,7 @@ with tab2:
            border: 2px solid White;
            background-color: grey; color: white;
           }
-          tr th:nth-child(3,4,5)
+          tr th:nth-child(3), th:nth-child(4), th:nth-child(5)
           {
             background-color: Red; color: white;
           }
