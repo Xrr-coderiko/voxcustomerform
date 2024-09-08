@@ -1430,7 +1430,7 @@ with tab2:
      totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalca, totalcs]], columns=['CC-Executives', 'ATTENDED', 'QUALIFIED'])
      finldb = pd.concat([sentby_counts, total_row])
-     
+     finldb = finldb[['CC-Executives', 'ATTENDED', 'QUALIFIED']]
      #st.table(sentby_counts)
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
