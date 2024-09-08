@@ -1424,8 +1424,10 @@ with tab2:
      sentby_counts.columns = ['SENT BY', 'LEADS']
      total_count = sentby_counts['LEADS'].sum()
      total_row = pd.DataFrame([['TOTAL', total_count]], columns=['SENT BY', 'LEADS'])
-     sentby_counts = pd.concat([sentby_counts, total_row], ignore_index=True)
-     st.table(sentby_counts)
+     sentby_counts = pd.concat([sentby_counts, total_row])
+     #st.table(sentby_counts)
+     htmltbst = sentby_counts.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True)
   with g2:
     if 'SOURCE' in existing_data.columns:
         current_date_data = current_date_data.dropna(subset=['SOURCE'])
@@ -1436,8 +1438,7 @@ with tab2:
         finaldf = pd.concat([source_count, tr])
         htmltbs = finaldf.to_html(index=False)
         st.write(htmltbs, unsafe_allow_html=True)
-        
-        st.table(finaldf)
+        #st.table(finaldf)
   with cxxf2:    
         recdata_reset = recdata.reset_index(drop=True)
         html_table = recdata_reset.to_html(index=False)
