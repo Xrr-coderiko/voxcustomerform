@@ -1455,7 +1455,7 @@ with tab2:
             text-align: center !important;
             vertical-align: middle !important;
          }
-         td:1 {
+         th {
            background-color: red; color: white;
           }
         </style>
