@@ -1432,6 +1432,7 @@ with tab2:
      #st.table(sentby_counts)
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
+  with cxxf1:
     if 'SOURCE' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SOURCE'])
      source_counts = current_date_data['SOURCE'].value_counts().reset_index()
@@ -1440,9 +1441,7 @@ with tab2:
      totalcss = source_counts['QUALIFIED'].sum()
      total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
      finldbc = pd.concat([source_counts, total_rows])
-     
-     #st.table(sentby_counts)
-     htmltbst = finldb.to_html(index=False)
+     htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
   
         #st.table(finaldf)
