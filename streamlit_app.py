@@ -1418,8 +1418,6 @@ with tab2:
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:
-   g1,g2 = st.columns(2)
-   with g1:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
@@ -1597,17 +1595,12 @@ with tab4:
 
 st.sidebar.image('zIntro.jpeg', use_column_width=True)
 products = ', '.join(Product)
-if not Sqft:
-   #sqdata = st.write(f"{Sqft}sqft")
-   sqdata = st.write(" ")
-else:
-  sqdata = st.write(f"{Sqft}sqft")
 sidebar_text = f"""
 {Name}
 {Phone}
 {State}
 {City}
-{products} {sqdata}
+{products} {Sqft}sqft
 {Source}
 {Sentto}
 {Notes}
