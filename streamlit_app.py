@@ -1435,16 +1435,16 @@ with tab2:
    with cxxf1:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
         recdata_reset = recdata.reset_index(drop=True)
-        #html_table = recdata_reset.to_html(index=False)
-        #st.write(html_table, unsafe_allow_html=True)
-        #st.dataframe(recdata_reset)
         hide_table_row_index = """
         <style> table {
             width: 100%;
+            border-collapse: collapse;
           }
          th, td {
             text-align: center !important;
             vertical-align: middle !important;
+            padding: 8px;
+            border: 1px solid white; 
          }
          th {
            border: 2px solid White;
