@@ -1417,22 +1417,7 @@ with tab2:
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
-  with st.container():
-   with cxxf2:
-    if 'SENT BY' in existing_data.columns:
-     current_date_data = current_date_data.dropna(subset=['SENT BY'])
-     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts['ATTENDED'] = Attended
-     sentby_counts.columns = ['CC-Executives', 'QUALIFIED', 'ATTENDED']
-     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
-     totalcs = sentby_counts['QUALIFIED'].sum()
-     totalca = sentby_counts['ATTENDED'].sum()
-     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-Executives', 'QUALIFIED', 'ATTENDED'])
-     finldb = pd.concat([sentby_counts, total_row])
-     htmltbst = finldb.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True)
-     #st.table(finaldf)
-   with cxxf1:    
+  with cxxf1:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
@@ -1463,7 +1448,22 @@ with tab2:
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
         st.write(recdata_reset.to_html(index=False, float_format="%.1f"), unsafe_allow_html=True)
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
+ 
   with cxxf1:
+    if 'SENT BY' in existing_data.columns:
+     current_date_data = current_date_data.dropna(subset=['SENT BY'])
+     sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
+     sentby_counts['ATTENDED'] = Attended
+     sentby_counts.columns = ['CC-Executives', 'QUALIFIED', 'ATTENDED']
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     totalcs = sentby_counts['QUALIFIED'].sum()
+     totalca = sentby_counts['ATTENDED'].sum()
+     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-Executives', 'QUALIFIED', 'ATTENDED'])
+     finldb = pd.concat([sentby_counts, total_row])
+     htmltbst = finldb.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True)
+     #st.table(finaldf)
+  with cxxf2:
     if 'SOURCE' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SOURCE'])
      source_counts = current_date_data['SOURCE'].value_counts().reset_index()
