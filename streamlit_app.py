@@ -1412,7 +1412,7 @@ with tab2:
  rvalues = [] 
   
  with st.container(border=True):
-  #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
+  st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   Attended = [110, 85, 93, 100, 52]
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1429,8 +1429,6 @@ with tab2:
      totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-Executives', 'QUALIFIED', 'ATTENDED'])
      finldb = pd.concat([sentby_counts, total_row])
-     
-     #st.table(sentby_counts)
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
      #st.table(finaldf)
@@ -1464,7 +1462,7 @@ with tab2:
           }
         </style>
        """
-        st.markdown(hide_table_row_index, unsafe_allow_html=True)
+        #st.markdown(hide_table_row_index, unsafe_allow_html=True)
         st.write(recdata_reset.to_html(index=False, float_format="%.1f"), unsafe_allow_html=True)
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
   with cxxf1:
