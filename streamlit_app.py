@@ -1476,7 +1476,7 @@ with tab2:
         </style>
        """
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
-        st.write(recdata_reset.to_html(index=False), unsafe_allow_html=True)
+        st.write(recdata_reset.to_html(index=False, float_format="%.1f"), unsafe_allow_html=True)
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
         
               
