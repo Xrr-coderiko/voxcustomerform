@@ -1413,7 +1413,7 @@ with tab2:
   
  with st.container(border=True):
   st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [10, 20, 7, 11, 5]
+  Attended = [52, 85, 93, 100, 52]
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
@@ -1432,7 +1432,18 @@ with tab2:
      #st.table(sentby_counts)
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
-   
+    if 'SOURCE' in existing_data.columns:
+     current_date_data = current_date_data.dropna(subset=['SOURCE'])
+     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
+     source_counts.columns = ['SOURCE', 'QUALIFIED']
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     totalcss = source_counts['QUALIFIED'].sum()
+     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
+     finldbc = pd.concat([source_counts, total_rows])
+     
+     #st.table(sentby_counts)
+     htmltbst = finldb.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True) 
   
         #st.table(finaldf)
   with cxxf2:    
