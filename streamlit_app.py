@@ -1417,7 +1417,8 @@ with tab2:
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
-  with cxxf2:
+  with st.container():
+   with cxxf2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
@@ -1433,7 +1434,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
      #st.table(finaldf)
-  with cxxf1:    
+   with cxxf1:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         #html_table = recdata_reset.to_html(index=False)
