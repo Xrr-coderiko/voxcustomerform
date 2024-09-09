@@ -1432,19 +1432,7 @@ with tab2:
      #st.table(sentby_counts)
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
-  with cxxf1:
-    if 'SOURCE' in existing_data.columns:
-     current_date_data = current_date_data.dropna(subset=['SOURCE'])
-     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
-     source_counts.columns = ['SOURCE', 'QUALIFIED']
-     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
-     totalcss = source_counts['QUALIFIED'].sum()
-     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
-     finldbc = pd.concat([source_counts, total_rows])
-     htmltbst = finldbc.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True) 
-  
-        #st.table(finaldf)
+     #st.table(finaldf)
   with cxxf1:    
         recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
         recdata_reset = recdata.reset_index(drop=True)
@@ -1478,7 +1466,17 @@ with tab2:
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
         st.write(recdata_reset.to_html(index=False, float_format="%.1f"), unsafe_allow_html=True)
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
-        
+  with cxxf1:
+    if 'SOURCE' in existing_data.columns:
+     current_date_data = current_date_data.dropna(subset=['SOURCE'])
+     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
+     source_counts.columns = ['SOURCE', 'QUALIFIED']
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     totalcss = source_counts['QUALIFIED'].sum()
+     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
+     finldbc = pd.concat([source_counts, total_rows])
+     htmltbst = finldbc.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True)       
               
   if 'CAMPAIGN' in existing_data.columns:
       cpx1, cpx2 = st.columns(2)
