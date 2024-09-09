@@ -1412,7 +1412,7 @@ with tab2:
  rvalues = [] 
   
  with st.container(border=True):
-  st.markdown(f"<div style='text-align: center;><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
+  st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   Attended = [110, 85, 93, 100, 52]
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
