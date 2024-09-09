@@ -1441,7 +1441,7 @@ with tab2:
         header_color = "background-color: lightgray; color: black;"
         hide_table_row_index = """
         <style> table {
-            top-margin: 20px;
+            margin-top: 25px;
             width: 100%;
           }
          th, td {
