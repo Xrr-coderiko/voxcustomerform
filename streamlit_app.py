@@ -1309,7 +1309,7 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 
 tab1, tab2, tab3, tab4 = st.tabs(["Form", "Report", "Dashboard", "Dealer"])
 with tab1:
- with st.form(key="vendor_form", clear_on_submit=True):
+ with st.form(key="vendor_form"):
     cch1, cch2, cch3 = st.columns(3)
     with cch2:
      Date = st.date_input(label="Date")
@@ -1406,7 +1406,6 @@ with tab1:
             st.success("Details successfully submitted!")
     if clear_button:
       st.session_state['Name'] = ""
-      st.experimental_rerun()
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
