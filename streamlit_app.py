@@ -1481,9 +1481,7 @@ with tab2:
      htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)       
               
-if 'CAMPAIGN' in existing_data.columns:
-     cpx1, cpx2 = st.columns(2)
-     with cpx1:
+  if 'CAMPAIGN' in existing_data.columns:
        current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME'])
        camp = current_camp[['CAMPAIGN', 'ADSET NAME']].value_counts().reset_index()
        camp.columns = ['META CAMPAIGN','ADSET NAME', 'QUALIFIED']
