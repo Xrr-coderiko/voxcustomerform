@@ -29,11 +29,11 @@ disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
-if "Name" not in st.session_state:
-    st.session_state['Name'] = ""
+if "NAME" not in st.session_state:
+    st.session_state['NAME'] = ""
 if "Phone" not in st.session_state:
     st.session_state.Phone = ""
-name_placeholder = st.empty()
+    
     
 def clear_form():
     st.session_state.Name = ""
@@ -1315,7 +1315,7 @@ with tab1:
      Date = st.date_input(label="Date")
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
-      Name = name_placeholder.text_input(label="Name*", value=st.session_state.Name)
+      Name = st.text_input(label="Name*", value=st.session_state.Name)
     with ce2:
       Firm = st.text_input(label="Firm Name*")
     with ce3:
@@ -1405,7 +1405,7 @@ with tab1:
 
             st.success("Details successfully submitted!")
     if clear_button:
-      name_placeholder.text_input("Enter your name:", value="", key="clear_name")
+      st.session_state.['NAME'] = ""
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
