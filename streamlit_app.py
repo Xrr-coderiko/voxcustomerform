@@ -1470,7 +1470,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)
      #st.table(finaldf)
   with cxxf2:
-   cer1, cer2 = st.columns(2):
+   cer1, cer2 = st.columns(2)
    with cer2:
     if 'SOURCE' in existing_data.columns:
      st.markdown(f"<div style='text-align: center; margin-bottom: 10px;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
