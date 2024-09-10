@@ -1405,7 +1405,7 @@ with tab1:
 
             st.success("Details successfully submitted!")
     if clear_button:
-      st.session_state.['NAME'] = ""
+      st.session_state['NAME'] = ""
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
