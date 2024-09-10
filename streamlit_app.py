@@ -17,6 +17,8 @@ recdata = conn.read(worksheet="Received", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
 
+campdata = conn.read(worksheet="Daily", usecols=list(range(16)), ttl=5)
+campdata = campdata.dropna(how="all")
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
@@ -1408,6 +1410,7 @@ with tab2:
  today = datetime.today().strftime('%d/%m/%Y')
  today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
+ current_camp = campdata[campdata['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
  rvalues = [] 
   
@@ -1480,11 +1483,11 @@ with tab2:
   if 'CAMPAIGN' in existing_data.columns:
       cpx1, cpx2 = st.columns(2)
       with cpx1:
-        current_date_data = current_date_data.dropna(subset=['CAMPAIGN'])
-        camp = current_date_data['CAMPAIGN'].value_counts().reset_index()
-        camp.columns = ['META CAMPAIGN', 'LEADS']
-        ttc = camp['LEADS'].sum()
-        ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN', 'LEADS'])
+        current_camp = current_camp.dropna(subset=[['CAMPAIGN'], ['ADSET NAME']])
+        camp = current_camp[['CAMPAIGN'], ['ADSET NAME']].value_counts().reset_index()
+        camp.columns = ['META CAMPAIGN','ADSET NAME', 'QUALIFIED']
+        ttc = camp['QUALIFIED'].sum()
+        ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN','ADSET NAME', 'QUALIFIED'])
         camp = pd.concat([camp, ttr], ignore_index=True)
         #st.table(camp)
         htmltbcm = camp.to_html(index=False)
