@@ -1417,7 +1417,7 @@ with tab2:
   
  with st.container(border=True):
   #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [92, 60, 134, 54, 36, 120]
+  Attended = [92, 55, 134, 54, 37, 120]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1481,15 +1481,18 @@ with tab2:
      htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)       
               
+with st.container():  
   if 'CAMPAIGN' in existing_data.columns:
-       current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME'])
-       camp = current_camp[['CAMPAIGN', 'ADSET NAME']].value_counts().reset_index()
-       camp.columns = ['META CAMPAIGN','ADSET NAME', 'QUALIFIED']
-       ttc = camp['QUALIFIED'].sum()
-       ttr = pd.DataFrame([['TOTAL','', ttc]], columns=['META CAMPAIGN','ADSET NAME', 'QUALIFIED'])
-       campt = pd.concat([camp, ttr], ignore_index=True)
-       htmltbcm = campt.to_html(index=False)
-       st.write(htmltbcm, unsafe_allow_html=True)
+      st.markdown(f"<div style='text-align: center;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
+      st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 51</h4></div>", unsafe_allow_html=True)
+      current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME'])
+      camp = current_camp[['CAMPAIGN', 'ADSET NAME']].value_counts().reset_index()
+      camp.columns = ['CAMPAIGN NAME','ADSET NAME', 'QUALIFIED']
+      ttc = camp['QUALIFIED'].sum()
+      ttr = pd.DataFrame([['TOTAL','', ttc]], columns=['CAMPAIGN NAME','ADSET NAME', 'QUALIFIED'])
+      campt = pd.concat([camp, ttr], ignore_index=True)
+      htmltbcm = campt.to_html(index=False)
+      st.write(htmltbcm, unsafe_allow_html=True)
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
