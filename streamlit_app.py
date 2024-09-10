@@ -17,7 +17,7 @@ recdata = conn.read(worksheet="Received", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
 
-campdata = conn.read(worksheet="Daily", usecols=list(range(16)), ttl=5)
+campdata = conn.read(worksheet="Daily", usecols=list(range(17)), ttl=5)
 campdata = campdata.dropna(how="all")
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
@@ -1410,6 +1410,7 @@ with tab2:
  today = datetime.today().strftime('%d/%m/%Y')
  today2 = datetime.today().strftime('%d-%m-%Y')
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
+ campdata['DATE'] = pd.to_datetime(campdata['DATE'], format='%d/%m/%Y', errors='coerce')
  current_camp = campdata[campdata['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
  rvalues = [] 
