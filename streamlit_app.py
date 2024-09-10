@@ -1413,19 +1413,14 @@ with tab2:
   
  with st.container(border=True):
   #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [10, 20, 30, 40]
+  Attended = [10]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:    
         st.markdown(f"<div style='text-align: center;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-        #recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
-        columns_to_fill = ["RECEIVED", "ATTENDED", "QUALIFIED"]
-        for col in columns_to_fill:
-         if col in recdata.columns:
-           recdata[col] = recdata[col].fillna(0)
-        recdata[columns_to_fill] = recdata[columns_to_fill].astype(int)   
+        recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
@@ -1461,7 +1456,7 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts['ATTENDED'] = Attended
-     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
+     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED'].fillna(0)
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
