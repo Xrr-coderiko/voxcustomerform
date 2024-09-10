@@ -1473,7 +1473,7 @@ with tab2:
    cer1, cer2 = st.columns(2)
    with cer2:
     if 'SOURCE' in existing_data.columns:
-     st.markdown(f"<div style='text-align: center; margin-bottom: 10px;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
+     st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
      current_date_data = current_date_data.dropna(subset=['SOURCE'])
      source_counts = current_date_data['SOURCE'].value_counts().reset_index()
      source_counts.columns = ['SOURCE', 'QUALIFIED']
