@@ -1413,7 +1413,7 @@ with tab2:
   
  with st.container(border=True):
   #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [10, 20, 30]
+  Attended = [10, 20, 10, 10, 10, 10]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1456,13 +1456,7 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts['ATTENDED'] = Attended
-     #sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
-     columns_to_fill = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
-     for col in columns_to_fill:
-      if col in sentby_counts.columns :
-        sentby_counts[col] = sentby_counts[col].fillna(0)  # Fill NaN values with zero
-      else:
-        st.warning(f"Column {col} not found in the DataFrame.")
+     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
