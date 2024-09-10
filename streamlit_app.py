@@ -22,7 +22,7 @@ campdata = campdata.dropna(how="all")
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
 main_data = main_data.dropna(how="all")
-total_rows = len(main_data)
+total_rowx = len(main_data)
 
 
 disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
@@ -1506,7 +1506,7 @@ with tab3:
    with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
     with s1:
-     st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{total_rows}</h3></div>", unsafe_allow_html=True)
+     st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{total_rowx}</h3></div>", unsafe_allow_html=True)
      #st.header("Qualified Leads")
      #st.header(f"{total_rows}")
     with s2:
