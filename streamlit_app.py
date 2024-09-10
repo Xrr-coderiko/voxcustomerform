@@ -1484,13 +1484,12 @@ with tab2:
   if 'CAMPAIGN' in existing_data.columns:
       cpx1, cpx2 = st.columns(2)
       with cpx1:
-        current_camp = current_camp.dropna(subset=[['CAMPAIGN'], ['ADSET NAME']])
-        camp = current_camp[['CAMPAIGN'], ['ADSET NAME']].value_counts().reset_index()
+        current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME'])
+        camp = current_camp[['CAMPAIGN', 'ADSET NAME']].value_counts().reset_index()
         camp.columns = ['META CAMPAIGN','ADSET NAME', 'QUALIFIED']
         ttc = camp['QUALIFIED'].sum()
         ttr = pd.DataFrame([['TOTAL', ttc]], columns=['META CAMPAIGN','ADSET NAME', 'QUALIFIED'])
         camp = pd.concat([camp, ttr], ignore_index=True)
-        #st.table(camp)
         htmltbcm = camp.to_html(index=False)
         st.write(htmltbcm, unsafe_allow_html=True)
         
