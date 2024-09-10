@@ -13,7 +13,7 @@ st.set_page_config(layout="wide")
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
-recdata = conn.read(worksheet="Received", usecols=list(range(5)), ttl=5)
+recdata = conn.read(worksheet="Received", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
 
