@@ -29,7 +29,7 @@ disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
-if 'NAME' not in st.session_state:
+if 'Name' not in st.session_state:
     st.session_state.Name = ""
 if "PHONE" not in st.session_state:
     st.session_state.Phone = ""
