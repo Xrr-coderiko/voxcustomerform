@@ -1456,7 +1456,13 @@ with tab2:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
      sentby_counts['ATTENDED'] = Attended
-     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED'].fillna(0)
+     #sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
+     columns_to_fill = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
+     for col in columns_to_fill:
+      if col in sentby_counts.columns :
+        sentby_counts[col] = sentby_counts[col].fillna(0)  # Fill NaN values with zero
+      else:
+        st.warning(f"Column {col} not found in the DataFrame.")
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
      totalca = sentby_counts['ATTENDED'].sum()
