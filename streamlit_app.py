@@ -29,9 +29,9 @@ disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
-if "NAME" not in st.session_state:
-    st.session_state['NAME'] = ""
-if "Phone" not in st.session_state:
+if 'NAME' not in st.session_state:
+    st.session_state.Name = ""
+if "PHONE" not in st.session_state:
     st.session_state.Phone = ""
     
     
@@ -1405,7 +1405,7 @@ with tab1:
 
             st.success("Details successfully submitted!")
     if clear_button:
-      st.session_state['NAME'] = ""
+      st.session_state.Name = ""
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
