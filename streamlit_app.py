@@ -1420,8 +1420,12 @@ with tab2:
   cxxf1, cxxf2 = st.columns(2)            
   with cxxf1:    
         st.markdown(f"<div style='text-align: center;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-        recdata[["RECEIVED", "ATTENDED", "QUALIFIED"]] = recdata[["RECEIVED", "ATTENDED", "QUALIFIED"]].fillna(0)
-        recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
+        #recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].astype(int)
+        columns_to_fill = ["RECEIVED", "ATTENDED", "QUALIFIED"]
+        for col in columns_to_fill:
+         if col in recdata.columns:
+           recdata[col] = recdata[col].fillna(0)
+        recdata[columns_to_fill] = recdata[columns_to_fill].astype(int)   
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
