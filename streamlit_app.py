@@ -1460,6 +1460,9 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
+     for rw in sentby_counts:
+       Attended[rw] = 10
+       rw=+1
      sentby_counts['ATTENDED'] = Attended
      sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
