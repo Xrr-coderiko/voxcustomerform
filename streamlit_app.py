@@ -1489,11 +1489,11 @@ with tab2:
   if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
       st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 51</h4></div>", unsafe_allow_html=True)
-      current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME'])
-      camp = current_camp[['CAMPAIGN', 'ADSET NAME']].value_counts().reset_index()
-      camp.columns = ['CAMPAIGN NAME','ADSET NAME', 'QUALIFIED']
+      current_camp = current_camp.dropna(subset=['CAMPAIGN', 'ADSET NAME', 'AD NAME'])
+      camp = current_camp[['CAMPAIGN', 'ADSET NAME', 'AD NAME']].value_counts().reset_index()
+      camp.columns = ['CAMPAIGN NAME','ADSET NAME', 'AD NAME', 'QUALIFIED']
       ttc = camp['QUALIFIED'].sum()
-      ttr = pd.DataFrame([['TOTAL','', ttc]], columns=['CAMPAIGN NAME','ADSET NAME', 'QUALIFIED'])
+      ttr = pd.DataFrame([['TOTAL','', ttc]], columns=['CAMPAIGN NAME','ADSET NAME', 'AD NAME', 'QUALIFIED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
