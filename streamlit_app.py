@@ -17,7 +17,7 @@ recdata = conn.read(worksheet="Received", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
 
-campdata = conn.read(worksheet="Daily", usecols=list(range(17)), ttl=5)
+campdata = conn.read(worksheet="Daily", usecols=list(range(18)), ttl=5)
 campdata = campdata.dropna(how="all")
 
 main_data = conn.read(worksheet="AUG", usecols=list(range(14)), ttl=5)
