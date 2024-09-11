@@ -1493,7 +1493,7 @@ with tab2:
       camp = current_camp[['CAMPAIGN', 'ADSET NAME', 'AD NAME']].value_counts().reset_index()
       camp.columns = ['CAMPAIGN NAME','ADSET NAME', 'AD NAME', 'QUALIFIED']
       ttc = camp['QUALIFIED'].sum()
-      ttr = pd.DataFrame([['TOTAL','', ttc]], columns=['CAMPAIGN NAME','ADSET NAME', 'AD NAME', 'QUALIFIED'])
+      ttr = pd.DataFrame([['TOTAL','', '', ttc]], columns=['CAMPAIGN NAME','ADSET NAME', 'AD NAME', 'QUALIFIED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
