@@ -30,7 +30,7 @@ disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
 if 'Name' not in st.session_state:
-    st.session_state.Name = ""
+    st.session_state.Name = " "
 if "PHONE" not in st.session_state:
     st.session_state.Phone = ""
     
