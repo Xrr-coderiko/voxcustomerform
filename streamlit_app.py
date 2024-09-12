@@ -1464,7 +1464,7 @@ with tab2:
      sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
-     totalca = sentby_counts['ATTENDED'].sum()
+     #totalca = sentby_counts['ATTENDED'].sum()
      total_row = pd.DataFrame([['TOTAL', totalcs]], columns=['CC-EXECUTIVE', 'QUALIFIED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
