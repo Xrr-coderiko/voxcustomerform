@@ -1358,7 +1358,7 @@ with tab1:
       with ct1:
          submit_button = st.form_submit_button(label="Submit Details")
       with ct2:
-         clear_button = st.form_submit_button(label="Clear form")
+         clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
@@ -1404,8 +1404,7 @@ with tab1:
             conn.update(worksheet="Vendors", data=updated_df)
 
             st.success("Details successfully submitted!")
-    if clear_button:
-      st.session_state.Name = ""
+
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
  today = datetime.today().strftime('%d/%m/%Y')
