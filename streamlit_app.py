@@ -903,6 +903,7 @@ SENTTO = [
 "U k Trader",
 "Sahibzada Ply World",
 "Sri Sai Mantra",
+"J K Interior",
 "Srikanth M",
 "JAK arts",
 "Vijay Agency",
