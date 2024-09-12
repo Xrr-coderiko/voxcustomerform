@@ -36,8 +36,8 @@ if "PHONE" not in st.session_state:
     
     
 def clear_form():
-    st.session_state.Name = ""
-    st.session_state.Phone = ""
+    st.session_state.Name = " "
+    st.session_state.Phone = " "
     
 # List of Business Types and Products
 STATE = [
