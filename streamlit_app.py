@@ -1463,12 +1463,12 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts['ATTENDED'] = Attended 
-     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
+     #sentby_counts['ATTENDED'] = Attended 
+     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
-     totalca = sentby_counts['ATTENDED'].sum()
-     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED'])
+     #totalca = sentby_counts['ATTENDED'].sum()
+     total_row = pd.DataFrame([['TOTAL', totalcs]], columns=['CC-EXECUTIVE', 'QUALIFIED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
