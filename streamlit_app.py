@@ -16,6 +16,7 @@ existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
 recdata = conn.read(worksheet="Received", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 recdata = recdata.dropna(how="all")
+total_vn = len(existing_data)
 
 campdata = conn.read(worksheet="Daily", usecols=list(range(19)), ttl=5)
 campdata = campdata.dropna(how="all")
@@ -1475,6 +1476,7 @@ with tab2:
      #st.table(finaldf)
   with cxxf2:
    cer1, cer2 = st.columns(2)
+   st.write(f"Total leads: {total_vn}")
    with cer2:
     if 'SOURCE' in existing_data.columns:
      st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
@@ -1604,6 +1606,7 @@ with tab4:
       conn.update(worksheet="Dealer", data=ddata)
       st.success('Dealer added')
       st.success()
+     
 
  
         
