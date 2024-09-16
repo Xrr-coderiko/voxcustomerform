@@ -1491,8 +1491,8 @@ with tab2:
  with st.container(border=True):  
   RECEIVED = [233, 110, 78, 92, 85, 61, 36, 32, 23 ]
   if 'CAMPAIGN' in existing_data.columns:
-      st.markdown(f"<div style='text-align: center;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
-      st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
+      st.markdown(f"<div style='text-align: center; border: 2px solid Black;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
+      #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
       camp['RECEIVED'] = RECEIVED
