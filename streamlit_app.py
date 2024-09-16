@@ -1470,6 +1470,7 @@ with tab2:
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
+     
      #st.table(finaldf)
   with cxxf2:
    cer1, cer2 = st.columns(2)
