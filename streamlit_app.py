@@ -1489,7 +1489,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)       
               
  with st.container(border=True):  
-  RECEIVED = [236, 110, 78, 92, 85, 66, 40, 32, 23 ]
+  RECEIVED = [235, 110, 78, 92, 85, 61, 36, 32, 23 ]
   if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
       st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
