@@ -1489,14 +1489,17 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)       
               
  with st.container(border=True):  
+  RECEIVED = [206, 87, 71, 75, 77, 61, 35, 32, 23  ]
   if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
       st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED']
+      camp['RECEIVED'] = RECEIVED
+      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       ttc = camp['QUALIFIED'].sum()
-      ttr = pd.DataFrame([['TOTAL', ttc]], columns=['CAMPAIGN NAME', 'QUALIFIED'])
+      ttr = camp['RECEIVED'].sum()
+      ttr = pd.DataFrame([['TOTAL', ttc, ttr]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
