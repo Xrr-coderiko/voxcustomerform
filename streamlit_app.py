@@ -1370,15 +1370,6 @@ with tab1:
         is_valid = bool(pattern.match(Phone))
         if not Name or not Phone or not State or not City or not District or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
-        elif State is "State" and District is "District" and Type is "Contact Type":
-             st.markdown(
-             """
-             <script>
-             alert('Please enter valid details!');
-             </script>
-             """,
-             unsafe_allow_html=True
-          )
         elif not is_valid:
             st.warning("Incorrect Phone Number")
         elif Phone in existing_data['PHONE']:
