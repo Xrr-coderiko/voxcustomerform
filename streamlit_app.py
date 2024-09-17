@@ -76,7 +76,7 @@ STATE = [
 "West Bengal",
 ]
 CITY = [
-    " ",
+    "District",
     "Bengaluru",
     "Mangalore",
 "Mumbai",
@@ -1335,7 +1335,7 @@ with tab1:
       Email = st.text_input(label="", placeholder="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
-      Type = st.selectbox(label="", placeholder="Customer Type", options=TYPE)
+      Type = st.selectbox(label="", index=0, options=TYPE)
     with cp2:
       Product = st.multiselect(label="", placeholder="Products", options=PRODUCT)
     with cp3: 
@@ -1370,6 +1370,15 @@ with tab1:
         is_valid = bool(pattern.match(Phone))
         if not Name or not Phone or not State or not City or not District or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
+        elif State=="State" and City=="District" and Type=="Contact Type":
+             st.markdown(
+             """
+             <script>
+             alert('Please enter valid details!');
+             </script>
+             """,
+             unsafe_allow_html=True
+          )
         elif not is_valid:
             st.warning("Incorrect Phone Number")
         elif Phone in existing_data['PHONE']:
