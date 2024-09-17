@@ -1319,38 +1319,38 @@ with tab1:
     with ce1:
       Name = st.text_input(label="", placeholder="Name", value=st.session_state.Name)
     with ce2:
-      Firm = st.text_input(label="Firm Name*")
+      Firm = st.text_input(label="", placeholder="Firm Name")
     with ce3:
-     State = st.selectbox(label="State*", options=STATE)
+     State = st.selectbox(label="", placeholder="State", options=STATE)
     with ce4: 
-     City = st.text_input(label="City*")
+     City = st.text_input(label="", placeholder="City")
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
-     District = st.selectbox(label="District*", options=CITY)
+     District = st.selectbox(label="", placeholder="District", options=CITY)
     with c2:
-     Phone = st.text_input(label="Phone No*",value=st.session_state.Phone)
+     Phone = st.text_input(label="", placeholder="Phone No", value=st.session_state.Phone)
     with c3:
-      Altphone = st.text_input(label="Alternate Phone")
+      Altphone = st.text_input(label="", placeholder="Alternate Phone")
     with c4:
-      Email = st.text_input(label="Email ID")
+      Email = st.text_input(label="", placeholder="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
-      Type = st.selectbox(label="Customer Type*", options=TYPE)
+      Type = st.selectbox(label="", placeholder="Customer Type", options=TYPE)
     with cp2:
-      Product = st.multiselect(label="Product*", options=PRODUCT)
+      Product = st.multiselect(label="", placeholder="Products", options=PRODUCT)
     with cp3: 
-      Sqft = st.text_input(label="Square feet")
+      Sqft = st.text_input(label="", placeholder="Square feet")
     with cp4:
-      Source = st.selectbox(label="Source*", options=SOURCE)
+      Source = st.selectbox(label="", placeholder="Source", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
-      Sentto = st.selectbox(label="Sent To*", options=SENTTO)
+      Sentto = st.selectbox(label="", placeholder="Sent To", options=SENTTO)
     with ch2:
-      Sentby = st.selectbox(label="Sent By*", options=USERS)
+      Sentby = st.selectbox(label="", placeholder="Sent By", options=USERS)
     with ch3:
-      Owner = st.selectbox(label="Owner", options=OWNERS)
+      Owner = st.selectbox(label="", placeholder="Owner", options=OWNERS)
     with ch4:
-     campaign = st.text_input(label="Source Campaign")  
+     campaign = st.text_input(label="", placeholder="Source Campaign")  
     cs1, cs2, cs3 = st.columns(3)
     with cs1:
       Notes = st.text_area(label="Notes")
