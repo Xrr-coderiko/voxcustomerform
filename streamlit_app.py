@@ -1499,9 +1499,9 @@ with tab2:
       #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      camp['RECEIVED'] = current_camp['CAMPAIGN'].product()
+      camp['RECEIVED'] = current_camp['CAMPAIGN'].value_counts()
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
-      ttc = camp['QUALIFIED'].sum()
+      ttc = camp['QUALIFIED'].product()
       ttrc = camp['RECEIVED'].sum()
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
