@@ -42,8 +42,8 @@ def clear_form():
     
 # List of Business Types and Products
 STATE = [
-    " ",
-   "Andhra Pradesh",
+"State",
+"Andhra Pradesh",
 "Arunachal Pradesh",
 "Assam",
 "Bihar",
@@ -898,7 +898,7 @@ CITY = [
 
 ]
 SENTTO = [
-" ",
+"Sent To",
 "Urban Interior",
 "B S Marketing",
 "Hyper Homes",
@@ -1168,7 +1168,7 @@ PRODUCT = [
     "Dealership",
 ]
 SOURCE = [
-    " ",
+"Contact Source",
 "AdWords form",
 "Catalogue form",
 "Chat BOT",
@@ -1188,7 +1188,7 @@ SOURCE = [
 "Youtube",
 ]
 USERS = [
-    " ",
+    "Attended By",
     "Vikas",
     "Baburao",
     "Priyanka",
@@ -1200,7 +1200,7 @@ USERS = [
     "Harun",
 ]
 TYPE = [
-    " ",
+    "Contact Type",
     "Architect",
     "Interior Designer",
     "End Customer",
@@ -1209,7 +1209,7 @@ TYPE = [
     "Contractor",
 ]
 OWNERS = [
-    " ",
+    "Owners",
     "samrat.mazumder@voxindia.co",
 "abhijit.chakraborty@voxindia.co",
 "glady.george@voxindia.co",
@@ -1321,7 +1321,7 @@ with tab1:
     with ce2:
       Firm = st.text_input(label="", placeholder="Firm Name")
     with ce3:
-     State = st.selectbox(label="", placeholder="State", options=STATE)
+     State = st.selectbox(label="", options=STATE, index=0)
     with ce4: 
      City = st.text_input(label="", placeholder="City")
     c1, c2, c3, c4 = st.columns(4)
