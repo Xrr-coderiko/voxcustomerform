@@ -1492,18 +1492,18 @@ with tab2:
               
   #with st.container(border=True):  
   
-  RECEIVED = [233, 110, 78, 92, 85, 61, 36, 32, 23 ]
+  RECEIVED = [72, 19, 33, 23, 16, 11, 3, 7, 10, 7 ]
   with cxxf1:
    if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center; border: 2px solid Grey;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
       #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      #camp['RECEIVED'] = RECEIVED
-      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED']
+      camp['RECEIVED'] = RECEIVED
+      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED','RECEIVED']
       ttc = camp['QUALIFIED'].sum()
-      #ttr = camp['RECEIVED'].sum()
-      ttr = pd.DataFrame([['TOTAL', ttc]], columns=['CAMPAIGN NAME', 'QUALIFIED'])
+      ttrc = camp['RECEIVED'].sum()
+      ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED','RECEIVED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
