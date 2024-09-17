@@ -1317,7 +1317,7 @@ with tab1:
      Date = st.date_input(label="Date")
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
-      Name = st.text_input(label="",placeholder="Name" value=st.session_state.Name)
+      Name = st.text_input(label="", placeholder="Name", value=st.session_state.Name)
     with ce2:
       Firm = st.text_input(label="Firm Name*")
     with ce3:
