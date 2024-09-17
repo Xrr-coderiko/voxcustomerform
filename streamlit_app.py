@@ -905,6 +905,7 @@ SENTTO = [
 "U k Trader",
 "Sahibzada Ply World",
 "Sri Sai Mantra",
+"Ambike Pipe",
 "J K Interior",
 "Srikanth M",
 "JAK arts",
