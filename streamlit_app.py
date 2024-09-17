@@ -1492,7 +1492,7 @@ with tab2:
               
   #with st.container(border=True):  
   
-  RECEIVED = [84, 22, 33, 23, 16, 11, 6, 7, 10, 7 ]
+  RECEIVED = [84, 22, 37, 27, 16, 11, 6, 7, 10, 7 ]
   with cxxf1:
    if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center; border: 2px solid Grey;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
