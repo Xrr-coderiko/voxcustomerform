@@ -1530,7 +1530,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-    statusdb = spdata[[]'STATUS', 'LEADS']]
+    statusdb = spdata[['STATUS', 'LEADS']]
     st.table(statusdb)
 
             
