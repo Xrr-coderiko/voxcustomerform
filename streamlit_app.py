@@ -1512,18 +1512,17 @@ with tab2:
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
   with cxxf2:
-   if 'PRODUCT' in existing_data.columns:
-    product_data = product_data.dropna(subset=['PRODUCT'])
-    procount = product_data['PRODUCT'].unique().tolist()
-    product_counts = {product: Product.count(product) for product in PRODUCT if product in Product}
-    product_count_df = pd.DataFrame(list(product_counts.items()), columns=["Product", "Count"])
-    st.table(product_count_df)
-    #p_count = product_count_df["Count"].sum()
-    #pcount = pd.DataFrame([['TOTAL', p_count]], columns=['Product', 'Count'])
-    #pcnt = pd.concat([product_count_df, pcount], ignore_index=True)
-    #html_tablep = pcnt.to_html(index=False)
-    #st.write(html_tablep, unsafe_allow_html=True)
-    
+   keywords = ["ceiling", "wall", "flooring", "dealership"]
+   keyword_counts = {keyword: 0 for keyword in keywords}
+   for product in existing_data["PRODUCT"]:
+     product_lower = product.lower()  # Convert product name to lowercase for case-insensitive matching
+     for keyword in keywords:
+        if keyword in product_lower:
+            keyword_counts[keyword] += 1
+   keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
+   st.table(keyword_count_df)
+
+            
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
