@@ -1514,7 +1514,7 @@ with tab2:
   with cxxf2:
    keywords = ["Ceiling", "Wall", "Flooring", "Dealership"]
    keyword_counts = {keyword: 0 for keyword in keywords}
-   for product in existing_data["PRODUCT"]:
+   for product in product_data["PRODUCT"]:
      for keyword in keywords:
         if keyword in product:
             keyword_counts[keyword] += 1
