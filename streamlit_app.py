@@ -898,7 +898,7 @@ CITY = [
 
 ]
 SENTTO = [
-"Sent To",
+" ",
 "Urban Interior",
 "B S Marketing",
 "Hyper Homes",
@@ -1168,7 +1168,8 @@ PRODUCT = [
     "Dealership",
 ]
 SOURCE = [
-"Contact Source",
+#"Contact Source",
+" ",
 "AdWords form",
 "Catalogue form",
 "Chat BOT",
@@ -1188,7 +1189,8 @@ SOURCE = [
 "Youtube",
 ]
 USERS = [
-    "Attended By",
+    #"Attended By",
+    " ",
     "Vikas",
     "Baburao",
     "Priyanka",
@@ -1200,7 +1202,8 @@ USERS = [
     "Harun",
 ]
 TYPE = [
-    "Contact Type",
+    #"Contact Type",
+    " ",
     "Architect",
     "Interior Designer",
     "End Customer",
@@ -1321,12 +1324,12 @@ with tab1:
     with ce2:
       Firm = st.text_input(label="", placeholder="Firm Name")
     with ce3:
-     State = st.selectbox(label="", options=STATE, index=0)
+     State = st.selectbox(label="State", options=STATE, index=0)
     with ce4: 
      City = st.text_input(label="", placeholder="City")
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
-     District = st.selectbox(label="", placeholder="District", options=CITY)
+     District = st.selectbox(label="District", options=CITY)
     with c2:
      Phone = st.text_input(label="", placeholder="Phone No", value=st.session_state.Phone)
     with c3:
@@ -1335,7 +1338,7 @@ with tab1:
       Email = st.text_input(label="", placeholder="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
-      Type = st.selectbox(label="", index=0, options=TYPE)
+      Type = st.selectbox(label="Contact Type", index=0, options=TYPE)
     with cp2:
       Product = st.multiselect(label="", placeholder="Products", options=PRODUCT)
     with cp3: 
@@ -1344,11 +1347,11 @@ with tab1:
       Source = st.selectbox(label="", placeholder="Source", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
-      Sentto = st.selectbox(label="", placeholder="Sent To", options=SENTTO)
+      Sentto = st.selectbox(label="Sent To", options=SENTTO)
     with ch2:
-      Sentby = st.selectbox(label="", placeholder="Sent By", options=USERS)
+      Sentby = st.selectbox(label="Sent By", options=USERS)
     with ch3:
-      Owner = st.selectbox(label="", placeholder="Owner", options=OWNERS)
+      Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
      campaign = st.text_input(label="", placeholder="Source Campaign")  
     cs1, cs2, cs3 = st.columns(3)
@@ -1586,8 +1589,7 @@ with tab4:
     if dcity:
        fcity = disdata[disdata['City'].str.contains(dcity, case=False, na=False)]
        if not fcity.empty:
-         st.table(fcity[['Dealer','City', 'Status']])
-      
+         st.table(fcity[['Dealer','City', 'Status']])   
        else: 
          st.write('No Dealers found in this city.')
     else: 
