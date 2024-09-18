@@ -1487,7 +1487,7 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts['ATTENDED'] = Attended
+     sentby_counts['ATTENDED'] = current_date_data['SENT BY'].value_counts()
      sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED','ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
@@ -1504,7 +1504,7 @@ with tab2:
       #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      camp['RECEIVED'] = RECEIVED
+      camp['RECEIVED'] = current_camp['CAMPAIGN'].value_counts()
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 0, 1], ['Leads | TOF | B2C | Home Automation X High Value Goods | HD', 0, 2]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       camp = pd.concat([camp, newsc1], ignore_index=True)
