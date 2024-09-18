@@ -1520,10 +1520,10 @@ with tab2:
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
       camp['RECEIVED'] = RECEIVED
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
+      newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 0, 1]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       ttc = camp['QUALIFIED'].sum()
       ttrc = camp['RECEIVED'].sum()
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 1, 0]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       campt = pd.concat([camp, newsc1, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
