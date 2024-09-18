@@ -9,7 +9,16 @@ st.set_page_config(layout="wide")
 #cf1,cf2,cf3 = st.columns(3)
 #with cf2:
 # st.title("VOX INDIA") 
-
+st.markdown(
+    """
+    <style>
+    .css-1v0mbdj.e1tzin5v3 {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 existing_data = conn.read(worksheet="Vendors", usecols=list(range(18)), ttl=5)
