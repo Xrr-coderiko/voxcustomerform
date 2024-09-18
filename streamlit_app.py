@@ -42,7 +42,7 @@ def clear_form():
     
 # List of Business Types and Products
 STATE = [
-"State",
+" ",
 "Andhra Pradesh",
 "Arunachal Pradesh",
 "Assam",
@@ -76,7 +76,7 @@ STATE = [
 "West Bengal",
 ]
 CITY = [
-    "District",
+    " ",
     "Bengaluru",
     "Mangalore",
 "Mumbai",
@@ -1212,7 +1212,7 @@ TYPE = [
     "Contractor",
 ]
 OWNERS = [
-    "Owners",
+    " ",
     "samrat.mazumder@voxindia.co",
 "abhijit.chakraborty@voxindia.co",
 "glady.george@voxindia.co",
