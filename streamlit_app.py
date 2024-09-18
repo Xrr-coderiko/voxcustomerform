@@ -1541,11 +1541,7 @@ with tab2:
      color=alt.Color(field='STATUS', type='nominal'),
      text=alt.Text(field='LEADS', type='quantitative'),
      tooltip=['STATUS', 'LEADS']
-    ).properties(title="Lead Status Distribution").configure_mark(
-     opacity=0.8
-    ).mark_arc(
-     innerRadius=50  
-    )
+    ).properties(title="Lead Status Distribution")
     st.altair_chart(chart, use_container_width=True)
 
             
