@@ -1517,7 +1517,7 @@ with tab2:
     procount = product_data['PRODUCT'].unique().tolist()
     product_counts = {product: Product.count(product) for product in PRODUCT if product in Product}
     product_count_df = pd.DataFrame(list(product_counts.items()), columns=["Product", "Count"])
-    st.tabel(product_count_df)
+    st.table(product_count_df)
     #p_count = product_count_df["Count"].sum()
     #pcount = pd.DataFrame([['TOTAL', p_count]], columns=['Product', 'Count'])
     #pcnt = pd.concat([product_count_df, pcount], ignore_index=True)
