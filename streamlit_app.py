@@ -1538,21 +1538,25 @@ with tab2:
     st.write(htmltbst, unsafe_allow_html=True)
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
     pie_chart = alt.Chart(statusdb).mark_arc(innerRadius=50).encode(
-     theta=alt.Theta(field='LEADS', type='quantitative'),
-     color=alt.Color(field='STATUS', type='nominal'),
-     tooltip=['STATUS', 'LEADS']
+    theta=alt.Theta(field='LEADS', type='quantitative'),
+    color=alt.Color(field='STATUS', type='nominal'),
+    tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution")
     text_labels = alt.Chart(statusdb).mark_text(
      align='left',
      baseline='middle',
-     dx=10  # Horizontal offset to position text outside the pie chart
+     dx=10,  # Horizontal offset to position text outside the pie chart
+     fontSize=12
     ).encode(
-     x=alt.value(0),  # Position text outside
-     y=alt.Y('LEADS:Q', scale=alt.Scale(domain=[0, max(statusdb['LEADS'])]), title=None),
-     text=alt.Text('STATUS:N') + ': ' + alt.Text('LEADS:Q', format='.0f'),
-     color=alt.Color('STATUS:N', scale=alt.Scale(domain=statusdb['STATUS'].tolist(), range=alt.color_palette('tableau10'))) 
+     x=alt.X('LEADS:Q', scale=alt.Scale(domain=[0, statusdb['LEADS'].max()]), title=None),
+     y=alt.Y('STATUS:N', sort=statusdb['STATUS'].tolist(), title=None),
+     text=alt.Text('text:N'),  # Custom text field for labels
+     color=alt.Color('STATUS:N', scale=alt.Scale(domain=statusdb['STATUS'].tolist(), range=alt.color_palette('tableau10')))
+    ).transform_calculate(
+    text='datum.STATUS + ": " + datum.LEADS'
     )
     final_chart = pie_chart + text_labels
+    st.altair_chart(final_chart, use_container_width=True)
     htmltbst = prodb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
 
