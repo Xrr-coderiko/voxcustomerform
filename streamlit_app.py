@@ -1550,7 +1550,7 @@ with tab2:
       color=alt.Color(field='PRODUCT', type='nominal'),
       tooltip=['PRODUCT', 'LEAD'],
       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-     ).properties(title="Products Status Summary")
+     ).properties(title="Requirement Summary")
      st.altair_chart(chart2, use_container_width=True)
 
 
