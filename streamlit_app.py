@@ -1531,7 +1531,6 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-    STATUS = ['No response', 'Just Enquiry', 'Qualified', 'Time required']
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
     htmltbst = statusdb.to_html(index=False)
