@@ -1511,7 +1511,7 @@ with tab2:
    
   #with st.container(border=True):  
   
-  RECEIVED = [38, 18, 9, 8, 3, 9, 3, 5 ]
+  RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
    if 'CAMPAIGN' in existing_data.columns:
       st.markdown(f"<div style='text-align: center; border: 2px solid Grey;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
@@ -1522,8 +1522,9 @@ with tab2:
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       ttc = camp['QUALIFIED'].sum()
       ttrc = camp['RECEIVED'].sum()
+      row1cs = ['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 1, 0]
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      campt = pd.concat([camp, ttr], ignore_index=True)
+      campt = pd.concat([camp, row1cs, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
 
