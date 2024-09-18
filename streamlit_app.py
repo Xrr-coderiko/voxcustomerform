@@ -1510,6 +1510,15 @@ with tab2:
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
+  with cxxf2:
+    product_counts = {product: Product.count(product) for product in PRODUCT if product in Product}
+    product_count_df = pd.DataFrame(list(product_counts.items()), columns=["Product", "Count"])
+    p_count = product_count_df["Count"].sum()
+    pcount = pd.DataFrame([['TOTAL', p_count]], columns=['Product', 'Count'])
+    pcnt = pd.concat([product_count_df, pcount], ignore_index=True)
+    html_tablep = pcnt.to_html(index=False)
+    st.write(html_tablep, unsafe_allow_html=True)
+    
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
