@@ -1521,10 +1521,11 @@ with tab2:
       camp['RECEIVED'] = RECEIVED
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 0, 1], ['Leads | TOF | B2C | Home Automation X High Value Goods | HD', 0, 2]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
+      camp = pd.concat([camp, newsc1], ignore_index=True)
       ttc = camp['QUALIFIED'].sum()
       ttrc = camp['RECEIVED'].sum()
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      campt = pd.concat([camp, newsc1, ttr], ignore_index=True)
+      campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
 
