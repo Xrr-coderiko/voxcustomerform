@@ -1530,8 +1530,10 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
+    spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
-    st.table(statusdb)
+    htmltbst = statusdb.to_html(index=False)
+    st.write(htmltbst, unsafe_allow_html=True)
 
             
         
