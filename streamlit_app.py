@@ -1512,7 +1512,7 @@ with tab2:
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
   with cxxf2:
-   keywords = ["Ceiling", "Wall", "Flooring", "Dealership"]
+   keywords = ['Ceiling', 'Wall', 'Flooring', 'Dealership']
    keyword_counts = {keyword: 0 for keyword in keywords}
    for product in product_data["PRODUCT"]:
      for keyword in keywords:
