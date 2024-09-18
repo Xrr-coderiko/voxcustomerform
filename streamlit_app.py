@@ -1419,6 +1419,7 @@ with tab2:
  current_date_data = existing_data[existing_data['DATE'].dt.strftime('%d/%m/%Y') == today]
  campdata['DATE'] = pd.to_datetime(campdata['DATE'], format='%d/%m/%Y', errors='coerce')
  current_camp = campdata[campdata['DATE'].dt.strftime('%d/%m/%Y') == today]
+ product_data = campdata[campdata['DATE'].dt.strftime('%d/%m/%Y') == today]
  #['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']
  rvalues = [] 
   
@@ -1511,13 +1512,17 @@ with tab2:
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
   with cxxf2:
+   if 'PRODUCT' in existing_data.columns:
+    product_data = product_data.dropna(subset=['PRODUCT'])
+    procount = product_data['PRODUCT'].unique().tolist()
     product_counts = {product: Product.count(product) for product in PRODUCT if product in Product}
     product_count_df = pd.DataFrame(list(product_counts.items()), columns=["Product", "Count"])
-    p_count = product_count_df["Count"].sum()
-    pcount = pd.DataFrame([['TOTAL', p_count]], columns=['Product', 'Count'])
-    pcnt = pd.concat([product_count_df, pcount], ignore_index=True)
-    html_tablep = pcnt.to_html(index=False)
-    st.write(html_tablep, unsafe_allow_html=True)
+    st.tabel(product_count_df)
+    #p_count = product_count_df["Count"].sum()
+    #pcount = pd.DataFrame([['TOTAL', p_count]], columns=['Product', 'Count'])
+    #pcnt = pd.concat([product_count_df, pcount], ignore_index=True)
+    #html_tablep = pcnt.to_html(index=False)
+    #st.write(html_tablep, unsafe_allow_html=True)
     
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
