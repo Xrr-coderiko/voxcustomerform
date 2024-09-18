@@ -1543,12 +1543,6 @@ with tab2:
      tooltip=['STATUS', 'LEADS'],
      text=alt.Text(field='LEADS', type='quantitative', format='.0f')
     ).properties(title="Lead Status Distribution")
-    chart = chart.mark_arc(innerRadius=50).encode(
-     text=alt.Text('LEADS:Q', format=':,.0f')
-    ).properties(
-     width=400,
-     height=400
-    )
     st.altair_chart(chart, use_container_width=True)
     htmltbst = prodb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
