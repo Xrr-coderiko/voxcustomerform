@@ -1539,7 +1539,6 @@ with tab2:
     chart = alt.Chart(statusdb).mark_arc().encode(
      theta=alt.Theta(field='LEADS', type='quantitative'),
      color=alt.Color(field='STATUS', type='nominal'),
-     text=alt.Text(field='LEADS', type='quantitative'),
      tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution")
     st.altair_chart(chart, use_container_width=True)
