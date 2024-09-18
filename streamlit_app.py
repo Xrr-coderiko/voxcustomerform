@@ -1493,7 +1493,16 @@ with tab2:
      finldbc = pd.concat([source_counts, total_rows])
      htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)       
-              
+   with cer2:
+    keywords = ['Ceiling', 'Wall', 'Flooring', 'Dealership']
+    keyword_counts = {keyword: 0 for keyword in keywords}
+    for product in product_data["PRODUCT"]:
+     for keyword in keywords:
+        if keyword in product:
+            keyword_counts[keyword] += 1
+    keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
+    htmltbstx = keyword_count_df.to_html(index=False)
+    st.write(htmltbstx, unsafe_allow_html=True)             
   #with st.container(border=True):  
   
   RECEIVED = [84, 22, 37, 27, 16, 11, 6, 10, 12, 8 ]
@@ -1519,7 +1528,8 @@ with tab2:
         if keyword in product:
             keyword_counts[keyword] += 1
    keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
-   st.table(keyword_count_df)
+   htmltbstx = keyword_count_df.to_html(index=False)
+   st.write(htmltbstx, unsafe_allow_html=True)   
 
             
         
