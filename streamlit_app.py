@@ -1534,18 +1534,22 @@ with tab2:
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
     prodb = spdata[['PRODUCT', 'LEAD']]
-    htmltbst = statusdb.to_html(index=False)
-    st.write(htmltbst, unsafe_allow_html=True)
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
     chart = alt.Chart(statusdb).mark_arc().encode(
      theta=alt.Theta(field='LEADS', type='quantitative'),
      color=alt.Color(field='STATUS', type='nominal'),
      tooltip=['STATUS', 'LEADS'],
      text=alt.Text(field='LEADS', type='quantitative', format='.0f')
-    ).properties(title="Lead Status Distribution")
+    ).properties(title="Lead Status Summary")
     st.altair_chart(chart, use_container_width=True)
-    htmltbst = prodb.to_html(index=False)
-    st.write(htmltbst, unsafe_allow_html=True)
+    chart2 = alt.Chart(prodb).mark_arc().encode(
+     theta=alt.Theta(field='LEAD', type='quantitative'),
+     color=alt.Color(field='PRODUCT', type='nominal'),
+     tooltip=['PRODUCT', 'LEAD'],
+     text=alt.Text(field='LEAD', type='quantitative', format='.0f')
+    ).properties(title="Products Status Summary")
+    st.altair_chart(chart2, use_container_width=True)
+
 
             
         
