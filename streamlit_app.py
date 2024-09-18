@@ -1518,7 +1518,7 @@ with tab2:
       #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
       current_camp = current_camp.dropna(subset=['CAMPAIGN'])
       camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      camp['RECEIVED'] = current_camp['CAMPAIGN'].value_counts()
+      camp['RECEIVED'] = RECEIVED
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       ttc = camp['QUALIFIED'].sum()
       ttrc = camp['RECEIVED'].sum()
