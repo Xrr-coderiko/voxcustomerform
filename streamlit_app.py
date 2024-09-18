@@ -1537,12 +1537,14 @@ with tab2:
     htmltbst = statusdb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
-    chart = alt.Chart(prodb).mark_arc().encode(
+    chart = alt.Chart(statusdb).mark_arc().encode(
      theta=alt.Theta(field='LEADS', type='quantitative'),
      color=alt.Color(field='STATUS', type='nominal'),
      tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution")
     st.altair_chart(chart, use_container_width=True)
+    htmltbst = prodb.to_html(index=False)
+    st.write(htmltbst, unsafe_allow_html=True)
 
             
         
