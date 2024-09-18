@@ -1516,8 +1516,7 @@ with tab2:
       st.write(htmltbcm, unsafe_allow_html=True)
   with cxxf1:
    cer1, cer2 = st.columns(2)
-   st.write(f"Total leads: {total_vn}")
-   with cer2:
+   with cer1:
     if 'SOURCE' in existing_data.columns:
      st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
      current_date_data = current_date_data.dropna(subset=['SOURCE'])
