@@ -12,11 +12,9 @@ st.set_page_config(layout="wide")
 st.markdown(
      """
     <style>
-    /* Hide the header section containing the GitHub and fork icons */
     header[data-testid="stHeader"] {
         display: none;
     }
-    /* Hide the three-dot menu icon */
     .css-1u7wa8r.e1tzin5v3 {
         display: none;
     }
