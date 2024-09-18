@@ -18,6 +18,9 @@ st.markdown(
     .css-1u7wa8r.e1tzin5v3 {
         display: none;
     }
+    footer[data-testid="stFooter"] {
+        display: none;
+    }
     </style>
     """,
     unsafe_allow_html=True
