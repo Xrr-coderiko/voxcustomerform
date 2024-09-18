@@ -1512,12 +1512,11 @@ with tab2:
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
   with cxxf2:
-   keywords = ["ceiling", "wall", "flooring", "dealership"]
+   keywords = ["Ceiling", "Wall", "Flooring", "Dealership"]
    keyword_counts = {keyword: 0 for keyword in keywords}
    for product in existing_data["PRODUCT"]:
-     product_lower = product.lower()  # Convert product name to lowercase for case-insensitive matching
      for keyword in keywords:
-        if keyword in product_lower:
+        if keyword in product:
             keyword_counts[keyword] += 1
    keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
    st.table(keyword_count_df)
