@@ -46,7 +46,7 @@ disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
 spdata = conn.read(worksheet="SP", usecols=list(range(5)), ttl=5)
-spdata - spdata.dropna(how='all')
+spdata = spdata.dropna(how='all')
 
 
 if 'Name' not in st.session_state:
