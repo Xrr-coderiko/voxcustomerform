@@ -45,6 +45,10 @@ disdata = conn.read(worksheet="Dealer", usecols=list(range(3)), ttl=5)
 disdata = disdata.dropna(how="all")
 total_rowd = len(disdata)
 
+spdata = conn.read(worksheet="SP", usecols=list(range(5)), ttl=5)
+spdata - spdata.dropna(how='all')
+
+
 if 'Name' not in st.session_state:
     st.session_state.Name = ""
 if "PHONE" not in st.session_state:
@@ -1490,26 +1494,7 @@ with tab2:
      total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-EXECUTIVE', 'QUALIFIED','ATTENDED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True)
-     
-     #st.table(finaldf)
-  with cxxf2:
-   cer1, cer2 = st.columns(2)
-   st.write(f"Total leads: {total_vn}")
-   with cer2:
-    if 'SOURCE' in existing_data.columns:
-     st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
-     current_date_data = current_date_data.dropna(subset=['SOURCE'])
-     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
-     source_counts.columns = ['SOURCE', 'QUALIFIED']
-     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
-     totalcss = source_counts['QUALIFIED'].sum()
-     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
-     finldbc = pd.concat([source_counts, total_rows])
-     htmltbst = finldbc.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True)       
-   
-  #with st.container(border=True):  
+     st.write(htmltbst, unsafe_allow_html=True)  
   
   RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
@@ -1528,6 +1513,25 @@ with tab2:
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
+  with cxxf1:
+   cer1, cer2 = st.columns(2)
+   st.write(f"Total leads: {total_vn}")
+   with cer2:
+    if 'SOURCE' in existing_data.columns:
+     st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
+     current_date_data = current_date_data.dropna(subset=['SOURCE'])
+     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
+     source_counts.columns = ['SOURCE', 'QUALIFIED']
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     totalcss = source_counts['QUALIFIED'].sum()
+     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
+     finldbc = pd.concat([source_counts, total_rows])
+     htmltbst = finldbc.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True)   
+  
+  with cxxf2:
+    statusdb = spdata[[]'STATUS', 'LEADS']]
+    st.table(statusdb)
 
             
         
