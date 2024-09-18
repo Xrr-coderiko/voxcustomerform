@@ -1536,20 +1536,21 @@ with tab2:
     statusdb = spdata[['STATUS', 'LEADS']]
     prodb = spdata[['PRODUCT', 'LEAD']]
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
-    chart = alt.Chart(statusdb).mark_arc().encode(
-     theta=alt.Theta(field='LEADS', type='quantitative'),
-     color=alt.Color(field='STATUS', type='nominal'),
-     tooltip=['STATUS', 'LEADS'],
-     text=alt.Text(field='LEADS', type='quantitative', format='.0f')
-    ).properties(title="Lead Status Summary")
-    st.altair_chart(chart, use_container_width=True)
-    chart2 = alt.Chart(prodb).mark_arc().encode(
-     theta=alt.Theta(field='LEAD', type='quantitative'),
-     color=alt.Color(field='PRODUCT', type='nominal'),
-     tooltip=['PRODUCT', 'LEAD'],
-     text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-    ).properties(title="Products Status Summary")
-    st.altair_chart(chart2, use_container_width=True)
+    with st.container(border=True)
+     chart = alt.Chart(statusdb).mark_arc().encode(
+      theta=alt.Theta(field='LEADS', type='quantitative'),
+      color=alt.Color(field='STATUS', type='nominal'),
+      tooltip=['STATUS', 'LEADS'],
+      text=alt.Text(field='LEADS', type='quantitative', format='.0f')
+     ).properties(title="Lead Status Summary")
+     st.altair_chart(chart, use_container_width=True)
+     chart2 = alt.Chart(prodb).mark_arc().encode(
+      theta=alt.Theta(field='LEAD', type='quantitative'),
+      color=alt.Color(field='PRODUCT', type='nominal'),
+      tooltip=['PRODUCT', 'LEAD'],
+      text=alt.Text(field='LEAD', type='quantitative', format='.0f')
+     ).properties(title="Products Status Summary")
+     st.altair_chart(chart2, use_container_width=True)
 
 
             
