@@ -3,7 +3,7 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
 from datetime import datetime
-import plotly.express as px
+import altair as alt
 
 st.set_page_config(layout="wide")
 #st.image("./VOXlogo.jpeg",width=500,)
@@ -1535,8 +1535,12 @@ with tab2:
     statusdb = spdata[['STATUS', 'LEADS']]
     htmltbst = statusdb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
-    fig = px.pie(statusdb, names='STATUS', values='LEADS', title="Lead Status Distribution")
-    st.plotly_chart(fig)
+    chart = alt.Chart(statusdb).mark_arc().encode(
+     theta=alt.Theta(field='LEADS', type='quantitative'),
+     color=alt.Color(field='STATUS', type='nominal'),
+     tooltip=['STATUS', 'LEADS']
+    ).properties(title="Lead Status Distribution")
+    st.altair_chart(chart, use_container_width=True)
 
             
         
