@@ -1537,9 +1537,13 @@ with tab2:
     htmltbst = statusdb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
+    color_scale = alt.Scale(
+    domain=statusdb['STATUS'].tolist(),
+    range=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']  # Use a list of colors or a color palette of your choice
+    )
     pie_chart = alt.Chart(statusdb).mark_arc(innerRadius=50).encode(
     theta=alt.Theta(field='LEADS', type='quantitative'),
-    color=alt.Color(field='STATUS', type='nominal'),
+    color=alt.Color(field='STATUS', type='nominal', scale=color_scale),
     tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution")
     text_labels = alt.Chart(statusdb).mark_text(
@@ -1551,7 +1555,7 @@ with tab2:
      x=alt.X('LEADS:Q', scale=alt.Scale(domain=[0, statusdb['LEADS'].max()]), title=None),
      y=alt.Y('STATUS:N', sort=statusdb['STATUS'].tolist(), title=None),
      text=alt.Text('text:N'),  # Custom text field for labels
-     color=alt.Color('STATUS:N', scale=alt.Scale(domain=statusdb['STATUS'].tolist(), range=alt.color_palette('tableau10')))
+     color=alt.Color('STATUS:N', scale=color_scale)
     ).transform_calculate(
     text='datum.STATUS + ": " + datum.LEADS'
     )
