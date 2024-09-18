@@ -1522,9 +1522,9 @@ with tab2:
       camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
       ttc = camp['QUALIFIED'].sum()
       ttrc = camp['RECEIVED'].sum()
-      row1cs = ['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 1, 0]
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      campt = pd.concat([camp, row1cs], ignore_index=True)
+      newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 1, 0]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
+      campt = pd.concat([camp, newsc1, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
 
