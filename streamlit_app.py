@@ -3,6 +3,7 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import re
 from datetime import datetime
+import plotly.express as px
 
 st.set_page_config(layout="wide")
 #st.image("./VOXlogo.jpeg",width=500,)
@@ -1530,10 +1531,13 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
+    STATUS = ['No response', 'Just Enquiry', 'Qualified', 'Time required']
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
     htmltbst = statusdb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
+    fig = px.pie(statusdb, names='STATUS', values='LEADS', title="Lead Status Distribution")
+    st.plotly_chart(fig)
 
             
         
