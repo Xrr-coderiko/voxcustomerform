@@ -1536,7 +1536,7 @@ with tab2:
     statusdb = spdata[['STATUS', 'LEADS']]
     prodb = spdata[['PRODUCT', 'LEAD']]
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
-    with st.container(border=True)
+    with st.container(border=True):
      chart = alt.Chart(statusdb).mark_arc().encode(
       theta=alt.Theta(field='LEADS', type='quantitative'),
       color=alt.Color(field='STATUS', type='nominal'),
