@@ -1544,6 +1544,7 @@ with tab2:
       text=alt.Text(field='LEADS', type='quantitative', format='.0f')
      ).properties(title="Lead Status Summary")
      st.altair_chart(chart, use_container_width=True)
+    with st.container(border=True): 
      chart2 = alt.Chart(prodb).mark_arc().encode(
       theta=alt.Theta(field='LEAD', type='quantitative'),
       color=alt.Color(field='PRODUCT', type='nominal'),
