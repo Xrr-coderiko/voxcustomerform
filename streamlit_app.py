@@ -1543,6 +1543,18 @@ with tab2:
      tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution")
     st.altair_chart(chart, use_container_width=True)
+    text = alt.Chart(statusdb).mark_text(
+    align='left',
+    baseline='middle',
+    dx=10  # Horizontal offset to position text outside the pie chart
+    ).encode(
+    x=alt.value(0),  # Position text outside
+    y=alt.Y('LEADS:Q', scale=alt.Scale(domain=[0, max(statusdb['LEADS'])]), title=None),
+    text=alt.Text('STATUS:N', format='.0f') + ': ' + alt.Text('LEADS:Q', format='.0f'),
+    color=alt.Color('STATUS:N', scale=alt.Scale(domain=statusdb['STATUS'].tolist(), range=alt.color_palette('tableau10')))
+    )
+    final_chart = chart + text
+    st.altair_chart(final_chart, use_container_width=True)
     htmltbst = prodb.to_html(index=False)
     st.write(htmltbst, unsafe_allow_html=True)
 
