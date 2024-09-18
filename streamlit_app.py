@@ -1500,7 +1500,7 @@ with tab2:
      for keyword in keywords:
         if keyword in product:
             keyword_counts[keyword] += 1
-    keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
+    keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product", "Count"])
     htmltbstx = keyword_count_df.to_html(index=False)
     st.write(htmltbstx, unsafe_allow_html=True)             
   #with st.container(border=True):  
@@ -1520,16 +1520,6 @@ with tab2:
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)
-  with cxxf2:
-   keywords = ['Ceiling', 'Wall', 'Flooring', 'Dealership']
-   keyword_counts = {keyword: 0 for keyword in keywords}
-   for product in product_data["PRODUCT"]:
-     for keyword in keywords:
-        if keyword in product:
-            keyword_counts[keyword] += 1
-   keyword_count_df = pd.DataFrame(list(keyword_counts.items()), columns=["Product Type", "Count"])
-   htmltbstx = keyword_count_df.to_html(index=False)
-   st.write(htmltbstx, unsafe_allow_html=True)   
 
             
         
