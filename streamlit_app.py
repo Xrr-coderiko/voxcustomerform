@@ -12,7 +12,15 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
     <style>
-    .css-1v0mbdj.e1tzin5v3 {
+    /* Hide the GitHub and fork icons */
+    .css-1n7v3ny.edgvbvh3 {
+        display: none;
+    }
+    .css-1s5y8n8.e1tzin5v3 {
+        display: none;
+    }
+    /* Hide the three-dot menu icon */
+    .css-1wn7q3f.e1tzin5v3 {
         display: none;
     }
     </style>
