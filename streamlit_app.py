@@ -1542,11 +1542,9 @@ with tab2:
      text=alt.Text(field='LEADS', type='quantitative'),
      tooltip=['STATUS', 'LEADS']
     ).properties(title="Lead Status Distribution").configure_mark(
-     fontSize=12,
-     opacity=0.8,
-     color='black'
-    ).transform_calculate(
-     text='datum.LEADS + " (" + format(datum.LEADS / datum.LEADS.sum() * 100, ".1f") + "%)"'
+     opacity=0.8
+    ).mark_arc(
+     innerRadius=50  
     )
     st.altair_chart(chart, use_container_width=True)
 
