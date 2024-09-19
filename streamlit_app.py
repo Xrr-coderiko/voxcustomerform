@@ -1548,9 +1548,13 @@ with tab2:
       ).properties(
       title="Lead Status Summary"
       )
-     text = chart.mark_text(radius=90, size=14).encode(
-     text=alt.Text('PERCENT:Q', format='.2f'),
-     color=alt.value('black')  # Set text color to black for better visibility
+     text = chart.mark_text(radiusOffset=20, size=16).encode(
+     text=alt.Text('PERCENT:Q', format='.1f'),
+     color=alt.condition(
+        alt.datum.LEADS > 15,  # Adjust condition to change color for smaller slices
+        alt.value('white'),  # Larger slices: white text
+        alt.value('black')   # Smaller slices: black text for visibility
+      )
       )
      combined_chart = chart + text
      st.altair_chart(combined_chart, use_container_width=True)
