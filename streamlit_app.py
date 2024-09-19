@@ -1547,6 +1547,8 @@ with tab2:
              alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
       ).properties(
         title="Lead Status Summary",
+        height=350,
+        widith = 300,
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
