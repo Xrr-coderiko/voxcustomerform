@@ -1531,7 +1531,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-    #st.markdown(f"<div style='text-align: center; border: 2px solid Black; margin-bottom: 15px;'><h2>TOTAL LEADS: {total_vn}</h2></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='text-align: center; border: 2px solid Black; margin-bottom: 15px;'><h2>TOTAL LEADS: {total_vn}</h2></div>", unsafe_allow_html=True)
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
     prodb = spdata[['PRODUCT', 'LEAD']]
@@ -1544,7 +1544,13 @@ with tab2:
       tooltip=['STATUS', 'LEADS'],
       text=alt.Text(field='LEADS', type='quantitative', format='.0f')
      ).properties(title="Lead Status Summary")
-     st.altair_chart(chart, use_container_width=True)
+     text = chart.mark_text(radius=100, size=16).encode(
+     text='STATUS',
+     color=alt.value('white')  # Optional: color of text can be set
+     )
+     combined_chart = chart + text
+     st.altair_chart(combined_chart, use_container_width=True)
+     #st.altair_chart(chart, use_container_width=True)
     with st.container(border=True): 
      chart2 = alt.Chart(prodb).mark_arc().encode(
       theta=alt.Theta(field='LEAD', type='quantitative'),
