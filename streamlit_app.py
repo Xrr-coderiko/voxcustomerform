@@ -1549,7 +1549,7 @@ with tab2:
       title="Lead Status Summary"
       )
      text = chart.mark_text(radius=90, size=14).encode(
-     text=alt.Text('PERCENT:Q', format='.1f'),
+     text=alt.Text('PERCENT:Q', format='.2f'),
      color=alt.value('black')  # Set text color to black for better visibility
       )
      combined_chart = chart + text
