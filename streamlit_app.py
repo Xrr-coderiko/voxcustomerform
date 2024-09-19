@@ -1458,6 +1458,7 @@ with tab2:
         hide_table_row_index = """
         <style> table {
             width: 100%;
+            border-collapse: collapse;
             
           }
          th, td {
