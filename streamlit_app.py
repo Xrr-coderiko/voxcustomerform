@@ -1547,8 +1547,8 @@ with tab2:
              alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
       ).properties(
         title="Lead Status Summary",
-        height=320,
-        width=320,
+        height=315,
+        width=315,
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
@@ -1558,7 +1558,7 @@ with tab2:
       color=alt.Color(field='PRODUCT', type='nominal'),
       tooltip=['PRODUCT', 'LEAD'],
       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-     ).properties(title="Requirement Summary", height=320, width=320)
+     ).properties(title="Requirement Summary", height=315, width=315)
      st.altair_chart(chart2, use_container_width=True)
 
 
