@@ -1538,16 +1538,20 @@ with tab2:
     statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
     prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
     with st.container(border=True):
+     statusdb['PERCENT'] = (statusdb['LEADS'] / statusdb['LEADS'].sum()) * 100
      chart = alt.Chart(statusdb).mark_arc().encode(
       theta=alt.Theta(field='LEADS', type='quantitative'),
       color=alt.Color(field='STATUS', type='nominal'),
-      tooltip=['STATUS', 'LEADS'],
-      text=alt.Text(field='LEADS', type='quantitative', format='.0f')
-     ).properties(title="Lead Status Summary")
-     text = chart.mark_text(radius=100, size=16).encode(
-     text='STATUS',
-     color=alt.value('white')  # Optional: color of text can be set
-     )
+      tooltip=[alt.Tooltip('STATUS', title='Lead Status'), 
+             alt.Tooltip('LEADS', title='Leads Count'),
+             alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
+      ).properties(
+      title="Lead Status Summary"
+      )
+     text = chart.mark_text(radius=130, size=14).encode(
+     text=alt.Text('PERCENT:Q', format='.1f'),
+     color=alt.value('black')  # Set text color to black for better visibility
+      )
      combined_chart = chart + text
      st.altair_chart(combined_chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
