@@ -1446,7 +1446,7 @@ with tab2:
   
  with st.container(border=True):
   #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [92, 32, 115, 42, 36, 18]
+  Attended = [101, 28, 116, 55, 40]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
