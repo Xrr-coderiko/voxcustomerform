@@ -1432,6 +1432,48 @@ with tab1:
             st.success("Details successfully submitted!")
     if clear_button:
       st.session_state.Name = " "
+ st.sidebar.image('zIntro.jpeg', use_column_width=True)
+ products = ', '.join(Product)
+ sidebar_text = f"""
+ {Name}
+ {Phone}
+ {State}
+ {City}
+ {products} {Sqft}sqft
+ {Source}
+ {Sentto}
+ {Notes}
+ """
+ st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=350) 
+
+ footer="""<style>
+ a:link , a:visited{
+ color: blue;
+ background-color: transparent;
+ text-decoration: underline;
+ }
+
+ a:hover,  a:active {
+ color: red;
+ background-color: transparent;
+ text-decoration: underline;
+ }
+ .footer {
+
+ left: 0;
+ bottom: 0;
+ width: 100%;
+ background-color: transparent;
+ color: Orange;
+ text-align: center;
+ opacity: 0.4;
+ }
+ </style>
+ <div class="footer">
+ Developed by <a style='display: inline; text-align: right; text-decoration: none; color: Green;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
+ </div>
+ """
+ st.sidebar.markdown(footer,unsafe_allow_html=True)
 
 with tab2:
  existing_data['DATE'] = pd.to_datetime(existing_data['DATE'], format='%d/%m/%Y', errors='coerce')
@@ -1674,47 +1716,4 @@ with tab4:
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
  #st.sidebar.title(f"Total Lead: {total_rows}")  
 
-st.sidebar.image('zIntro.jpeg', use_column_width=True)
-products = ', '.join(Product)
-sidebar_text = f"""
-{Name}
-{Phone}
-{State}
-{City}
-{products} {Sqft}sqft
-{Source}
-{Sentto}
-{Notes}
-"""
-st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=350)
 
-footer="""<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
-
-.footer {
-
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: transparent;
-color: Orange;
-text-align: center;
-opacity: 0.4;
-}
-</style>
-<div class="footer">
-Developed by <a style='display: inline; text-align: right; text-decoration: none; color: Green;' href="https://www.instagram.com/vkas.ptl?igsh=ZGx3cmh0eTY0ZjBq" target="_blank">@Vikas_Patil 🔥</a>
-</div>
-"""
-st.sidebar.markdown(footer,unsafe_allow_html=True)
