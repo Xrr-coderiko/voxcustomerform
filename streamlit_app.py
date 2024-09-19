@@ -69,6 +69,7 @@ STATE = [
 "Bihar",
 "Chhattisgarh",
 "Delhi",
+"Chandigarh",
 "Delhi NCR",
 "Goa",
 "Gujarat",
