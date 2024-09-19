@@ -1479,6 +1479,9 @@ with tab2:
             text-align: left !important;
             vertical-align: middle !important;
           }
+          tr:hover {
+            background-color: #f2f2f2;
+           }
         </style>
        """
         st.markdown(hide_table_row_index, unsafe_allow_html=True)
