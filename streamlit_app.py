@@ -1539,7 +1539,7 @@ with tab2:
     prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
     with st.container(border=True):
      statusdb['PERCENT'] = (statusdb['LEADS'] / statusdb['LEADS'].sum()) * 100
-     pie_chart = alt.Chart(statusdb).mark_arc(innerRadius=50).encode(
+     chart = alt.Chart(statusdb).mark_arc().encode(
       theta=alt.Theta(field='LEADS', type='quantitative'),
       color=alt.Color(field='STATUS', type='nominal'),
       tooltip=[alt.Tooltip('STATUS', title='Lead Status'), 
@@ -1548,22 +1548,7 @@ with tab2:
       ).properties(
       title="Lead Status Summary"
       )
-     statusdb['cumulative'] = statusdb['LEADS'].cumsum() - statusdb['LEADS'] / 2
-     statusdb['percentage_label'] = statusdb['PERCENT'].round(1).astype(str) + '%'
-     lines = alt.Chart(statusdb).mark_line(color='black').encode(
-       x=alt.X('cos(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 160 + 200:Q'),
-       y=alt.Y('sin(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 160 + 200:Q'),
-       x2=alt.X2('cos(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 100 + 200:Q'),
-       y2=alt.Y2('sin(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 100 + 200:Q')
-      )
-     text = alt.Chart(statusdb).mark_text(align='left', fontSize=12, dx=5).encode(
-       x=alt.X('cos(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 160 + 200:Q'),
-       y=alt.Y('sin(datum.cumulative / datum.LEADS.sum() * 2 * PI) * 160 + 200:Q'),
-       text='percentage_label',
-       color=alt.value('black')
-      )
-     final_chart = pie_chart + lines + text
-     st.altair_chart(final_chart, use_container_width=True)
+     st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
     with st.container(border=True): 
      chart2 = alt.Chart(prodb).mark_arc().encode(
