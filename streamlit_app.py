@@ -1532,13 +1532,13 @@ with tab2:
   
   with cxxf2:
    fgh1, fgh2 = st.columns(2)
-   st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
-   spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
-   statusdb = spdata[['STATUS', 'LEADS']]
-   prodb = spdata[['PRODUCT', 'LEAD']]
-   statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
-   prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
    with st.container(border=True):
+    st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
+    spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
+    statusdb = spdata[['STATUS', 'LEADS']]
+    prodb = spdata[['PRODUCT', 'LEAD']]
+    statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
+    prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
     with fgh1: 
      statusdb['PERCENT'] = (statusdb['LEADS'] / statusdb['LEADS'].sum()) * 100
      chart = alt.Chart(statusdb).mark_arc().encode(
