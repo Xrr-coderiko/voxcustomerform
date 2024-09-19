@@ -1450,13 +1450,14 @@ with tab2:
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns(2)            
-  with cxxf1:    
+  with cxxf1:  
+    with st.container(border=True):  
         st.markdown(f"<div style='text-align: center; border: 2px solid Black;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
         recdata[["RECEIVED",	"PENDING", "ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED", "PENDING",	"ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
-            width: 75;
+            width: 100%;
             
           }
          th, td {
