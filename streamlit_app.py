@@ -1456,7 +1456,7 @@ with tab2:
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
-            width: 50%;
+            width: 75;
             
           }
          th, td {
