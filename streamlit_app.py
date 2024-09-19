@@ -1531,13 +1531,15 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-    st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
-    spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
-    statusdb = spdata[['STATUS', 'LEADS']]
-    prodb = spdata[['PRODUCT', 'LEAD']]
-    statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
-    prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
-    with st.container(border=True):
+   fgh1, fgh2 = st.columns(2)
+   st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
+   spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
+   statusdb = spdata[['STATUS', 'LEADS']]
+   prodb = spdata[['PRODUCT', 'LEAD']]
+   statusdb = statusdb[statusdb['STATUS'] != 'TOTAL']
+   prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
+   with st.container(border=True):
+    with fgh1: 
      statusdb['PERCENT'] = (statusdb['LEADS'] / statusdb['LEADS'].sum()) * 100
      chart = alt.Chart(statusdb).mark_arc().encode(
       theta=alt.Theta(field='LEADS', type='quantitative'),
@@ -1547,17 +1549,18 @@ with tab2:
              alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
       ).properties(
         title="Lead Status Summary",
-        height=300,
+        height=250,
+        width=250,
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
-    with st.container(border=True): 
+    with fgh2:
      chart2 = alt.Chart(prodb).mark_arc().encode(
       theta=alt.Theta(field='LEAD', type='quantitative'),
       color=alt.Color(field='PRODUCT', type='nominal'),
       tooltip=['PRODUCT', 'LEAD'],
       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-     ).properties(title="Requirement Summary", height=300,)
+     ).properties(title="Requirement Summary", height=250, width=250)
      st.altair_chart(chart2, use_container_width=True)
 
 
