@@ -1462,8 +1462,7 @@ with tab2:
             
           }
          th, td {
-            text-align: center !important;
-            vertical-align: middle !important;
+            text-align: center;
             border: 1px solid white; 
          }
          th {
