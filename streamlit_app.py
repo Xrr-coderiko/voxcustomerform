@@ -1392,7 +1392,7 @@ with tab1:
     if submit_button:
         # Check if all mandatory fields are filled
         is_valid = bool(pattern.match(Phone))
-        if not Name or not Phone or not State or not City or not District or not Sentto or not Product or not Source or not Sentby:
+        if not Name or not Phone or not State or not District or not Sentto or not Product or not Source or not Sentby:
             st.warning("Ensure all mandatory fields are filled.")
         elif not is_valid:
             st.warning("Incorrect Phone Number")
