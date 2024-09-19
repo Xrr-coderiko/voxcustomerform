@@ -1548,7 +1548,7 @@ with tab2:
       ).properties(
       title="Lead Status Summary"
       )
-     text = chart.mark_text(radius=180, size=14).encode(
+     text = chart.mark_text(radius=90, size=14).encode(
      text=alt.Text('PERCENT:Q', format='.1f'),
      color=alt.value('black')  # Set text color to black for better visibility
       )
