@@ -1531,7 +1531,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-    st.markdown(f"<div style='text-align: center; border: 2px solid Black; margin-bottom: 15px;'><h2>TOTAL LEADS: {total_vn}</h2></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='text-align: center; border: 2px solid Black; margin-bottom: 15px;'><h2></h2></div>", unsafe_allow_html=True)
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
     prodb = spdata[['PRODUCT', 'LEAD']]
@@ -1547,8 +1547,6 @@ with tab2:
              alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
       ).properties(
         title="Lead Status Summary",
-        width=250,  # Increase chart width
-        height=250, 
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
