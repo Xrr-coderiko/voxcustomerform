@@ -22,12 +22,6 @@ st.markdown(
     footer[data-testid="stFooter"] {
         display: none;
     }
-    [data-testid="stSidebar"] {
-        width: 100px;
-    }
-
-   
-
     </style>
     """,
     unsafe_allow_html=True
@@ -1715,10 +1709,8 @@ with tab4:
       conn.update(worksheet="Dealer", data=ddata)
       st.success('Dealer added')
       st.success()
-     
 
- 
-        
+
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
  #st.sidebar.title(f"Total Lead: {total_rows}")  
