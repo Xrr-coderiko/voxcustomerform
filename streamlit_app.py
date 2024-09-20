@@ -22,6 +22,13 @@ st.markdown(
     footer[data-testid="stFooter"] {
         display: none;
     }
+    .css-1d391kg {
+        width: 100px;  /* Set the desired width here */
+    }
+    .css-18e3th9 {
+        width: 100px;
+        margin-left: -50px;  /* Adjust this based on alignment */
+    }
     </style>
     """,
     unsafe_allow_html=True
