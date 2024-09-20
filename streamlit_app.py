@@ -1530,12 +1530,12 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     #sentby_counts['ATTENDED'] = current_date_data['SENT BY'].value_counts()
-     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED']
+     sentby_counts['ATTENDED'] = current_date_data['SENT BY'].value_counts()
+     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED','ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').values
      totalcs = sentby_counts['QUALIFIED'].sum()
-     #totalca = sentby_counts['ATTENDED'].sum()
-     total_row = pd.DataFrame([['TOTAL', totalcs]], columns=['CC-EXECUTIVE', 'QUALIFIED'])
+     totalca = sentby_counts['ATTENDED'].sum()
+     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-EXECUTIVE', 'QUALIFIED','ATTENDED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)  
@@ -1573,8 +1573,6 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
-   fgh1, fgh2 = st.columns(2)
-   with fgh2: 
     st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
@@ -1596,14 +1594,14 @@ with tab2:
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
-     with st.container(border=True): 
-      chart2 = alt.Chart(prodb).mark_arc().encode(
-       theta=alt.Theta(field='LEAD', type='quantitative'),
-       color=alt.Color(field='PRODUCT', type='nominal'),
-       tooltip=['PRODUCT', 'LEAD'],
-       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-      ).properties(title="Requirement Summary", height=315, width=315)
-      st.altair_chart(chart2, use_container_width=True)
+    with st.container(border=True): 
+     chart2 = alt.Chart(prodb).mark_arc().encode(
+      theta=alt.Theta(field='LEAD', type='quantitative'),
+      color=alt.Color(field='PRODUCT', type='nominal'),
+      tooltip=['PRODUCT', 'LEAD'],
+      text=alt.Text(field='LEAD', type='quantitative', format='.0f')
+     ).properties(title="Requirement Summary", height=315, width=315)
+     st.altair_chart(chart2, use_container_width=True)
 
 
             
