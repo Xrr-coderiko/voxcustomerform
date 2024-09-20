@@ -22,13 +22,21 @@ st.markdown(
     footer[data-testid="stFooter"] {
         display: none;
     }
-    .css-1d391kg {
-        width: 50px;  /* Set the desired width here */
+    [data-testid="stSidebar"] {
+        width: 100px;
     }
-    .css-18e3th9 {
-        width: 50px;
-        margin-left: -50px;  /* Adjust this based on alignment */
+
+    /* Reducing the padding inside the sidebar */
+    [data-testid="stSidebar"] .css-1d391kg {
+        padding-left: 10px;
+        padding-right: 10px;
     }
+
+    /* Adjusting the main content width when the sidebar is shrunk */
+    [data-testid="stAppViewContainer"] {
+        margin-left: 210px; /* Adjust according to the sidebar width */
+    }
+
     </style>
     """,
     unsafe_allow_html=True
