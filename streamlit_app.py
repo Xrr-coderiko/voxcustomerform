@@ -26,17 +26,7 @@ st.markdown(
         width: 100px;
     }
 
-    /* Reducing the padding inside the sidebar */
-    [data-testid="stSidebar"] .css-1d391kg {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 100px
-    }
-
-    /* Adjusting the main content width when the sidebar is shrunk */
-    [data-testid="stAppViewContainer"] {
-        margin-left: 10px; /* Adjust according to the sidebar width */
-    }
+   
 
     </style>
     """,
