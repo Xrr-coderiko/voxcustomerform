@@ -1573,6 +1573,8 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True)   
   
   with cxxf2:
+   fgh1, fgh2 = st.columns(2)
+   with fgh2: 
     st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
     spdata[['LEAD', 'LEADS']] = spdata[['LEAD', 'LEADS']].astype(int)
     statusdb = spdata[['STATUS', 'LEADS']]
@@ -1594,14 +1596,14 @@ with tab2:
       )
      st.altair_chart(chart, use_container_width=True)
      #st.altair_chart(chart, use_container_width=True)
-    with st.container(border=True): 
-     chart2 = alt.Chart(prodb).mark_arc().encode(
-      theta=alt.Theta(field='LEAD', type='quantitative'),
-      color=alt.Color(field='PRODUCT', type='nominal'),
-      tooltip=['PRODUCT', 'LEAD'],
-      text=alt.Text(field='LEAD', type='quantitative', format='.0f')
-     ).properties(title="Requirement Summary", height=315, width=315)
-     st.altair_chart(chart2, use_container_width=True)
+     with st.container(border=True): 
+      chart2 = alt.Chart(prodb).mark_arc().encode(
+       theta=alt.Theta(field='LEAD', type='quantitative'),
+       color=alt.Color(field='PRODUCT', type='nominal'),
+       tooltip=['PRODUCT', 'LEAD'],
+       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
+      ).properties(title="Requirement Summary", height=315, width=315)
+      st.altair_chart(chart2, use_container_width=True)
 
 
             
