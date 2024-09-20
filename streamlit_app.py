@@ -23,10 +23,10 @@ st.markdown(
         display: none;
     }
     .css-1d391kg {
-        width: 100px;  /* Set the desired width here */
+        width: 50px;  /* Set the desired width here */
     }
     .css-18e3th9 {
-        width: 100px;
+        width: 50px;
         margin-left: -50px;  /* Adjust this based on alignment */
     }
     </style>
