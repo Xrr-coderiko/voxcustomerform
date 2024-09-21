@@ -5,12 +5,14 @@ import re
 from datetime import datetime
 import altair as alt
 
+st.set_page_config(page_title="VOX", page_icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkIxzGg1T7Qwa9xQGk4yEloVukzWP3cdvZbQ&s")
+
 st.set_page_config(layout="wide")
 #st.image("./VOXlogo.jpeg",width=500,)
 #cf1,cf2,cf3 = st.columns(3)
 #with cf2:
 # st.title("VOX INDIA") 
-st.set_page_config(page_title="VOX", page_icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkIxzGg1T7Qwa9xQGk4yEloVukzWP3cdvZbQ&s")
+
 
 
 st.markdown(
