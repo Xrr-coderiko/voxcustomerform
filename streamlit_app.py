@@ -27,9 +27,6 @@ st.markdown(
     footer[data-testid="stFooter"] {
         display: none;
     }
-    .main {
-        padding-top: 0px !important;  /* Reduce the padding at the top */
-    }
     div[data-testid="stHorizontalBlock"] {
         margin-top: 0px !important;
         padding-top: 0px !important;
