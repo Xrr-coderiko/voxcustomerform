@@ -45,9 +45,12 @@ st.markdown(
     .main {
         padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
     }
-        div[data-testid="stTabs"] button {
-        font-size: 18px !important;  /* Adjust font size as needed */
-        font-weight: bold !important;  /* Optional: Make the text bold */
+    div[data-testid="stTabs"] button {
+        font-size: 20px !important;  /* Adjust font size here */
+        font-weight: bold !important;  /* Optional: make it bold */
+    }
+    div[data-testid="stTabs"] button[aria-selected="true"] {
+        color: red !important;  /* Change active tab text color */
     }
     </style>
     """,
