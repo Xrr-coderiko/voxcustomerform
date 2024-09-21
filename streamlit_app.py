@@ -12,6 +12,13 @@ st.set_page_config(layout="wide")
 # st.title("VOX INDIA") 
 st.markdown(
      """
+    <head>
+        <!-- Change the tab name -->
+        <title>VOX</title>
+        
+        <!-- Change the tab icon -->
+        link rel="icon" type="image/png" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2Fvox.india.interiors%2F&psig=AOvVaw0GmJDfKd1ESV-hxvDAzO3w&ust=1726998392460000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLieiMjg04gDFQAAAAAdAAAAABAE">
+    </head>
     <style>
     header[data-testid="stHeader"] {
         display: none;
@@ -1497,8 +1504,8 @@ with tab2:
      total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-EXECUTIVE', 'QUALIFIED','ATTENDED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True)  
-  
+     st.write(htmltbst, unsafe_allow_html=True) 
+
   RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
    if 'CAMPAIGN' in existing_data.columns:
