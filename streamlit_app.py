@@ -46,13 +46,13 @@ st.markdown(
         padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
     }
     .css-1d391kg {
-        width: 150px;  /* Set the width of the sidebar */
-        min-width: 150px;  /* Ensure minimum width */
+        width: 100px;  /* Set the width of the sidebar */
+        min-width: 100px;  /* Ensure minimum width */
     }
     
     /* Adjust the main content width */
     .css-1d391kg + .css-1v3fvcr {
-        margin-left: 160px;  /* Shift the main content to the right */
+        margin-left: 100px;  /* Shift the main content to the right */
     }
 
     </style>
