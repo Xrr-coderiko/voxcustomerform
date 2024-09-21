@@ -45,10 +45,7 @@ st.markdown(
     .main {
         padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
     }
-    div[data-testid="stTabs"] button {
-        font-size: 20px !important;  /* Adjust font size here */
-        font-weight: bold !important;  /* Optional: make it bold */
-    }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -1360,7 +1357,7 @@ OWNERS = [
 
 pattern = re.compile(r"^[6-9]\d{9}$")
 
-tab1, tab2, tab3, tab4 = st.tabs(["Form", "Report", "Dashboard", "Dealer"])
+tab1, tab2, tab3, tab4 = st.tabs(["FORM", "REPORT", "MONTHLY", "DEALERS"])
 with tab1:
  with st.form(key="vendor_form", clear_on_submit=True):
     cch1, cch2, cch3 = st.columns(3)
