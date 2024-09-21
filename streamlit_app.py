@@ -30,6 +30,10 @@ st.markdown(
     .main {
         padding-top: 0px !important;  /* Reduce the padding at the top */
     }
+    div[data-testid="stHorizontalBlock"] {
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
