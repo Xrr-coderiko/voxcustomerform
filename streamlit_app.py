@@ -45,6 +45,10 @@ st.markdown(
     .main {
         padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
     }
+        div[data-testid="stTabs"] button {
+        font-size: 18px !important;  /* Adjust font size as needed */
+        font-weight: bold !important;  /* Optional: Make the text bold */
+    }
     </style>
     """,
     unsafe_allow_html=True
