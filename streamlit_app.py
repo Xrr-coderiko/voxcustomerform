@@ -13,11 +13,8 @@ st.set_page_config(layout="wide")
 st.markdown(
      """
     <head>
-        <!-- Change the tab name -->
         <title>VOX</title>
         
-        <!-- Change the tab icon -->
-        link rel="icon" type="image/png" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2Fvox.india.interiors%2F&psig=AOvVaw0GmJDfKd1ESV-hxvDAzO3w&ust=1726998392460000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLieiMjg04gDFQAAAAAdAAAAABAE">
     </head>
     <style>
     header[data-testid="stHeader"] {
