@@ -49,9 +49,6 @@ st.markdown(
         font-size: 20px !important;  /* Adjust font size here */
         font-weight: bold !important;  /* Optional: make it bold */
     }
-    div[data-testid="stTabs"] button[aria-selected="true"] {
-        color: red !important;  /* Change active tab text color */
-    }
     </style>
     """,
     unsafe_allow_html=True
