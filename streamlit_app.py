@@ -31,6 +31,20 @@ st.markdown(
         margin-top: 0px !important;
         padding-top: 0px !important;
     }
+    .block-container {
+        padding-top: 0px !important;  /* Adjust the value to control the top spacing */
+    }
+    
+    /* Adjust padding or margin for the tab component */
+    .stTabs {
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+    }
+
+    /* Optional: Set a smaller top padding for the whole page content */
+    .main {
+        padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
+    }
     </style>
     """,
     unsafe_allow_html=True
