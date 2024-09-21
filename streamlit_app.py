@@ -1711,8 +1711,8 @@ sidebar_text = f"""
 st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=350) 
 footer="""<style>
 .css-1d391kg {
-        width: 100px;  /* Set the width of the sidebar */
-        min-width: 100px;  /* Ensure minimum width */
+        width: 200px;  /* Set the width of the sidebar */
+        min-width: 200px;  /* Ensure minimum width */
     }
     
     /* Adjust the main content width */
