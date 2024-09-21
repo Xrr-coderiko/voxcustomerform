@@ -27,6 +27,9 @@ st.markdown(
     footer[data-testid="stFooter"] {
         display: none;
     }
+    .main {
+        padding-top: 0px !important;  /* Reduce the padding at the top */
+    }
     </style>
     """,
     unsafe_allow_html=True
