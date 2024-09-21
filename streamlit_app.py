@@ -45,6 +45,15 @@ st.markdown(
     .main {
         padding-top: 0px !important;  /* Modify this value if further adjustment is needed */
     }
+    .css-1d391kg {
+        width: 150px;  /* Set the width of the sidebar */
+        min-width: 150px;  /* Ensure minimum width */
+    }
+    
+    /* Adjust the main content width */
+    .css-1d391kg + .css-1v3fvcr {
+        margin-left: 160px;  /* Shift the main content to the right */
+    }
 
     </style>
     """,
@@ -1710,15 +1719,7 @@ sidebar_text = f"""
 """
 st.sidebar.text_area("Entered LEAD Details:", sidebar_text, height=350) 
 footer="""<style>
-.css-1d391kg {
-        width: 200px;  /* Set the width of the sidebar */
-        min-width: 200px;  /* Ensure minimum width */
-    }
-    
-    /* Adjust the main content width */
-    .css-1d391kg + .css-1v3fvcr {
-        margin-left: 160px;  /* Shift the main content to the right */
-}
+
 a:link , a:visited{
 color: blue;
 background-color: transparent;
