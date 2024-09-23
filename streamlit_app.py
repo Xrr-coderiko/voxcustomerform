@@ -1535,7 +1535,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-       st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h5>Qualified Leads</h5><h6>{total_vn}</h6></div>", unsafe_allow_html=True)
+       st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h5>September Qualified Leads</h5><h6>{total_vn}</h6></div>", unsafe_allow_html=True)
 
   RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
