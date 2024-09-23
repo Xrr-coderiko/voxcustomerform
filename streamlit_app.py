@@ -1541,7 +1541,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-      st.markdown("<div style='text-align: center; height: 50px; border: 2px solid lightgrey; margin-bottom: -30px'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center; height: 50px; border: 2px solid lightgrey; backgroun-color: lightgrey; text-color: White; margin-bottom: -30px'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
       monthrep['Leads'] = monthrep['Leads'].astype(int)
       mrdf = pd.DataFrame(monthrep)
       st.markdown('<div class="monthrep-div"></div>',unsafe_allow_html=True)
