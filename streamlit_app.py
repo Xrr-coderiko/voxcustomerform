@@ -1518,7 +1518,7 @@ with tab2:
           .monthrep-div{
              thead th {display:none}
              tbody th {display:none}
-             margin: 0px;
+             margin-bottom: 0px;
           } 
         </style>
        """
