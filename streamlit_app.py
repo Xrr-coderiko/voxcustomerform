@@ -1534,7 +1534,7 @@ with tab2:
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
-   with sex2(1,1):
+   with sex2:
      srx1, srx2 = st.columns(2)
      with srx1:
       st.markdown(f"<div style='text-align: center;border: 1px solid Grey; border-radius: 10px;'><h4>Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
