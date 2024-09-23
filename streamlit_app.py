@@ -1544,7 +1544,7 @@ with tab2:
         tbody th {display:none}
        </style>
        """
-      st.markdown(monthrep, unsafe_allow_html=True)
+      st.markdown(hide_header_style, unsafe_allow_html=True)
       st.write(mrdf.to_html(index=False, header=False), unsafe_allow_html=True)
        #st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
        #st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>Total SQFT Closed</h4><h5>24,916</h5></div>", unsafe_allow_html=True)
