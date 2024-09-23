@@ -1535,7 +1535,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-      sss1, sss2 = st.columns(2)
+      sss1, sss2 = st.columns([1,1])
       with sss1:
        st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
       with sss2:
