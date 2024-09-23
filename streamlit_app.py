@@ -1520,7 +1520,7 @@ with tab2:
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
  
   with cxxf1:
-   sex1, sex2 = st.columns(2):
+   sex1, sex2 = st.columns(2)
    with sex1: 
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
