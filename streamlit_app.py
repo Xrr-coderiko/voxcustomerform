@@ -1490,7 +1490,7 @@ with tab2:
   cxxf1, cxxf2 = st.columns([2,1])            
   with cxxf1:  
         #st.markdown(f"<div style='text-align: center; border: 2px solid Black;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-        recdata[["RECEIVED",	"PENDING", "ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED", "PENDING",	"ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
+        recdata[["RECEIVED", "ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED",	"ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
@@ -1541,7 +1541,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-      st.markdown("<div style='text-align: center; height: 50px; border: 2px solid lightgrey; background-color: grey; font-color: white; margin-bottom: -30px'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center; height: 50px; border: 2px solid lightgrey; margin-bottom: -30px'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
       monthrep['Leads'] = monthrep['Leads'].astype(int)
       mrdf = pd.DataFrame(monthrep)
       st.markdown('<div class="monthrep-div"></div>',unsafe_allow_html=True)
