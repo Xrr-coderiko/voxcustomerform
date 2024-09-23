@@ -1534,6 +1534,8 @@ with tab2:
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
+   with sex2:
+      st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{total_vn}</h3></div>", unsafe_allow_html=True)
 
   RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
