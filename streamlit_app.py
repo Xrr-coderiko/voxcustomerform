@@ -1604,11 +1604,15 @@ with tab2:
       
         
 with tab3:
-   st.markdown("<div style='text-align: center;'><h1>AUGUST 2024</h1></div>", unsafe_allow_html=True)
+   months = ['August 2024', 'September 2024']
+   selected_month = st.selectbox("Select Month", months)
+   Acctomonth = main_data[main_data['Date'].dt.strftime('%B %Y') == selected_month]
+   totalAM = len(Acctomonth)
+   st.markdown("<div style='text-align: center;'><h1>{selected_month}</h1></div>", unsafe_allow_html=True)
    with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
     with s1:
-     st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{total_rowx}</h3></div>", unsafe_allow_html=True)
+     st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{totalAM}</h3></div>", unsafe_allow_html=True)
     with s2:
       st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Closed Leads</h2><h3>104</h3></div>", unsafe_allow_html=True)
     with s3:
@@ -1618,8 +1622,8 @@ with tab3:
     with sc1:
      with st.container(border=True, height=475):
       st.markdown("<div style='text-align: center;'><h3>Source wise</h3></div>", unsafe_allow_html=True)
-      main_data=main_data.dropna(subset=['Source'])
-      zeta = main_data['Source'].value_counts().reset_index()
+      Acctomonth=Acctomonth.dropna(subset=['Source'])
+      zeta = Acctomonth['Source'].value_counts().reset_index()
       zeta.columns = ['SOURCE', 'LEADS']
       tzc = zeta['LEADS'].sum()
       tzc = pd.DataFrame([['TOTAL', tzc]], columns=['SOURCE', 'LEADS'])
@@ -1629,8 +1633,8 @@ with tab3:
     with sc2:
      with st.container(border=True, height=475):
       st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
-      main_data=main_data.dropna(subset=['SENTBY'])
-      beta = main_data['SENTBY'].value_counts().reset_index()
+      Acctomonth=Acctomonth.dropna(subset=['SENTBY'])
+      beta = Acctomonth['SENTBY'].value_counts().reset_index()
       beta.columns = ['SENTBY', 'LEADS']
       tac = beta['LEADS'].sum()
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
@@ -1642,8 +1646,8 @@ with tab3:
     with z1:
      with st.container(border=True, height=550):
       st.markdown("<div style='text-align: center;'><h3>State wise</h3></div>", unsafe_allow_html=True)
-      main_data=main_data.dropna(subset=['State'])
-      xeta = main_data['State'].value_counts().reset_index()
+      Acctomonth=Acctomonth.dropna(subset=['State'])
+      xeta = Acctomonth['State'].value_counts().reset_index()
       xeta.columns = ['STATE', 'LEADS']
       tic = beta['LEADS'].sum()
       tic = pd.DataFrame([['TOTAL', tic]], columns=['STATE', 'LEADS'])
@@ -1653,8 +1657,8 @@ with tab3:
     with z2:
      with st.container(border=True, height=550):   
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
-      main_data=main_data.dropna(subset=['SENTTO'])
-      peta = main_data['SENTTO'].value_counts().reset_index()
+      Acctomonth=Acctomonth.dropna(subset=['SENTTO'])
+      peta = Acctomonth['SENTTO'].value_counts().reset_index()
       peta.columns = ['SENT TO', 'LEADS']
       toc = beta['LEADS'].sum()
       toc = pd.DataFrame([['TOTAL', toc]], columns=['SENT TO', 'LEADS'])
@@ -1694,8 +1698,7 @@ with tab4:
       conn.update(worksheet="Dealer", data=ddata)
       st.success('Dealer added')
       st.success()
-
-
+      
  #source_all = existing_data['SOURCE'].value_counts().reset_index()
  #st.bar_chart(source_all, x="SOURCE",y="LEADS")
  #st.sidebar.title(f"Total Lead: {total_rows}")  
