@@ -1518,7 +1518,6 @@ with tab2:
           .monthrep-div{
              thead th {display:none}
              tbody th {display:none}
-             margin-bottom: 0px;
           } 
         </style>
        """
@@ -1542,7 +1541,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-      st.markdown("<div style='text-align: center; border: 2px solid lightgrey;'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center; border: 2px solid lightgrey; margin-bottom: 0px;'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
       mrdf = pd.DataFrame(monthrep)
       st.markdown('<div class="monthrep-div"></div>',unsafe_allow_html=True)
       st.write(mrdf.to_html(index=False, header=False), unsafe_allow_html=True)
