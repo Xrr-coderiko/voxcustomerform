@@ -1542,8 +1542,8 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
       st.markdown("<div style='text-align: center; height: 50px; border: 2px solid lightgrey; margin-bottom: -30px'><h4>SEPTEMBER REPORT</h4></div>", unsafe_allow_html=True)
-      mrdf = pd.DataFrame(monthrep)
       monthrep['Leads'] = monthrep['Leads'].astype(int)
+      mrdf = pd.DataFrame(monthrep)
       st.markdown('<div class="monthrep-div"></div>',unsafe_allow_html=True)
       st.write(mrdf.to_html(index=False, header=False), unsafe_allow_html=True)
        #st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
