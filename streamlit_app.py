@@ -1609,17 +1609,10 @@ with tab3:
     s1, s2, s3 = st.columns(3)
     with s1:
      st.markdown(f"<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Qualified Leads</h2><h3>{total_rowx}</h3></div>", unsafe_allow_html=True)
-     #st.header("Qualified Leads")
-     #st.header(f"{total_rows}")
     with s2:
-      #st.header("Closed Leads")
       st.markdown("<div style='text-align: center;border: 1px solid white; border-radius: 10px;'><h2>Closed Leads</h2><h3>104</h3></div>", unsafe_allow_html=True)
-      #st.markdown("<div style='text-align: center;'><h3>95</h3></div>", unsafe_allow_html=True)
-      #st.header("95")
     with s3:
       st.markdown("<div style='text-align: center; border: 1px solid white; border-radius: 10px;'><h2>SQFT closed</h2><h3>66,127</h3></div>", unsafe_allow_html=True)
-      # st.header("SQFT closed") 
-      #st.header("63,051")
    with st.container(border=True, height=500):
     sc1, sc2 = st.columns(2)
     with sc1:
@@ -1738,7 +1731,7 @@ width: 100%;
 background-color: transparent;
 color: Orange;
 text-align: center;
-opacity: 0.4;
+opacity: 0.5;
 }
 </style>
 <div class="footer">
