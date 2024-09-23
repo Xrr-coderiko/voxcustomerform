@@ -1536,7 +1536,7 @@ with tab2:
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
        st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
-
+       st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>Total SQFT Closed</h4><h5>24,916</h5></div>", unsafe_allow_html=True)
   RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
   with cxxf1:
    if 'CAMPAIGN' in existing_data.columns:
