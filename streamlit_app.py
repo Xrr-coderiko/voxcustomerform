@@ -1537,6 +1537,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
+      st.markdown("<div style='text-align: center; border: 2px solid lightgrey;'><h2>SEPTEMBER REPORT</h2></div>", unsafe_allow_html=True)
       mrdf = pd.DataFrame(monthrep)
       hide_header_style = """
        <style>
