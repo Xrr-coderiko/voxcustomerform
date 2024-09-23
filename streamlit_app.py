@@ -1606,10 +1606,10 @@ with tab2:
 with tab3:
    months = ['August 2024', 'September 2024']
    selected_month = st.selectbox("Select Month", months)
-   main_data['Date'] = pd.to_datetime(main_data['Date'], errors='coerce')
+   main_data['Date'] = pd.to_datetime(main_data['Date'], format='%d/%m/%Y', errors='coerce')
    Acctomonth = main_data[main_data['Date'].dt.strftime('%B %Y') == selected_month]
    totalAM = len(Acctomonth)
-   st.markdown("<div style='text-align: center;'><h1>{selected_month}</h1></div>", unsafe_allow_html=True)
+   st.markdown(f"<div style='text-align: center;'><h1>{selected_month}</h1></div>", unsafe_allow_html=True)
    with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
     with s1:
