@@ -1520,7 +1520,7 @@ with tab2:
         #st.bar_chart(recdata_reset.set_index('SOURCE')['RECEIVED'])
  
   with cxxf1:
-   sex1, sex2 = st.columns([2,2])
+   sex1, sex2 = st.columns(2)
    with sex1: 
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
@@ -1535,7 +1535,7 @@ with tab2:
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
     with sex2:
-      sss1, sss2 = st.columns([1,1])
+      sss1, sss2 = st.columns(2)
       with sss1:
        st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
       with sss2:
