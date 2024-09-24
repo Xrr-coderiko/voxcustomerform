@@ -968,7 +968,7 @@ SENTTO = [
 "Sai Sales Corporation",
 "Shivlaxmi Enterprises",
 "Vasant &Sons",
-"Haven D",
+"Haven D Elegance",
 "Laxdeep Allumimium",
 "Sai Wallpaper Home Décor",
 "Shiv Shambhu Enterprises",
