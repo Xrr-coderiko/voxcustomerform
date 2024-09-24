@@ -132,9 +132,9 @@ STATE = [
 "West Bengal",
 ]
 CITY = [
-    " ",
-    "Bengaluru",
-    "Mangalore",
+" ",
+"Bengaluru",
+"Mangalore",
 "Mumbai",
 "Hyderabad",
 "Pune",
