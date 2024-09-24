@@ -1648,7 +1648,7 @@ with tab3:
       st.write(htmlz, unsafe_allow_html=True)
     with sc2:
      with st.container(border=True, height=475):
-      st.markdown("<div style='text-align: center;'><h3>Team wise</h3></div>", unsafe_allow_html=True)
+      st.markdown("<div style='text-align: center;'><h3>Executive wise</h3></div>", unsafe_allow_html=True)
       Acctomonth=Acctomonth.dropna(subset=['SENTBY'])
       beta = Acctomonth['SENTBY'].value_counts().reset_index()
       beta.columns = ['SENTBY', 'LEADS']
