@@ -1084,7 +1084,7 @@ SENTTO = [
 "Chittaranjan",
 "ABI Architectural Indus",
 "BBS",
-"Yashasvi Enterprices",
+"Yashasvi Enterprises",
 "Manish pathak",
 "M J Kraftech ",
 "Expanse Interior Solution",
