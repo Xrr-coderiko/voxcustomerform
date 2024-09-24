@@ -1545,23 +1545,6 @@ with tab2:
       st.write(mrdf.to_html(index=False, header=False), unsafe_allow_html=True)
        #st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>September Qualified Leads</h4><h5>{total_vn}</h5></div>", unsafe_allow_html=True)
        #st.markdown(f"<div style='text-align: center; border: 1px solid lightGrey; border-radius: 5px;'><h4>Total SQFT Closed</h4><h5>24,916</h5></div>", unsafe_allow_html=True)
-  RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
-  with cxxf1:
-   if 'CAMPAIGN' in existing_data.columns:
-      st.markdown(f"<div style='text-align: center; border: 2px solid Grey;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
-      #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
-      current_camp = current_camp.dropna(subset=['CAMPAIGN'])
-      camp = current_camp['CAMPAIGN'].value_counts().reset_index()
-      camp['RECEIVED'] = current_camp['CAMPAIGN'].value_counts()
-      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
-      newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 0, 1], ['Leads | TOF | B2C | Home Automation X High Value Goods | HD', 0, 2]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      camp = pd.concat([camp, newsc1], ignore_index=True)
-      ttc = camp['QUALIFIED'].sum()
-      ttrc = camp['RECEIVED'].sum()
-      ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
-      campt = pd.concat([camp, ttr], ignore_index=True)
-      htmltbcm = campt.to_html(index=False)
-      st.write(htmltbcm, unsafe_allow_html=True)   
   
   with cxxf2:
     st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
@@ -1593,7 +1576,7 @@ with tab2:
       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
      ).properties(title="Requirement Summary", height=290, width=300)
      st.altair_chart(chart2, use_container_width=True)
-  cer1, cer2 = st.columns(2)
+ cer1, cer2 = st.columns(2)
  with cer1:
    if 'SOURCE' in existing_data.columns:
      st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
@@ -1607,6 +1590,24 @@ with tab2:
      htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
 
+ RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
+ serx1, serx2 = st.columns(2)
+ with serx1:
+  if 'CAMPAIGN' in existing_data.columns:
+      st.markdown(f"<div style='text-align: center; border: 2px solid Grey;'><h2>{today2} META CAMPAIGN REPORT</h2></div>", unsafe_allow_html=True)
+      #st.markdown(f"<div style='text-align: center;'><h4>Total Meta qualified leads: 45</h4></div>", unsafe_allow_html=True)
+      current_camp = current_camp.dropna(subset=['CAMPAIGN'])
+      camp = current_camp['CAMPAIGN'].value_counts().reset_index()
+      camp['RECEIVED'] = current_camp['CAMPAIGN'].value_counts()
+      camp.columns = ['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED']
+      newsc1 = pd.DataFrame([['Leads | TOF | INT Based | Media | P1 | Aug Reels | HD | B2B', 0, 1], ['Leads | TOF | B2C | Home Automation X High Value Goods | HD', 0, 2]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
+      camp = pd.concat([camp, newsc1], ignore_index=True)
+      ttc = camp['QUALIFIED'].sum()
+      ttrc = camp['RECEIVED'].sum()
+      ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
+      campt = pd.concat([camp, ttr], ignore_index=True)
+      htmltbcm = campt.to_html(index=False)
+      st.write(htmltbcm, unsafe_allow_html=True)   
             
         
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
