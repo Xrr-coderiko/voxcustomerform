@@ -1561,21 +1561,7 @@ with tab2:
       ttr = pd.DataFrame([['TOTAL', ttc, ttrc]], columns=['CAMPAIGN NAME', 'QUALIFIED', 'RECEIVED'])
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
-      st.write(htmltbcm, unsafe_allow_html=True)
-  with cxxf1:
-   cer1, cer2 = st.columns(2)
-   with cer1:
-    if 'SOURCE' in existing_data.columns:
-     st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
-     current_date_data = current_date_data.dropna(subset=['SOURCE'])
-     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
-     source_counts.columns = ['SOURCE', 'QUALIFIED']
-     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
-     totalcss = source_counts['QUALIFIED'].sum()
-     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
-     finldbc = pd.concat([source_counts, total_rows])
-     htmltbst = finldbc.to_html(index=False)
-     st.write(htmltbst, unsafe_allow_html=True)   
+      st.write(htmltbcm, unsafe_allow_html=True)   
   
   with cxxf2:
     st.markdown(f"<div style='text-align: center; height: 7px;'><h2></h2></div>", unsafe_allow_html=True)
@@ -1607,7 +1593,19 @@ with tab2:
       text=alt.Text(field='LEAD', type='quantitative', format='.0f')
      ).properties(title="Requirement Summary", height=290, width=300)
      st.altair_chart(chart2, use_container_width=True)
-
+  cer1, cer2 = st.columns(2)
+ with cer1:
+   if 'SOURCE' in existing_data.columns:
+     st.markdown(f"<div style='text-align: center; padding-bottom: 20px;'><h2>SOURCE WISE</h2></div>", unsafe_allow_html=True)
+     current_date_data = current_date_data.dropna(subset=['SOURCE'])
+     source_counts = current_date_data['SOURCE'].value_counts().reset_index()
+     source_counts.columns = ['SOURCE', 'QUALIFIED']
+     #.reindex(sentby_counts['CC Executives']).fillna(' ').values
+     totalcss = source_counts['QUALIFIED'].sum()
+     total_rows = pd.DataFrame([['TOTAL', totalcss]], columns=['SOURCE', 'QUALIFIED'])
+     finldbc = pd.concat([source_counts, total_rows])
+     htmltbst = finldbc.to_html(index=False)
+     st.write(htmltbst, unsafe_allow_html=True)
 
             
         
