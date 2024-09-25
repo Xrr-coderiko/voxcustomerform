@@ -965,6 +965,7 @@ SENTTO = [
 "Sahibzada Ply World",
 "Sri Sai Mantra",
 "Ambike Pipe",
+"Balaji Interior",
 "J K Interior",
 "Arihant Gypsum",
 "Srikanth M",
