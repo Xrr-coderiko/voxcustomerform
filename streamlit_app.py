@@ -1488,7 +1488,7 @@ with tab2:
  with st.container(border=True):
    #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   st.markdown(f"<div style='text-align: center; border: 2px solid lightgrey;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [68, 115, 32, 25, 17, 10]
+  Attended = [76, 91, 28, 35, 61]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1658,7 +1658,7 @@ with tab3:
       beta.columns = ['SENTBY', 'LEADS']
       tac = beta['LEADS'].sum()
       tac = pd.DataFrame([['TOTAL', tac]], columns=['SENTBY', 'LEADS'])
-      bxeta = pd.concat([beta, tac], ignore_index=True)
+      bxeta = pd.concat([beta, tac], ignore_index=True)                                                
       #st.table(bxeta)
       st.bar_chart(beta.set_index('SENTBY'))
    with st.container(border=True, height=600):
@@ -1674,6 +1674,7 @@ with tab3:
       xeta = pd.concat([xeta, tic], ignore_index=True)
       htmlx = xeta.to_html(index=False)
       st.write(htmlx, unsafe_allow_html=True)
+
     with z2:
      with st.container(border=True, height=550):   
       st.markdown("<div style='text-align: center;'><h3>Distributor wise</h3></div>", unsafe_allow_html=True)
