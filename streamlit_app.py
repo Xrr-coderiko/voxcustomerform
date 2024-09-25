@@ -1682,7 +1682,7 @@ with tab3:
       peta = pd.concat([peta, toc], ignore_index=True)
       htmlp = peta.to_html(index=False)
       st.write(htmlp, unsafe_allow_html=True)
-   fb_leads_data = fbmain[fbmain['Source'] == 'FB Leads Ads']
+   fb_leads_data = fbmain[fbmain['Source'] == 'FB Lead Ads']
    fb_leads_data['Week_Number'] = fb_leads_data['Date'].dt.isocalendar().week
    weekly_fb_leads_count = fb_leads_data.groupby('Week_Number')['Source'].count().reset_index()
    weekly_fb_leads_count.columns = ['Week Number', 'FB LEADS Count']
