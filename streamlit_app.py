@@ -86,7 +86,7 @@ monthrep = conn.read(worksheet="Monrep", usecols=list(range(3)), ttl=5)
 monthrep = monthrep.dropna(how='all')
 
 fbmain = conn.read(worksheet="FB LEADS", usecols=list(range(20)), ttl=5)
-monthrep = monthrep.dropna(how='all')
+fbmain = fbmain.dropna(how='all')
 
 
 if 'Name' not in st.session_state:
