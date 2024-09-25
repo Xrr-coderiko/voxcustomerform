@@ -87,6 +87,7 @@ monthrep = monthrep.dropna(how='all')
 
 fbmain = conn.read(worksheet="FB LEADS", usecols=list(range(20)), ttl=5)
 fbmain = fbmain.dropna(how='all')
+fbmain['Date'] = pd.to_datetime(fbmain['Date'], format='%d/%m/%Y', errors='coerce')
 
 
 if 'Name' not in st.session_state:
@@ -1624,7 +1625,6 @@ with tab3:
    main_data['Date'] = pd.to_datetime(main_data['Date'], format='%d/%m/%Y', errors='coerce')
    Acctomonth = main_data[main_data['Date'].dt.strftime('%B %Y') == selected_month]
    totalAM = len(Acctomonth)
-   fbmain['Date'] = pd.to_datetime(fbmain['Date'], format='%d/%m/%Y', errors='coerce')
    st.markdown(f"<div style='text-align: center;'><h1>{selected_month}</h1></div>", unsafe_allow_html=True)
    with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
