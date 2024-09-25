@@ -959,6 +959,7 @@ SENTTO = [
 "Urban Interior",
 "B S Marketing",
 "Hyper Homes",
+"Gayatri Ply Laminates",
 "U k Trader",
 "AJ Decors",
 "Sahibzada Ply World",
