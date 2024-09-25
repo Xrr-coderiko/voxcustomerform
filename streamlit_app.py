@@ -965,6 +965,7 @@ SENTTO = [
 "Sri Sai Mantra",
 "Ambike Pipe",
 "J K Interior",
+"Arihant Gypsum",
 "Srikanth M",
 "JAK arts",
 "Vijay Agency",
