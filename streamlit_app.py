@@ -85,6 +85,10 @@ spdata = spdata.dropna(how='all')
 monthrep = conn.read(worksheet="Monrep", usecols=list(range(3)), ttl=5)
 monthrep = monthrep.dropna(how='all')
 
+fbmain = conn.read(worksheet="FB LEADS", usecols=list(range(20)), ttl=5)
+monthrep = monthrep.dropna(how='all')
+
+
 if 'Name' not in st.session_state:
     st.session_state.Name = ""
 if "PHONE" not in st.session_state:
@@ -1620,6 +1624,7 @@ with tab3:
    main_data['Date'] = pd.to_datetime(main_data['Date'], format='%d/%m/%Y', errors='coerce')
    Acctomonth = main_data[main_data['Date'].dt.strftime('%B %Y') == selected_month]
    totalAM = len(Acctomonth)
+   fbmain['Date'] = pd.to_datetime(fbmain['Date'], format='%d/%m/%Y', errors='coerce')
    st.markdown(f"<div style='text-align: center;'><h1>{selected_month}</h1></div>", unsafe_allow_html=True)
    with st.container(border=True, height=200):
     s1, s2, s3 = st.columns(3)
@@ -1677,7 +1682,7 @@ with tab3:
       peta = pd.concat([peta, toc], ignore_index=True)
       htmlp = peta.to_html(index=False)
       st.write(htmlp, unsafe_allow_html=True)
-   fb_leads_data = main_data[main_data['Source'] == 'FB Leads Ads']
+   fb_leads_data = fbmain[fbmain['Source'] == 'FB Leads Ads']
    fb_leads_data['Week_Number'] = fb_leads_data['Date'].dt.isocalendar().week
    weekly_fb_leads_count = fb_leads_data.groupby('Week_Number')['Source'].count().reset_index()
    weekly_fb_leads_count.columns = ['Week Number', 'FB LEADS Count']
