@@ -1488,14 +1488,14 @@ with tab2:
  with st.container(border=True):
    #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   st.markdown(f"<div style='text-align: center; border: 2px solid lightgrey;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [76, 91, 28, 35, 61]
+  Attended = [41, 20, 15]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
   cxxf1, cxxf2 = st.columns([2,1])            
   with cxxf1:  
         #st.markdown(f"<div style='text-align: center; border: 2px solid Black;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-        recdata[["RECEIVED", "PENDING", "ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED", "PENDING",	"ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
+        recdata[["RECEIVED", "ATTENDED",	"QUALIFIED"]] = recdata[["RECEIVED", "ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
@@ -1536,12 +1536,12 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     #sentby_counts['ATTENDED'] = Attended
-     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED']
+     sentby_counts['ATTENDED'] = Attended
+     sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').valsdfsfues
      totalcs = sentby_counts['QUALIFIED'].sum()
-     #totalca = sentby_counts['ATTENDED'].sum()
-     total_row = pd.DataFrame([['TOTAL', totalcs]], columns=['CC-EXECUTIVE', 'QUALIFIED'])
+     totalca = sentby_counts['ATTENDED'].sum()
+     total_row = pd.DataFrame([['TOTAL', totalcs, totalca]], columns=['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED'])
      finldb = pd.concat([sentby_counts, total_row])
      htmltbst = finldb.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True) 
