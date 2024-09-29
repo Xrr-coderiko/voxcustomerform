@@ -90,13 +90,13 @@ monthrep = monthrep.dropna(how='all')
 
 if 'Name' not in st.session_state:
     st.session_state.Name = ""
-if 'PHONE' not in st.session_state:
-    st.session_state.Phone = ""
+if 'phone' not in st.session_state:
+    st.session_state.phone = ""
     
     
 def clear_form():
     st.session_state.Name = ""
-    st.session_state.Phone = ""
+    st.session_state.phone = ""
     
 # List of Business Types and Products
 STATE = [
@@ -1391,7 +1391,7 @@ with tab1:
     with c1: 
      District = st.selectbox(label="District", options=CITY)
     with c2:
-     Phone = st.text_input(label="Phone No", key='Phone', value=st.session_state.Phone)
+     Phone = st.text_input(label="Phone No", key='phone', value=st.session_state.Phone)
     with c3:
       Altphone = st.text_input(label="Alternate Phone")
     with c4:
@@ -1444,7 +1444,7 @@ with tab1:
                         "STATE": State,
                         "CITY":City,
                         "DISTRICT": District,
-                        "PHONE": Phone,
+                        "PHONE": st.session_state.Phone,
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
