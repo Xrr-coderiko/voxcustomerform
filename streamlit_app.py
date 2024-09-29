@@ -92,11 +92,43 @@ if 'Name' not in st.session_state:
     st.session_state.Name = ""
 if 'phone' not in st.session_state:
     st.session_state.phone = ""
-    
-    
+if 'firm' not in st.session_state:
+  st.session_state.firm = ""
+if 'city' not in st.session_state:
+  st.session_state.city = ""
+if 'district' not in st.session_state:
+  st.session_state.district = ""
+if 'altphone' not in st.session_state:
+  st.session_state.altphone = ""
+if 'type' not in st.session_state:
+  st.session_state.type = ""
+if 'products' not in st.session_state:
+  st.session_state.products = ""
+if 'csqft' not in st.session_state:
+  st.session_state.csqft = ""
+if 'source' not in st.session_state:
+  st.session_state.source = ""
+if 'sentto' not in st.session_state:
+  st.session_state.sentto = ""
+if 'sentby' not in st.session_state:
+  st.session_state.sentby = ""
+if 'notes' not in st.session_state:
+  st.session_state.notes = ""
+ 
 def clear_form():
     st.session_state.Name = ""
     st.session_state.phone = ""
+    st.session_state.firm = ""
+    st.session_state.city = ""
+    st.session_state.district = ""
+    st.session_state.altphone = ""
+    st.session_state.type = ""
+    st.session_state.products = ""
+    st.session_state.csqft = ""
+    st.session_state.source = ""
+    st.session_state.sentto = ""
+    st.session_state.sentby = ""
+    st.session_state.notes = ""
     
 # List of Business Types and Products
 STATE = [
