@@ -1414,10 +1414,13 @@ with tab1:
       Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
       Notes = st.text_area(label="Notes")
-    with ch1:
-       submit_button = st.form_submit_button(label="Submit Details")
-    with ch2:
-       clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
+    ic1, ic2, ic3 = st.columns([1,2,1])
+    with ic2:  
+      ct1, ct2 = st.columns([1,1])
+      with ct1:
+         submit_button = st.form_submit_button(label="Submit Details")
+      with ct2:
+         clear_button = st.form_submit_button(label="Clear form", on_click=clear_form)
 
     is_valid = bool(pattern.match(Phone))
     # If the submit button is pressed
