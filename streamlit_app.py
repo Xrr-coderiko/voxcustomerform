@@ -1380,31 +1380,31 @@ with tab1:
      Date = st.date_input(label="Date")
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
-      Name = st.text_input(label="", placeholder="Name", key='Name')
+      Name = st.text_input(label="Name", key='Name')
     with ce2:
-      Firm = st.text_input(label="", placeholder="Firm Name")
+      Firm = st.text_input(label="Firm Name")
     with ce3:
      State = st.selectbox(label="State", options=STATE, index=0)
     with ce4: 
-     City = st.text_input(label="", placeholder="City")
+     City = st.text_input(label="City")
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
      District = st.selectbox(label="District", options=CITY)
     with c2:
-     Phone = st.text_input(label="", placeholder="Phone No", key='Phone')
+     Phone = st.text_input(label="Phone No", key='Phone')
     with c3:
-      Altphone = st.text_input(label="", placeholder="Alternate Phone")
+      Altphone = st.text_input(label="Alternate Phone")
     with c4:
-      Email = st.text_input(label="", placeholder="Email ID")
+      Email = st.text_input(label="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
       Type = st.selectbox(label="Contact Type", index=0, options=TYPE)
     with cp2:
-      Product = st.multiselect(label="", placeholder="Products", options=PRODUCT)
+      Product = st.multiselect(label="Products", options=PRODUCT)
     with cp3: 
-      Sqft = st.text_input(label="", placeholder="Square feet")
+      Sqft = st.text_input(label="Square feet")
     with cp4:
-      Source = st.selectbox(label="", placeholder="Source", options=SOURCE)
+      Source = st.selectbox(label="Source", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
       Sentto = st.selectbox(label="Sent To", options=SENTTO)
@@ -1412,8 +1412,6 @@ with tab1:
       Sentby = st.selectbox(label="Sent By", options=USERS)
     with ch3:
       Owner = st.selectbox(label="Owner", options=OWNERS)
-    with ch4:
-     campaign = st.text_input(label="", placeholder="Source Campaign")  
     cs1, cs2, cs3 = st.columns(3)
     with cs1:
       Notes = st.text_area(label="Notes")
@@ -1458,7 +1456,6 @@ with tab1:
                         "SENT BY": Sentby,
                         "NOTE": Notes,
                         "OWNER": Owner,
-                        "CAMPAIGN": campaign,
                         "FIRM": Firm,
                     }
                 ]
