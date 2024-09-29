@@ -1412,8 +1412,7 @@ with tab1:
       Sentby = st.selectbox(label="Sent By", options=USERS)
     with ch3:
       Owner = st.selectbox(label="Owner", options=OWNERS)
-    cs1, cs2, cs3 = st.columns(3)
-    with cs1:
+    with ch4:
       Notes = st.text_area(label="Notes")
     ic1, ic2, ic3 = st.columns([1,1,2])
     with ic3:  
