@@ -92,6 +92,8 @@ if 'Name' not in st.session_state:
     st.session_state.Name = ""
 if 'phone' not in st.session_state:
     st.session_state.phone = ""
+if 'state' not in st.session_state:
+    st.session_state.state = ""
 if 'firm' not in st.session_state:
   st.session_state.firm = ""
 if 'city' not in st.session_state:
@@ -110,14 +112,13 @@ if 'source' not in st.session_state:
   st.session_state.source = ""
 if 'sentto' not in st.session_state:
   st.session_state.sentto = ""
-if 'sentby' not in st.session_state:
-  st.session_state.sentby = ""
 if 'notes' not in st.session_state:
   st.session_state.notes = ""
  
 def clear_form():
     st.session_state.Name = ""
     st.session_state.phone = ""
+    st.session_state.state = ""
     st.session_state.firm = ""
     st.session_state.city = ""
     st.session_state.district = ""
@@ -127,7 +128,6 @@ def clear_form():
     st.session_state.csqft = ""
     st.session_state.source = ""
     st.session_state.sentto = ""
-    st.session_state.sentby = ""
     st.session_state.notes = ""
     
 # List of Business Types and Products
@@ -1414,38 +1414,38 @@ with tab1:
     with ce1:
       Name = st.text_input(label="Name", key='Name')
     with ce2:
-      Firm = st.text_input(label="Firm Name")
+      Firm = st.text_input(label="Firm Name", key='firm')
     with ce3:
-     State = st.selectbox(label="State", options=STATE, index=0)
+     State = st.selectbox(label="State", options=STATE, index=0, key='state')
     with ce4: 
-     City = st.text_input(label="City")
+     City = st.text_input(label="City", key='city')
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
-     District = st.selectbox(label="District", options=CITY)
+     District = st.selectbox(label="District", options=CITY, key='district')
     with c2:
      Phone = st.text_input(label="Phone No", key='phone')
     with c3:
-      Altphone = st.text_input(label="Alternate Phone")
+      Altphone = st.text_input(label="Alternate Phone", key='altphone')
     with c4:
       Email = st.text_input(label="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
-      Type = st.selectbox(label="Contact Type", index=0, options=TYPE)
+      Type = st.selectbox(label="Contact Type", index=0, options=TYPE, key='type')
     with cp2:
-      Product = st.multiselect(label="Products", options=PRODUCT)
+      Product = st.multiselect(label="Products", options=PRODUCT, key='products')
     with cp3: 
-      Sqft = st.text_input(label="Square feet")
+      Sqft = st.text_input(label="Square feet", key='csqft')
     with cp4:
-      Source = st.selectbox(label="Source", options=SOURCE)
+      Source = st.selectbox(label="Source", options=SOURCE, key='source')
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
-      Sentto = st.selectbox(label="Sent To", options=SENTTO)
+      Sentto = st.selectbox(label="Sent To", options=SENTTO, key='sentto')
     with ch2:
       Sentby = st.selectbox(label="Sent By", options=USERS)
     with ch3:
       Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
-      Notes = st.text_area(label="Notes")
+      Notes = st.text_area(label="Notes",key='notes')
     ic1, ic2, ic3 = st.columns([1,2,1])
     with ic2:  
       ct1, ct2 = st.columns([1,1])
