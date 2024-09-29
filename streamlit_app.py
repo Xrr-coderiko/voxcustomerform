@@ -1449,7 +1449,7 @@ with tab1:
                         "STATE": State,
                         "CITY":City,
                         "DISTRICT": District,
-                        "PHONE": Phone,
+                        "PHONE": st.session_state.Phone,
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
