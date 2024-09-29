@@ -1376,7 +1376,7 @@ pattern = re.compile(r"^[6-9]\d{9}$")
 
 tab1, tab2, tab3, tab4 = st.tabs(["FORM", "REPORT", "MONTHLY", "DEALERS"])
 with tab1:
- with st.form(key="vendor_form", clear_on_submit=True):
+ with st.form(key="vendor_form"):
     cch1, cch2, cch3 = st.columns(3)
     with cch2:
      Date = st.date_input(label="Date")
