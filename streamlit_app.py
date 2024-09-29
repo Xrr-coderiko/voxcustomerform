@@ -1380,7 +1380,7 @@ with tab1:
      Date = st.date_input(label="Date")
     ce1, ce2, ce3, ce4 = st.columns(4)
     with ce1:
-      Name = st.text_input(label="Name", key='Name', value=st.session_state.Name)
+      Name = st.text_input(label="Name", key='Name')
     with ce2:
       Firm = st.text_input(label="Firm Name")
     with ce3:
@@ -1391,7 +1391,7 @@ with tab1:
     with c1: 
      District = st.selectbox(label="District", options=CITY)
     with c2:
-     Phone = st.text_input(label="Phone No", key='phone', value=st.session_state.Phone)
+     Phone = st.text_input(label="Phone No", key='phone')
     with c3:
       Altphone = st.text_input(label="Alternate Phone")
     with c4:
@@ -1444,7 +1444,7 @@ with tab1:
                         "STATE": State,
                         "CITY":City,
                         "DISTRICT": District,
-                        "PHONE": st.session_state.Phone,
+                        "PHONE": Phone,
                         "ALTERNATE PHONE": Altphone,
                         "EMAIL": Email,
                         "TYPE": Type,
