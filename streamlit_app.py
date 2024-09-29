@@ -1416,12 +1416,12 @@ with tab1:
     with ce2:
       Firm = st.text_input(label="Firm Name", key='firm')
     with ce3:
-     State = st.selectbox(label="State", options=STATE, index=0, key='state')
+     State = st.selectbox(label="State", options=STATE, index=0)
     with ce4: 
      City = st.text_input(label="City", key='city')
     c1, c2, c3, c4 = st.columns(4)
     with c1: 
-     District = st.selectbox(label="District", options=CITY, key='district')
+     District = st.selectbox(label="District", options=CITY)
     with c2:
      Phone = st.text_input(label="Phone No", key='phone')
     with c3:
@@ -1430,22 +1430,22 @@ with tab1:
       Email = st.text_input(label="Email ID")
     cp1, cp2, cp3, cp4 = st.columns(4) 
     with cp1:
-      Type = st.selectbox(label="Contact Type", index=0, options=TYPE, key='type')
+      Type = st.selectbox(label="Contact Type", index=0, options=TYPE)
     with cp2:
-      Product = st.multiselect(label="Products", options=PRODUCT, key='products')
+      Product = st.multiselect(label="Products", options=PRODUCT)
     with cp3: 
       Sqft = st.text_input(label="Square feet", key='csqft')
     with cp4:
-      Source = st.selectbox(label="Source", options=SOURCE, key='source')
+      Source = st.selectbox(label="Source", options=SOURCE)
     ch1, ch2, ch3, ch4 = st.columns(4)
     with ch1:
-      Sentto = st.selectbox(label="Sent To", options=SENTTO, key='sentto')
+      Sentto = st.selectbox(label="Sent To", options=SENTTO)
     with ch2:
       Sentby = st.selectbox(label="Sent By", options=USERS)
     with ch3:
       Owner = st.selectbox(label="Owner", options=OWNERS)
     with ch4:
-      Notes = st.text_area(label="Notes",key='notes')
+      Notes = st.text_area(label="Notes", key='notes')
     ic1, ic2, ic3 = st.columns([1,2,1])
     with ic2:  
       ct1, ct2 = st.columns([1,1])
