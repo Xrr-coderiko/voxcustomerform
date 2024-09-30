@@ -1513,7 +1513,7 @@ with tab2:
  with st.container(border=True):
    #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   st.markdown(f"<div style='text-align: center; border: 2px solid lightgrey;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [64, 55, 10]
+  Attended = [141, 82, 118, 132, 102]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1711,6 +1711,7 @@ with tab3:
       peta = pd.concat([peta, toc], ignore_index=True)
       htmlp = peta.to_html(index=False)
       st.write(htmlp, unsafe_allow_html=True)
+      
 
    
 with tab4:
