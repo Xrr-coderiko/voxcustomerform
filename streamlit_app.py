@@ -1521,7 +1521,7 @@ with tab2:
   cxxf1, cxxf2 = st.columns([2,1])            
   with cxxf1:  
         #st.markdown(f"<div style='text-align: center; border: 2px solid Black;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-        recdata[["RECEIVED", "PENDING", "ATTENDED", "QUALIFIED"]] = recdata[["RECEIVED", "PENDING", "ATTENDED",	"QUALIFIED"]].fillna(0).astype(int)
+        recdata[["RECEIVED", "OLD", "ATTENDED", "QUALIFIED", "PENDING" ]] = recdata[["RECEIVED", "OLD", "ATTENDED",	"QUALIFIED", "PENDING"]].fillna(0).astype(int)
         recdata_reset = recdata.reset_index(drop=True)
         hide_table_row_index = """
         <style> table {
@@ -1623,6 +1623,7 @@ with tab2:
      finldbc = pd.concat([source_counts, total_rows])
      htmltbst = finldbc.to_html(index=False)
      st.write(htmltbst, unsafe_allow_html=True)
+     
 
  RECEIVED = [38, 18, 9, 8, 3, 9, 3, 6 ]
  serx1, serx2 = st.columns(2)
