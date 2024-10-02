@@ -1589,9 +1589,9 @@ with tab2:
     prodb = prodb[prodb['PRODUCT'] != 'TOTAL']
     with st.container(border=True):
      statusdb['PERCENT'] = (statusdb['LEADS'] / statusdb['LEADS'].sum()) * 100
-     chart = alt.Chart(statusdb).mark_arc().encode(
+     chart = alt.Chart(statusdb).mark_arc(innerRadius=50).encode(
       theta=alt.Theta(field='LEADS', type='quantitative'),
-      color=alt.Color(field='STATUS', type='nominal'),
+      color=alt.Color(field='STATUS', type='nominal', legend=None),
       tooltip=[alt.Tooltip('STATUS', title='Lead Status'), 
              alt.Tooltip('LEADS', title='Leads Count'),
              alt.Tooltip('PERCENT', format='.2f', title='Percentage')]
