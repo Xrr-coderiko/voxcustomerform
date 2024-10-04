@@ -1514,7 +1514,7 @@ with tab2:
  with st.container(border=True):
    #st.markdown(f"<div style='text-align: center;'><h2>{today2} QUALIFIED REPORT</h2></div>", unsafe_allow_html=True)
   st.markdown(f"<div style='text-align: center; border: 2px solid lightgrey;'><h2>{today2} LEADS REPORT</h2></div>", unsafe_allow_html=True)
-  Attended = [196, 131, 125, 75, 123, 69, 122]
+  Attended = [131, 86, 61, 175]
   
 
   #st.header(f"{today} QUALIFIED REPORT-------")    
@@ -1562,7 +1562,7 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts['ATTENDED'] = current_date_data['SENT BY'].count()
+     sentby_counts['ATTENDED'] = Attended
      sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').valsdfsfues
      totalcs = sentby_counts['QUALIFIED'].sum()
@@ -1643,8 +1643,9 @@ with tab2:
       campt = pd.concat([camp, ttr], ignore_index=True)
       htmltbcm = campt.to_html(index=False)
       st.write(htmltbcm, unsafe_allow_html=True)   
-            
+
         
+
   #rdata = rdata.dropna(subset=['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form'])  
   #xamp = rdata['DATE', 'Website call',	'Meta form',	'Chat BOT', 'Website form']                 
       
