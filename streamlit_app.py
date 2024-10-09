@@ -1562,7 +1562,7 @@ with tab2:
     if 'SENT BY' in existing_data.columns:
      current_date_data = current_date_data.dropna(subset=['SENT BY'])
      sentby_counts = current_date_data['SENT BY'].value_counts().reset_index()
-     sentby_counts['ATTENDED'] = current_date_data['SENT BY'].count()
+     sentby_counts['ATTENDED'] = Attended
      sentby_counts.columns = ['CC-EXECUTIVE', 'QUALIFIED', 'ATTENDED']
      #.reindex(sentby_counts['CC Executives']).fillna(' ').valsdfsfues
      totalcs = sentby_counts['QUALIFIED'].sum()
